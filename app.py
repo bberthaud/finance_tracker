@@ -6,6 +6,7 @@ from notion_client import Client
 from datetime import datetime, timedelta
 import os
 from dotenv import load_dotenv
+from drive_storage import load_from_drive, save_to_drive
 
 # Configuration des constantes
 load_dotenv(override=True)
@@ -81,9 +82,12 @@ def check_password():
         return True
 
 def load_transactions_from_csv():
-    """Charge les transactions depuis le fichier CSV"""
+    """Charge les transactions depuis le fichier CSV sur Google Drive"""
     try:
-        df = pl.read_csv("exports/transactions.csv", schema_overrides={"annee": pl.Utf8})
+        df = load_from_drive("transactions.csv")
+        if df is None:
+            st.sidebar.warning("⚠️ Aucun fichier CSV trouvé sur Google Drive")
+            return None
         return df
     except Exception as e:
         st.sidebar.error(f"❌ Erreur lors du chargement du CSV: {e}")
@@ -114,14 +118,12 @@ def preprocess_transactions(transactions):
 
 @st.cache_data(ttl=3600, show_spinner="Chargement des transactions depuis Notion...")
 def get_transactions(force_reload=False):
-    """Récupère les transactions depuis Notion ou le CSV"""
-    csv_path = "exports/transactions.csv"
-    
+    """Récupère les transactions depuis Notion ou le CSV sur Google Drive"""
     # Vérification du CSV si pas de rechargement forcé
-    if not force_reload and os.path.exists(csv_path):
-        file_age = datetime.now() - datetime.fromtimestamp(os.path.getmtime(csv_path))
-        if file_age < timedelta(hours=12):
-            return load_transactions_from_csv()
+    if not force_reload:
+        df = load_transactions_from_csv()
+        if df is not None:
+            return df
 
     # Récupération depuis Notion
     transactions = []
@@ -148,7 +150,17 @@ def get_transactions(force_reload=False):
         start_cursor = response.get("next_cursor")
 
     df = preprocess_transactions(transactions)
-    df.write_csv(csv_path)
+    
+    # Sauvegarde temporaire locale
+    temp_file = "exports/transactions_temp.csv"
+    df.write_csv(temp_file)
+    
+    # Sauvegarde sur Google Drive
+    save_to_drive(temp_file, "transactions.csv")
+    
+    # Suppression du fichier temporaire
+    os.remove(temp_file)
+    
     return df
 
 def create_pie_chart(df_categories, labels, map_categories, groupe, periode_specifique):
