@@ -1,0 +1,12 @@
+python-dotenv
+polars
+plotly
+notion-client
+woob
+prettytable
+ipykernel
+fastapi
+uvicorn
+flask
+python-multipart
+ngrok
