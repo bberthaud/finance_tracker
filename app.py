@@ -151,15 +151,8 @@ def get_transactions(force_reload=False):
 
     df = preprocess_transactions(transactions)
     
-    # Sauvegarde temporaire locale
-    temp_file = "exports/transactions_temp.csv"
-    df.write_csv(temp_file)
-    
     # Sauvegarde sur Google Drive
-    save_to_drive(temp_file, "transactions.csv")
-    
-    # Suppression du fichier temporaire
-    os.remove(temp_file)
+    save_to_drive(df, "transactions.csv")
     
     return df
 

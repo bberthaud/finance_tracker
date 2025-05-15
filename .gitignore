@@ -4,4 +4,7 @@ __pycache__/
 .venv/
 logs/
 exports/
-*.log 
+others/
+*.json
+*.sh
+*.ipynb

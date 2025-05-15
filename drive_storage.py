@@ -1,6 +1,6 @@
 from google.oauth2 import service_account
 from googleapiclient.discovery import build
-from googleapiclient.http import MediaFileUpload, MediaIoBaseDownload
+from googleapiclient.http import MediaIoBaseUpload, MediaIoBaseDownload
 import os
 import io
 import polars as pl
@@ -20,13 +20,18 @@ def get_google_drive_service():
         st.error(f"Erreur lors de l'authentification Google Drive: {e}")
         return None
 
-def save_to_drive(file_path, file_name):
-    """Sauvegarde un fichier sur Google Drive"""
+def save_to_drive(df, file_name):
+    """Sauvegarde un DataFrame Polars sur Google Drive"""
     service = get_google_drive_service()
     if service is None:
         return None
     
     try:
+        # Convertit le DataFrame en CSV dans un buffer mémoire
+        buffer = io.BytesIO()
+        df.write_csv(buffer)
+        buffer.seek(0)
+        
         # Vérifie si le fichier existe déjà
         results = service.files().list(
             q=f"name='{file_name}'",
@@ -36,7 +41,7 @@ def save_to_drive(file_path, file_name):
         items = results.get('files', [])
         
         file_metadata = {'name': file_name}
-        media = MediaFileUpload(file_path, resumable=True)
+        media = MediaIoBaseUpload(buffer, mimetype='text/csv', resumable=True)
         
         if items:
             # Met à jour le fichier existant
