@@ -110,7 +110,14 @@ def create_pie_chart(df_categories: pl.DataFrame, labels: List[str], map_categor
     fig.update_layout(
         title=f'Dépenses par Catégorie sur {periode_specifique}',
         uniformtext_minsize=10,
-        uniformtext_mode='hide'
+        uniformtext_mode='hide',
+        legend=dict(
+            orientation="h",
+            yanchor="bottom",
+            y=-0.2,
+            xanchor="center",
+            x=0.5
+        )
     )
     return fig
 
@@ -156,7 +163,14 @@ def create_bar_chart(df_totaux: pl.DataFrame, periode: str) -> go.Figure:
         title=f'Epargne par {periode.capitalize()}',
         barmode='group',
         xaxis_title=periode.capitalize(),
-        yaxis_title='Montant (€)'
+        yaxis_title='Montant (€)',
+        legend=dict(
+            orientation="h",
+            yanchor="bottom",
+            y=-0.2,
+            xanchor="center",
+            x=0.5
+        )
     )
     return fig
 

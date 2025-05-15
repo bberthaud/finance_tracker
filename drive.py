@@ -89,7 +89,7 @@ def save_to_drive(df: pl.DataFrame, file_name: str) -> Optional[str]:
         # Stocke le message dans la session
         st.session_state.drive_message = {
             'type': 'success',
-            'message': f"✅ Fichier sauvegardé : [Ouvrir dans Drive]({file_url})",
+            'message': f"Fichier sauvegardé : [Ouvrir dans Drive]({file_url})",
             'icon': "💾"
         }
         
@@ -97,7 +97,7 @@ def save_to_drive(df: pl.DataFrame, file_name: str) -> Optional[str]:
     except Exception as e:
         st.session_state.drive_message = {
             'type': 'error',
-            'message': f"❌ Erreur lors de la sauvegarde sur Google Drive: {str(e)}",
+            'message': f"Erreur lors de la sauvegarde sur Google Drive: {str(e)}",
             'icon': "❌"
         }
         return None
@@ -126,7 +126,7 @@ def load_from_drive(file_name: str) -> Optional[pl.DataFrame]:
         if not items:
             st.session_state.drive_message = {
                 'type': 'warning',
-                'message': f"⚠️ Aucun fichier '{file_name}' trouvé dans le dossier Drive",
+                'message': f"Aucun fichier '{file_name}' trouvé dans le dossier Drive",
                 'icon': "⚠️"
             }
             return None
@@ -144,7 +144,7 @@ def load_from_drive(file_name: str) -> Optional[pl.DataFrame]:
     except Exception as e:
         st.session_state.drive_message = {
             'type': 'error',
-            'message': f"❌ Erreur lors du chargement depuis Google Drive: {str(e)}",
+            'message': f"Erreur lors du chargement depuis Google Drive: {str(e)}",
             'icon': "❌"
         }
         return None
