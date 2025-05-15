@@ -9,7 +9,6 @@ from drive import load_from_drive, save_to_drive
 import streamlit as st
 from typing import List, Dict, Optional, Any
 
-
 load_dotenv(override=True)
 NOTION_TOKEN = os.getenv("NOTION_TOKEN")
 NOTION_DATABASE_ID = os.getenv("NOTION_DATABASE_ID")

@@ -12,6 +12,9 @@ load_dotenv(override=True)
 SCOPES = ['https://www.googleapis.com/auth/drive.file']
 DRIVE_FOLDER_ID = os.getenv("DRIVE_FOLDER_ID")
 
+if not DRIVE_FOLDER_ID:
+    raise ValueError("❌ La variable d'environnement DRIVE_FOLDER_ID est requise")
+
 def get_google_drive_service():
     """Initialise et retourne le service Google Drive.
     
