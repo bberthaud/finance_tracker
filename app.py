@@ -14,7 +14,7 @@ APP_PASSWORD = os.getenv("APP_PASSWORD")
 if not APP_PASSWORD:
     raise ValueError("❌ La variable d'environnement APP_PASSWORD est requise")
 
-ALPHA = 0.7
+ALPHA = 0.6
 
 # Configuration des couleurs
 CATEGORY_COLORS = {
@@ -31,7 +31,7 @@ CATEGORY_COLORS = {
 
 # Configuration de la page
 st.set_page_config(
-    page_title="Suivi Financier",
+    page_title="Budget",
     page_icon="💰",
     layout="wide"
 )
@@ -108,13 +108,17 @@ def create_pie_chart(df_categories: pl.DataFrame, labels: List[str], map_categor
 
     fig.update_traces(textposition='inside', textinfo='percent+label')
     fig.update_layout(
-        title=f'Dépenses par Catégorie sur {periode_specifique}',
+        title=dict(
+            text=f'Dépenses par Catégorie sur {periode_specifique}',
+            x=0.5,
+            xanchor='center'
+        ),
         uniformtext_minsize=10,
         uniformtext_mode='hide',
         legend=dict(
             orientation="h",
-            yanchor="bottom",
-            y=-0.2,
+            yanchor="top",
+            y=-0.15,
             xanchor="center",
             x=0.5
         )
@@ -160,17 +164,22 @@ def create_bar_chart(df_totaux: pl.DataFrame, periode: str) -> go.Figure:
     ))
 
     fig.update_layout(
-        title=f'Epargne par {periode.capitalize()}',
+        title=dict(
+            text=f'Épargne par {periode.capitalize()}',
+            x=0.5,
+            xanchor='center'
+        ),
         barmode='group',
         xaxis_title=periode.capitalize(),
         yaxis_title='Montant (€)',
         legend=dict(
             orientation="h",
-            yanchor="bottom",
-            y=-0.2,
+            yanchor="top",
+            y=-0.15,
             xanchor="center",
             x=0.5
-        )
+        ),
+        dragmode=False
     )
     return fig
 
@@ -300,7 +309,7 @@ def main() -> None:
     # Affichage des graphiques
     col1, col2 = st.columns(2)
     with col1:
-        st.plotly_chart(fig_totaux, use_container_width=True)
+        st.plotly_chart(fig_totaux, use_container_width=True, config={'displayModeBar': False})
     with col2:
         st.plotly_chart(fig_categories, use_container_width=True)
 
