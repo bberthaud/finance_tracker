@@ -34,13 +34,16 @@ def save_to_drive(df, file_name):
         
         # Vérifie si le fichier existe déjà
         results = service.files().list(
-            q=f"name='{file_name}'",
+            q=f"name='{file_name}' and '1LC8KV5jX1rVAI3mptb0zigGWs7fHh03u' in parents",
             spaces='drive',
             fields='files(id)'
         ).execute()
         items = results.get('files', [])
         
-        file_metadata = {'name': file_name}
+        file_metadata = {
+            'name': file_name,
+            'parents': ['1LC8KV5jX1rVAI3mptb0zigGWs7fHh03u']
+        }
         media = MediaIoBaseUpload(buffer, mimetype='text/csv', resumable=True)
         
         if items:
