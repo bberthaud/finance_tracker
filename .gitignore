@@ -2,9 +2,9 @@ __pycache__/
 *.pyc
 .env
 .venv/
+*.sh
+*.ipynb
 logs/
 exports/
 others/
-*.json
-*.sh
-*.ipynb
+credentials/

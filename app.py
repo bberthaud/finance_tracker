@@ -2,17 +2,17 @@ import streamlit as st
 import plotly.express as px
 import plotly.graph_objects as go
 import polars as pl
-from notion_client import Client
-from datetime import datetime, timedelta
 import os
 from dotenv import load_dotenv
-from drive_storage import load_from_drive, save_to_drive
+from notion import get_transactions_from_notion
+from typing import Dict, List, Tuple, Optional
 
 # Configuration des constantes
 load_dotenv(override=True)
-NOTION_TOKEN = os.getenv("NOTION_TOKEN")
-NOTION_DATABASE_ID = os.getenv("NOTION_DATABASE_ID")
 APP_PASSWORD = os.getenv("APP_PASSWORD")
+if not APP_PASSWORD:
+    raise ValueError("❌ La variable d'environnement APP_PASSWORD est requise")
+
 ALPHA = 0.7
 
 # Configuration des couleurs
@@ -27,9 +27,6 @@ CATEGORY_COLORS = {
     'Taxes': f'rgba(139, 69, 19, {ALPHA})',          # Marron
     'Exclus': f'rgba(128, 128, 128, {ALPHA})'        # Gris
 }
-
-# Initialisation du client Notion
-notion = Client(auth=NOTION_TOKEN)
 
 # Configuration de la page
 st.set_page_config(
@@ -56,9 +53,12 @@ st.markdown("""
     </style>
 """, unsafe_allow_html=True)
 
-# Fonction pour vérifier le mot de passe
-def check_password():
-    """Retourne `True` si le mot de passe est correct."""
+def check_password() -> bool:
+    """Vérifie si le mot de passe est correct.
+    
+    Returns:
+        bool: True si le mot de passe est correct
+    """
     def password_entered():
         """Vérifie si le mot de passe est correct."""
         if st.session_state["password"] == APP_PASSWORD:
@@ -81,83 +81,19 @@ def check_password():
     else:
         return True
 
-def load_transactions_from_csv():
-    """Charge les transactions depuis le fichier CSV sur Google Drive"""
-    try:
-        df = load_from_drive("transactions.csv")
-        if df is None:
-            st.sidebar.warning("⚠️ Aucun fichier CSV trouvé sur Google Drive")
-            return None
-        return df
-    except Exception as e:
-        st.sidebar.error(f"❌ Erreur lors du chargement du CSV: {e}")
-        return None
-
-def preprocess_transactions(transactions):
-    """Prétraite les transactions pour l'affichage"""
-    df = pl.DataFrame(transactions)
+def create_pie_chart(df_categories: pl.DataFrame, labels: List[str], map_categories: pl.DataFrame, groupe: str, periode_specifique: str) -> go.Figure:
+    """Crée le graphique en camembert.
     
-    # Conversion de la date et création des colonnes temporelles
-    df = df.with_columns([
-        pl.col("date").str.strptime(pl.Date, "%Y-%m-%d").alias("date")
-    ])
-
-    df = df.with_columns([
-        pl.col("date").dt.strftime("%Y-%m").alias("mois"),
-        pl.concat_str([
-            pl.col("date").dt.year().cast(pl.Utf8),
-            pl.lit("-T"),
-            pl.col("date").dt.quarter().cast(pl.Utf8)
-        ]).alias("trimestre"),
-        pl.col("date").dt.year().cast(pl.Utf8).alias("annee"),
-        pl.col("categorie").str.split(" > ").list.first().alias("categorie-parent"),
-        pl.col("categorie").str.split(" > ").list.last().alias("categorie-enfant")
-    ])
-    
-    return df.sort("date", descending=True)
-
-@st.cache_data(ttl=3600, show_spinner="Chargement des transactions depuis Notion...")
-def get_transactions(force_reload=False):
-    """Récupère les transactions depuis Notion ou le CSV sur Google Drive"""
-    # Vérification du CSV si pas de rechargement forcé
-    if not force_reload:
-        df = load_transactions_from_csv()
-        if df is not None:
-            return df
-
-    # Récupération depuis Notion
-    transactions = []
-    has_more = True
-    start_cursor = None
-
-    while has_more:
-        response = notion.databases.query(
-            database_id=NOTION_DATABASE_ID,
-            start_cursor=start_cursor
-        )
-
-        for page in response["results"]:
-            props = page["properties"]
-            transactions.append({
-                "date": props["Date"]["date"]["start"],
-                "nom": props["Nom"]["title"][0]["text"]["content"],
-                "categorie": props["Catégorie"]["select"]["name"],
-                "montant": props["Montant"]["number"],
-                "description": props["Description"]["rich_text"][0]["text"]["content"]
-            })
-
-        has_more = response.get("has_more", False)
-        start_cursor = response.get("next_cursor")
-
-    df = preprocess_transactions(transactions)
-    
-    # Sauvegarde sur Google Drive
-    save_to_drive(df, "transactions.csv")
-    
-    return df
-
-def create_pie_chart(df_categories, labels, map_categories, groupe, periode_specifique):
-    """Crée le graphique en camembert"""
+    Args:
+        df_categories (pl.DataFrame): DataFrame des catégories
+        labels (List[str]): Liste des labels
+        map_categories (pl.DataFrame): Mapping des catégories
+        groupe (str): Groupe de catégories
+        periode_specifique (str): Période spécifique
+        
+    Returns:
+        go.Figure: Figure Plotly
+    """
     fig = go.Figure()
     fig.add_trace(go.Pie(
         labels=labels,
@@ -177,8 +113,16 @@ def create_pie_chart(df_categories, labels, map_categories, groupe, periode_spec
     )
     return fig
 
-def create_bar_chart(df_totaux, periode):
-    """Crée le graphique en barres"""
+def create_bar_chart(df_totaux: pl.DataFrame, periode: str) -> go.Figure:
+    """Crée le graphique en barres.
+    
+    Args:
+        df_totaux (pl.DataFrame): DataFrame des totaux
+        periode (str): Période
+        
+    Returns:
+        go.Figure: Figure Plotly
+    """
     fig = go.Figure()
     
     # Ajout des barres de dépenses et revenus
@@ -215,16 +159,21 @@ def create_bar_chart(df_totaux, periode):
     )
     return fig
 
-def create_sidebar_filters(df):
-    """Crée les filtres dans la sidebar"""
+def create_sidebar_filters(df: pl.DataFrame) -> Tuple[str, str, str, List[str]]:
+    """Crée les filtres dans la sidebar.
+    
+    Args:
+        df (pl.DataFrame): DataFrame des transactions
+        
+    Returns:
+        Tuple[str, str, str, List[str]]: Période, période spécifique, groupe, catégories sélectionnées
+    """
     # Bouton de rechargement
     if st.sidebar.button("🔄 Recharger depuis Notion"):
         st.cache_data.clear()
-        df = get_transactions(force_reload=True)
+        df = get_transactions_from_notion(force_reload=True)
         st.rerun()
 
-    # st.sidebar.header("Filtres")
-    
     # Filtre de période
     st.sidebar.subheader("Temps")
     periode = st.sidebar.selectbox(
@@ -255,8 +204,14 @@ def create_sidebar_filters(df):
     
     return periode, periode_specifique, groupe, selected_categories
 
-def display_transactions_table(df, periode, periode_specifique):
-    """Affiche le tableau des transactions"""
+def display_transactions_table(df: pl.DataFrame, periode: str, periode_specifique: str) -> None:
+    """Affiche le tableau des transactions.
+    
+    Args:
+        df (pl.DataFrame): DataFrame des transactions
+        periode (str): Période
+        periode_specifique (str): Période spécifique
+    """
     st.subheader("Transactions")
     transactions_display = df.filter(pl.col(periode) == periode_specifique).select([
         "date", "nom", "categorie", "montant", "description"
@@ -283,14 +238,18 @@ def display_transactions_table(df, periode, periode_specifique):
         hide_index=True
     )
 
-def main():
+def main() -> None:
+    """Fonction principale de l'application."""
     st.title("Suivi Financier")
 
     if not check_password():
         st.stop()
 
     # Récupération des données
-    df = get_transactions()
+    df = get_transactions_from_notion()
+    if df is None:
+        st.error("❌ Impossible de charger les données")
+        st.stop()
     
     # Création des filtres
     periode, periode_specifique, groupe, selected_categories = create_sidebar_filters(df)

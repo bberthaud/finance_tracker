@@ -1,15 +1,21 @@
-python-dotenv
-polars
-plotly
-notion-client
-woob
+# Interface
+streamlit==1.32.0
+plotly==5.19.0
+
+# Données
+polars==0.20.5
+python-dotenv==1.0.1
+
+# Notion
+notion-client==2.2.1
+
+# Google Drive
+google-auth==2.28.1
+google-api-python-client==2.118.0
+google-auth-oauthlib==1.2.0
+google-auth-httplib2==0.2.0
+
+# Banque
+woob==3.6
 prettytable
 ipykernel
-fastapi
-uvicorn
-flask
-python-multipart
-ngrok
-google-auth-oauthlib==1.0.0
-google-auth-httplib2==0.1.0
-google-api-python-client==2.86.0
