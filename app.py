@@ -29,6 +29,8 @@ CATEGORY_COLORS = {
     'Exclus': f'rgba(128, 128, 128, {ALPHA})'        # Gris
 }
 
+MAP_PERIODE_NAMES = {"mois": "Mois", "trimestre": "Trimestre", "annee": "Année"}
+
 # Configuration de la page
 st.set_page_config(
     page_title="Budget",
@@ -118,7 +120,7 @@ def create_pie_chart(df_categories: pl.DataFrame, labels: List[str], map_categor
         legend=dict(
             orientation="h",
             yanchor="top",
-            y=-0.15,
+            y=-0.2,
             xanchor="center",
             x=0.5
         )
@@ -165,17 +167,17 @@ def create_bar_chart(df_totaux: pl.DataFrame, periode: str) -> go.Figure:
 
     fig.update_layout(
         title=dict(
-            text=f'Épargne par {periode.capitalize()}',
+            text=f'Épargne par {MAP_PERIODE_NAMES[periode]}',
             x=0.5,
             xanchor='center'
         ),
         barmode='group',
-        xaxis_title=periode.capitalize(),
+        xaxis_title=MAP_PERIODE_NAMES[periode],
         yaxis_title='Montant (€)',
         legend=dict(
             orientation="h",
             yanchor="top",
-            y=-0.15,
+            y=-0.2,
             xanchor="center",
             x=0.5
         ),
@@ -203,7 +205,7 @@ def create_sidebar_filters(df: pl.DataFrame) -> Tuple[str, str, str, List[str]]:
     periode = st.sidebar.selectbox(
         "Type de période",
         ["mois", "trimestre", "annee"],
-        format_func=lambda x: x.capitalize()
+        format_func=lambda x: MAP_PERIODE_NAMES[x]
     )
 
     periodes = df.select(pl.col(periode)).unique().sort(periode, descending=True).to_series().to_list()
