@@ -5,6 +5,7 @@ import polars as pl
 import os
 from dotenv import load_dotenv
 from notion import get_transactions_from_notion
+from drive import display_drive_message
 from typing import Dict, List, Tuple, Optional
 
 # Configuration des constantes
@@ -201,7 +202,6 @@ def create_sidebar_filters(df: pl.DataFrame) -> Tuple[str, str, str, List[str]]:
             key=f"cat_{cat}"
         )
     ]
-    selected_categories.append(None)
     
     return periode, periode_specifique, groupe, selected_categories
 
@@ -252,11 +252,17 @@ def main() -> None:
         st.error("❌ Impossible de charger les données")
         st.stop()
     
+    # Affichage des messages Drive
+    display_drive_message()
+    
     # Création des filtres
     periode, periode_specifique, groupe, selected_categories = create_sidebar_filters(df)
     
     # Filtrage des données
-    df = df.filter(pl.col("categorie-parent").is_in(selected_categories))
+    df = df.filter(
+        pl.col("categorie-parent").is_in(selected_categories) | 
+        pl.col("categorie-parent").is_null()
+    )
 
     # Préparation des données pour les graphiques
     df_camembert = df.filter(pl.col("categorie-parent") != "Revenus")

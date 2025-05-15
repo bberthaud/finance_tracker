@@ -86,19 +86,20 @@ def save_to_drive(df: pl.DataFrame, file_name: str) -> Optional[str]:
         file_id = file.get('id')
         file_url = f"https://drive.google.com/file/d/{file_id}/view"
         
-        # Crée un conteneur pour le message
-        if 'drive_message' not in st.session_state:
-            st.session_state.drive_message = st.empty()
-        
-        # Affiche le message dans le conteneur
-        st.session_state.drive_message.success(
-            f"✅ Fichier sauvegardé : [Ouvrir dans Drive]({file_url})",
-            icon="💾"
-        )
+        # Stocke le message dans la session
+        st.session_state.drive_message = {
+            'type': 'success',
+            'message': f"✅ Fichier sauvegardé : [Ouvrir dans Drive]({file_url})",
+            'icon': "💾"
+        }
         
         return file_id
     except Exception as e:
-        st.error(f"❌ Erreur lors de la sauvegarde sur Google Drive: {str(e)}")
+        st.session_state.drive_message = {
+            'type': 'error',
+            'message': f"❌ Erreur lors de la sauvegarde sur Google Drive: {str(e)}",
+            'icon': "❌"
+        }
         return None
 
 def load_from_drive(file_name: str) -> Optional[pl.DataFrame]:
@@ -123,7 +124,11 @@ def load_from_drive(file_name: str) -> Optional[pl.DataFrame]:
         items = results.get('files', [])
         
         if not items:
-            st.warning(f"⚠️ Aucun fichier '{file_name}' trouvé dans le dossier Drive")
+            st.session_state.drive_message = {
+                'type': 'warning',
+                'message': f"⚠️ Aucun fichier '{file_name}' trouvé dans le dossier Drive",
+                'icon': "⚠️"
+            }
             return None
         
         file_id = items[0]['id']
@@ -137,5 +142,20 @@ def load_from_drive(file_name: str) -> Optional[pl.DataFrame]:
         fh.seek(0)
         return pl.read_csv(fh)
     except Exception as e:
-        st.error(f"❌ Erreur lors du chargement depuis Google Drive: {str(e)}")
-        return None 
+        st.session_state.drive_message = {
+            'type': 'error',
+            'message': f"❌ Erreur lors du chargement depuis Google Drive: {str(e)}",
+            'icon': "❌"
+        }
+        return None
+
+def display_drive_message():
+    """Affiche le message stocké dans la session."""
+    if 'drive_message' in st.session_state:
+        message = st.session_state.drive_message
+        if message['type'] == 'success':
+            st.success(message['message'], icon=message['icon'])
+        elif message['type'] == 'error':
+            st.error(message['message'], icon=message['icon'])
+        elif message['type'] == 'warning':
+            st.warning(message['message'], icon=message['icon']) 
