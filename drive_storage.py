@@ -58,7 +58,10 @@ def save_to_drive(df, file_name):
                 fields='id'
             ).execute()
         
-        return file.get('id')
+        file_id = file.get('id')
+        file_url = f"https://drive.google.com/file/d/{file_id}/view"
+        st.success(f"✅ Fichier sauvegardé : [Ouvrir dans Drive]({file_url})")
+        return file_id
     except Exception as e:
         st.error(f"Erreur lors de la sauvegarde sur Google Drive: {e}")
         return None
