@@ -201,6 +201,7 @@ def create_sidebar_filters(df: pl.DataFrame) -> Tuple[str, str, str, List[str]]:
             key=f"cat_{cat}"
         )
     ]
+    selected_categories.append(None)
     
     return periode, periode_specifique, groupe, selected_categories
 
