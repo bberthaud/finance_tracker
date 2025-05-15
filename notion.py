@@ -203,7 +203,7 @@ def get_transactions_from_notion(force_reload: bool = False) -> Optional[pl.Data
             transactions.append({
                 "date": props["Date"]["date"]["start"],
                 "nom": props["Nom"]["title"][0]["text"]["content"],
-                "categorie": props["Catégorie"]["select"]["name"],
+                "categorie": props["Catégorie"]["select"]["name"] if props["Catégorie"]["select"] else None,
                 "montant": props["Montant"]["number"],
                 "description": props["Description"]["rich_text"][0]["text"]["content"]
             })
