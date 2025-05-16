@@ -251,7 +251,7 @@ def display_transactions_table(df: pl.DataFrame, periode: str, periode_specifiqu
             lambda x: f'color: {CATEGORY_COLORS["Quotidien"]}' if x < 0 else f'color: {CATEGORY_COLORS["Revenus"]}',
             subset=['montant']
         ).map(
-            lambda x: f'color: {CATEGORY_COLORS[x.split(" > ")[0]]}' if x.split(" > ")[0] in CATEGORY_COLORS else '',
+            lambda x: f'color: {CATEGORY_COLORS[x.split(" > ")[0]]}' if x is not None and x.split(" > ")[0] in CATEGORY_COLORS else '',
             subset=['categorie']
         ).set_table_attributes('style="margin: auto;"'),
         column_config={

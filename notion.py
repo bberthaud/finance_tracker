@@ -26,7 +26,7 @@ def get_transactions_from_woob() -> List[Dict[str, Any]]:
         List[Dict[str, Any]]: Liste des transactions
     """
     try:
-        woob_path = "/mnt/c/Users/bapti/Documents/Python/finance_tracker/.venv/bin/woob"
+        woob_path = os.path.join(os.path.dirname(__file__), ".venv/bin/woob")
         result = subprocess.run([
             woob_path, "bank", "history", BANK_ID, "-n", "10", "-f", "json"
         ], stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True)
