@@ -1,12 +1,11 @@
 import streamlit as st
-import plotly.express as px
 import plotly.graph_objects as go
 import polars as pl
 import os
 from dotenv import load_dotenv
 from notion import get_transactions_from_notion
 from drive import display_drive_message
-from typing import Dict, List, Tuple, Optional
+from typing import List, Tuple, Optional
 
 # Configuration des constantes
 load_dotenv(override=True)
@@ -83,6 +82,10 @@ def check_password() -> bool:
         return False
     else:
         return True
+
+@st.cache_data(ttl=3600, show_spinner="Chargement des transactions depuis Notion...")
+def get_transactions(force_reload: bool = False) -> Optional[pl.DataFrame]:
+    return get_transactions_from_notion(force_reload=force_reload)
 
 def create_pie_chart(df_categories: pl.DataFrame, labels: List[str], map_categories: pl.DataFrame, groupe: str, periode_specifique: str) -> go.Figure:
     """Crée le graphique en camembert.
@@ -197,7 +200,7 @@ def create_sidebar_filters(df: pl.DataFrame) -> Tuple[str, str, str, List[str]]:
     # Bouton de rechargement
     if st.sidebar.button("🔄 Recharger depuis Notion"):
         st.cache_data.clear()
-        df = get_transactions_from_notion(force_reload=True)
+        df = get_transactions(force_reload=True)
         st.rerun()
 
     # Filtre de période
@@ -247,7 +250,10 @@ def display_transactions_table(df: pl.DataFrame, periode: str, periode_specifiqu
         transactions_display.style.map(
             lambda x: f'color: {CATEGORY_COLORS["Quotidien"]}' if x < 0 else f'color: {CATEGORY_COLORS["Revenus"]}',
             subset=['montant']
-        ),
+        ).map(
+            lambda x: f'color: {CATEGORY_COLORS[x.split(" > ")[0]]}' if x.split(" > ")[0] in CATEGORY_COLORS else '',
+            subset=['categorie']
+        ).set_table_attributes('style="margin: auto;"'),
         column_config={
             "date": st.column_config.DateColumn(
                 "Date",
@@ -272,7 +278,7 @@ def main() -> None:
         st.stop()
 
     # Récupération des données
-    df = get_transactions_from_notion()
+    df = get_transactions()
     if df is None:
         st.error("❌ Impossible de charger les données")
         st.stop()

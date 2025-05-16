@@ -26,14 +26,15 @@ def get_transactions_from_woob() -> List[Dict[str, Any]]:
         List[Dict[str, Any]]: Liste des transactions
     """
     try:
+        woob_path = "/mnt/c/Users/bapti/Documents/Python/finance_tracker/.venv/bin/woob"
         result = subprocess.run([
-            "woob", "bank", "history", BANK_ID, "-n", "10", "-f", "json"
+            woob_path, "bank", "history", BANK_ID, "-n", "10", "-f", "json"
         ], stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True)
         
         if result.returncode != 0:
             print(f"❌ Erreur Woob: {result.stderr}")
             return []
-            
+
         transactions = json.loads(result.stdout)
         return [
             {
@@ -173,7 +174,6 @@ def preprocess_transactions(transactions: List[Dict[str, Any]]) -> pl.DataFrame:
     
     return df.sort("date", descending=True)
 
-@st.cache_data(ttl=3600, show_spinner="Chargement des transactions depuis Notion...")
 def get_transactions_from_notion(force_reload: bool = False) -> Optional[pl.DataFrame]:
     """Récupère les transactions depuis Notion ou le CSV sur Google Drive.
     

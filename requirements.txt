@@ -1,5 +1,5 @@
 # Interface
-streamlit==1.32.0
+streamlit==1.45.1
 plotly==5.19.0
 
 # Données
@@ -16,6 +16,6 @@ google-auth-oauthlib==1.2.0
 google-auth-httplib2==0.2.0
 
 # Banque
-woob==3.6
+woob==3.7
 prettytable
 ipykernel
