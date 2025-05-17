@@ -21,7 +21,7 @@ CATEGORY_COLORS = {
     'Loisirs': f'rgba(255, 165, 0, {ALPHA})',        # Orange
     'Sorties': f'rgba(128, 0, 128, {ALPHA})',        # Violet
     'Transports': f'rgba(0, 0, 250, {ALPHA})',       # Bleu
-    'Maison': f'rgba(255, 255, 0, {ALPHA})',         # Jaune
+    'Maison': f'rgba(255, 225, 0, {ALPHA})',         # Jaune
     'Santé & Dons': f'rgba(255, 105, 180, {ALPHA})', # Rose
     'Revenus': f'rgba(0, 255, 0, {ALPHA})',          # Vert
     'Taxes': f'rgba(139, 69, 19, {ALPHA})',          # Marron
