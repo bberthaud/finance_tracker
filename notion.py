@@ -94,7 +94,7 @@ def send_transaction_to_notion(tx: Dict[str, Any]) -> Optional[Dict[str, Any]]:
                 "Date": {"date": {"start": tx["date"]}},
                 "Nom": {"title": [{"text": {"content": tx["nom"]}}]},
                 "Montant": {"number": tx["montant"]},
-                "Description": {"rich_text": [{"text": {"content": tx["description"]}}]},
+                "Description": {"rich_text": [{"text": {"content": tx["description"] if tx["description"] else ''}}]},
                 "ID Transaction": {"rich_text": [{"text": {"content": tx["id"]}}]},
             }
         )
@@ -120,11 +120,8 @@ def send_transactions_to_notion(transactions: List[Dict[str, Any]]) -> Dict[str,
 
     success = 0
     for tx in new_transactions:
-        try:
-            send_transaction_to_notion(tx)
+        if send_transaction_to_notion(tx):
             success += 1
-        except Exception as e:
-            print(f"[Notion] Erreur sur tx {tx.get('id')}: {e}")
     print(f"[Notion] {success}/{len(new_transactions)} transactions ajoutées")
     return {"success": success}
 
