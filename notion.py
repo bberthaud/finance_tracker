@@ -24,6 +24,9 @@ def get_transactions_from_woob() -> List[Dict[str, Any]]:
     
     Returns:
         List[Dict[str, Any]]: Liste des transactions
+
+    Debug: 
+        rm ~/.config/woob/bank.storage
     """
     try:
         woob_path = os.path.join(os.path.dirname(__file__), ".venv/bin/woob")

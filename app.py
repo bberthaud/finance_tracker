@@ -87,7 +87,7 @@ def check_password() -> bool:
 def get_transactions(force_reload: bool = False) -> Optional[pl.DataFrame]:
     return get_transactions_from_notion(force_reload=force_reload)
 
-def create_pie_chart(df_categories: pl.DataFrame, labels: List[str], map_categories: pl.DataFrame, groupe: str, periode_specifique: str) -> go.Figure:
+def create_pie_chart(df_categories: pl.DataFrame, labels: List[str], map_categories: pl.DataFrame, groupe: str, periode_specifique: str, lissage: bool) -> go.Figure:
     """Crée le graphique en camembert.
     
     Args:
@@ -96,11 +96,16 @@ def create_pie_chart(df_categories: pl.DataFrame, labels: List[str], map_categor
         map_categories (pl.DataFrame): Mapping des catégories
         groupe (str): Groupe de catégories
         periode_specifique (str): Période spécifique
+        lissage (bool): Indique si le lissage est activé
         
     Returns:
         go.Figure: Figure Plotly
     """
     fig = go.Figure()
+    title = f'Dépenses par Catégorie sur {periode_specifique}'
+    if lissage:
+        title += ' (lissées par mois)'
+
     fig.add_trace(go.Pie(
         labels=labels,
         values=df_categories['montant'].to_list(),
@@ -114,7 +119,7 @@ def create_pie_chart(df_categories: pl.DataFrame, labels: List[str], map_categor
     fig.update_traces(textposition='inside', textinfo='percent+label')
     fig.update_layout(
         title=dict(
-            text=f'Dépenses par Catégorie sur {periode_specifique}',
+            text=title,
             x=0.5,
             xanchor='center'
         ),
@@ -130,18 +135,22 @@ def create_pie_chart(df_categories: pl.DataFrame, labels: List[str], map_categor
     )
     return fig
 
-def create_bar_chart(df_totaux: pl.DataFrame, periode: str) -> go.Figure:
+def create_bar_chart(df_totaux: pl.DataFrame, periode: str, lissage: bool) -> go.Figure:
     """Crée le graphique en barres.
     
     Args:
         df_totaux (pl.DataFrame): DataFrame des totaux
         periode (str): Période
+        lissage (bool): Indique si le lissage est activé
         
     Returns:
         go.Figure: Figure Plotly
     """
     fig = go.Figure()
-    
+    title = f'Épargne par {MAP_PERIODE_NAMES[periode]}'
+    if lissage:
+        title += ' (lissée par mois)'
+
     # Ajout des barres de dépenses et revenus
     fig.add_trace(go.Bar(
         x=df_totaux[periode].to_list(),
@@ -170,7 +179,7 @@ def create_bar_chart(df_totaux: pl.DataFrame, periode: str) -> go.Figure:
 
     fig.update_layout(
         title=dict(
-            text=f'Épargne par {MAP_PERIODE_NAMES[periode]}',
+            text=title,
             x=0.5,
             xanchor='center'
         ),
@@ -214,6 +223,9 @@ def create_sidebar_filters(df: pl.DataFrame) -> Tuple[str, str, str, List[str]]:
     periodes = df.select(pl.col(periode)).unique().sort(periode, descending=True).to_series().to_list()
     periode_specifique = st.sidebar.selectbox("Période", periodes)
 
+    # Ajout du bouton de lissage
+    lissage = st.sidebar.checkbox("Lissage Mensuel", value=False)
+
     # Filtre de catégories
     st.sidebar.subheader("Catégories")
     groupe = st.sidebar.selectbox(
@@ -230,9 +242,9 @@ def create_sidebar_filters(df: pl.DataFrame) -> Tuple[str, str, str, List[str]]:
             key=f"cat_{cat}"
         )
     ]
-    
-    return periode, periode_specifique, groupe, selected_categories
 
+    return periode, periode_specifique, groupe, selected_categories, lissage
+    
 def display_transactions_table(df: pl.DataFrame, periode: str, periode_specifique: str) -> None:
     """Affiche le tableau des transactions.
     
@@ -287,8 +299,18 @@ def main() -> None:
     display_drive_message()
     
     # Création des filtres
-    periode, periode_specifique, groupe, selected_categories = create_sidebar_filters(df)
+    periode, periode_specifique, groupe, selected_categories, lissage = create_sidebar_filters(df)
     
+    # Calcul du facteur de lissage
+    facteur_lissage = 1
+    if lissage:
+        if periode == "mois":
+            facteur_lissage = 1  # Pas de lissage pour les mois
+        elif periode == "trimestre":
+            facteur_lissage = 3  # Lissage pour le trimestre
+        elif periode == "annee":
+            facteur_lissage = 12  # Lissage pour l'année
+
     # Filtrage des données
     df = df.filter(
         pl.col("categorie-parent").is_in(selected_categories) | 
@@ -300,19 +322,19 @@ def main() -> None:
     df_camembert = df_camembert.filter(pl.col(periode) == periode_specifique)
 
     df_categories = df_camembert.group_by(f"categorie-{groupe}").agg([
-        pl.when(pl.col("montant").sum() < 0).then(pl.col("montant").sum().abs()).alias("montant")
+        pl.when(pl.col("montant").sum() < 0).then(pl.col("montant").sum().abs() / facteur_lissage).alias("montant")
     ])
 
     df_totaux = df.group_by(periode).agg([
-        pl.col("montant").filter(pl.col("categorie-parent") != "Revenus").sum().alias("depenses"),
-        pl.col("montant").filter(pl.col("categorie-parent") == "Revenus").sum().alias("revenus"),
-        pl.col("montant").sum().alias("epargne")
+        (pl.col("montant").filter(pl.col("categorie-parent") != "Revenus").sum() / facteur_lissage).alias("depenses"),
+        (pl.col("montant").filter(pl.col("categorie-parent") == "Revenus").sum() / facteur_lissage).alias("revenus"),
+        (pl.col("montant").sum() / facteur_lissage).alias("epargne")
     ]).sort(periode)
 
     # Création des graphiques
     map_categories = df.select(["categorie-parent", "categorie-enfant"]).unique()
-    fig_categories = create_pie_chart(df_categories, df_categories[f"categorie-{groupe}"].to_list(), map_categories, groupe, periode_specifique)
-    fig_totaux = create_bar_chart(df_totaux, periode)
+    fig_categories = create_pie_chart(df_categories, df_categories[f"categorie-{groupe}"].to_list(), map_categories, groupe, periode_specifique, lissage)
+    fig_totaux = create_bar_chart(df_totaux, periode, lissage)
 
     # Affichage des graphiques
     col1, col2 = st.columns(2)
