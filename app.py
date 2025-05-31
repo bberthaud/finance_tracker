@@ -104,7 +104,7 @@ def create_pie_chart(df_categories: pl.DataFrame, labels: List[str], map_categor
     fig = go.Figure()
     title = f'Dépenses par Catégorie sur {periode_specifique}'
     if lissage:
-        title += ' (par mois)'
+        title += ' (/mois)'
 
     if "hover_detail" in df_categories.columns:
         hover_template = "<b>%{label}</b> (%{percent:.1%})<br>Total: %{value:,.0f}€<br><br>%{customdata}<extra></extra>"
@@ -157,7 +157,7 @@ def create_bar_chart(df_totaux: pl.DataFrame, periode: str, lissage: bool) -> go
     fig = go.Figure()
     title = f'Épargne par {MAP_PERIODE_NAMES[periode]}'
     if lissage:
-        title += ' (par mois)'
+        title += ' (/mois)'
 
     # Ajout des barres de dépenses et revenus
     fig.add_trace(go.Bar(
