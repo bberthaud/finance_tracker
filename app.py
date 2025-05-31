@@ -106,6 +106,13 @@ def create_pie_chart(df_categories: pl.DataFrame, labels: List[str], map_categor
     if lissage:
         title += ' (lissées par mois)'
 
+    if "hover_detail" in df_categories.columns:
+        hover_template = "<b>%{label}</b> (%{percent:.1%})<br>Total: %{value:,.0f}€<br><br>%{customdata}<extra></extra>"
+        customdata = df_categories["hover_detail"].to_list()
+    else:
+        hover_template = "<b>%{label}</b> (%{percent:.1%})<br>Total: %{value:,.0f}€<extra></extra>"
+        customdata = None
+
     fig.add_trace(go.Pie(
         labels=labels,
         values=df_categories['montant'].to_list(),
@@ -113,7 +120,8 @@ def create_pie_chart(df_categories: pl.DataFrame, labels: List[str], map_categor
             colors=[CATEGORY_COLORS[map_categories.filter(pl.col(f"categorie-{groupe}") == cat).to_series().to_list()[0]] for cat in labels],
             line=dict(color='#B0B0B0', width=1)
         ),
-        hovertemplate="%{label}: %{value:,.0f}€<br>%{percent:.1%}<extra></extra>"
+        hovertemplate=hover_template,
+        customdata=customdata
     ))
 
     fig.update_traces(textposition='inside', textinfo='percent+label')
@@ -325,6 +333,24 @@ def main() -> None:
         pl.when(pl.col("montant").sum() < 0).then(pl.col("montant").sum().abs() / facteur_lissage).alias("montant")
     ])
 
+    if groupe == "parent":
+        df_enfants = (
+            df_camembert
+            .group_by(["categorie-parent", "categorie-enfant"])
+            .agg((pl.col("montant").sum() / facteur_lissage).alias("montant"))
+            .sort("montant")
+            .with_columns([pl.col("montant").map_elements(lambda x: f"{x:,.0f}").alias("montant")])
+        )
+
+        df_sous_categories = (
+            df_enfants
+            .group_by("categorie-parent")
+            .agg(pl.format("{}: {}€", "categorie-enfant", "montant").alias("details"))
+            .with_columns([pl.col("details").list.join("<br>").alias("hover_detail")])
+        ).select(["categorie-parent", "hover_detail"])
+
+        df_categories = df_categories.join(df_sous_categories, on="categorie-parent", how="left")
+    
     df_totaux = df.group_by(periode).agg([
         (pl.col("montant").filter(pl.col("categorie-parent") != "Revenus").sum() / facteur_lissage).alias("depenses"),
         (pl.col("montant").filter(pl.col("categorie-parent") == "Revenus").sum() / facteur_lissage).alias("revenus"),
