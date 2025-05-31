@@ -18,14 +18,15 @@ ALPHA = 0.6
 # Configuration des couleurs
 CATEGORY_COLORS = {
     'Quotidien': f'rgba(255, 0, 0, {ALPHA})',        # Rouge
-    'Loisirs': f'rgba(255, 165, 0, {ALPHA})',        # Orange
     'Sorties': f'rgba(128, 0, 128, {ALPHA})',        # Violet
+    'Loisirs': f'rgba(255, 165, 0, {ALPHA})',        # Orange
     'Transports': f'rgba(0, 0, 250, {ALPHA})',       # Bleu
     'Maison': f'rgba(255, 225, 0, {ALPHA})',         # Jaune
-    'Santé & Dons': f'rgba(255, 105, 180, {ALPHA})', # Rose
+    'Santé': f'rgba(255, 105, 180, {ALPHA})',        # Rose
+    'Dons': f'rgba(139, 69, 19, {ALPHA})',           # Marron
     'Revenus': f'rgba(0, 255, 0, {ALPHA})',          # Vert
-    'Taxes': f'rgba(139, 69, 19, {ALPHA})',          # Marron
-    'Exclus': f'rgba(128, 128, 128, {ALPHA})'        # Gris
+    'Taxes': f'rgba(128, 128, 128, {ALPHA})',        # Gris
+    'Exclus': f'rgba(211, 211, 211, {ALPHA})'        # Gris clair
 }
 
 MAP_PERIODE_NAMES = {"mois": "Mois", "trimestre": "Trimestre", "annee": "Année"}
