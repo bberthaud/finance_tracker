@@ -108,10 +108,10 @@ def create_pie_chart(df_categories: pl.DataFrame, labels: List[str], map_categor
         title += ' (/mois)'
 
     if "hover_detail" in df_categories.columns:
-        hover_template = "<b>%{label}</b> (%{percent:.1%})<br>Total: %{value:,.0f}€<br><br>%{customdata}<extra></extra>"
+        hover_template = "<b>%{label}</b> (%{percent:.1%})<br>Total: -%{value:,.0f}€<br><br>%{customdata}<extra></extra>"
         customdata = df_categories["hover_detail"].to_list()
     else:
-        hover_template = "<b>%{label}</b> (%{percent:.1%})<br>Total: %{value:,.0f}€<extra></extra>"
+        hover_template = "<b>%{label}</b> (%{percent:.1%})<br>Total: -%{value:,.0f}€<extra></extra>"
         customdata = None
 
     fig.add_trace(go.Pie(
@@ -309,16 +309,6 @@ def main() -> None:
     
     # Création des filtres
     periode, periode_specifique, groupe, selected_categories, lissage = create_sidebar_filters(df)
-    
-    # Calcul du facteur de lissage
-    facteur_lissage = 1
-    if lissage:
-        if periode == "mois":
-            facteur_lissage = 1  # Pas de lissage pour les mois
-        elif periode == "trimestre":
-            facteur_lissage = 3  # Lissage pour le trimestre
-        elif periode == "annee":
-            facteur_lissage = 12  # Lissage pour l'année
 
     # Filtrage des données
     df = df.filter(
@@ -329,6 +319,16 @@ def main() -> None:
     # Préparation des données pour les graphiques
     df_camembert = df.filter(pl.col("categorie-parent") != "Revenus")
     df_camembert = df_camembert.filter(pl.col(periode) == periode_specifique)
+
+    # Calcul du facteur de lissage
+    facteur_lissage = 1
+    if lissage:
+        if periode == "mois":
+            facteur_lissage = 1  # Pas de lissage pour les mois
+        elif periode == "trimestre":
+            facteur_lissage = 3  # Lissage pour le trimestre
+        elif periode == "annee":
+            facteur_lissage = 12  # Lissage pour l'année
 
     df_categories = df_camembert.group_by(f"categorie-{groupe}").agg([
         pl.when(pl.col("montant").sum() < 0).then(pl.col("montant").sum().abs() / facteur_lissage).alias("montant")
