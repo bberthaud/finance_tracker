@@ -12,7 +12,7 @@ from typing import List, Dict, Optional, Any
 load_dotenv(override=True)
 NOTION_TOKEN = os.getenv("NOTION_TOKEN")
 NOTION_DATABASE_ID = os.getenv("NOTION_DATABASE_ID")
-BANK_ID = os.getenv("BANK_ID")
+BANK_ID = {"PERSO": os.getenv("BANK_PERSO_ID"), "JOINT": os.getenv("BANK_JOINT_ID")}
 
 if not NOTION_TOKEN or not NOTION_DATABASE_ID:
     raise ValueError("❌ Les variables d'environnement NOTION_TOKEN et NOTION_DATABASE_ID sont requises")
@@ -29,27 +29,34 @@ def get_transactions_from_woob() -> List[Dict[str, Any]]:
         rm ~/.config/woob/bank.storage
     """
     try:
-        woob_path = os.path.join(os.path.dirname(__file__), ".venv/bin/woob")
-        result = subprocess.run([
-            woob_path, "bank", "history", BANK_ID, "-n", "10", "-f", "json"
-        ], stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True)
-        
-        if result.returncode != 0:
-            print(f"❌ Erreur Woob: {result.stderr}")
-            return []
+        transactions = []
+        for compte in ['PERSO', 'JOINT']:
+            woob_path = os.path.join(os.path.dirname(__file__), ".venv/bin/woob")
+            result = subprocess.run([
+                woob_path, "bank", "history", BANK_ID[compte], "-n", "15", "-f", "json"
+            ], stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True)
+            
+            if result.returncode != 0:
+                print(f"❌ Erreur Woob: {result.stderr}")
+                return []
 
-        transactions = json.loads(result.stdout)
-        return [
-            {
-                "date": t["date"],
-                "nom": t["label"],
-                "categorie": t["category"],
-                "montant": float(t["amount"]),
-                "description": t["raw"],
-                "id": t["id"].split("@")[0],
-            }
-            for t in transactions
-        ]
+            raw_transactions = json.loads(result.stdout)
+            transactions.extend(
+                [
+                    {
+                        "date": t["date"],
+                        "nom": t["label"],
+                        "categorie": t["category"],
+                        "montant": float(t["amount"]),
+                        "description": t["raw"],
+                        "id": t["id"].split("@")[0],
+                        "compte": compte
+                    }
+                    for t in raw_transactions
+                ]
+            )
+        return transactions
+
     except Exception as e:
         print(f"❌ Erreur lors de la récupération des transactions Woob: {str(e)}")
         return []
@@ -99,6 +106,7 @@ def send_transaction_to_notion(tx: Dict[str, Any]) -> Optional[Dict[str, Any]]:
                 "Montant": {"number": tx["montant"]},
                 "Description": {"rich_text": [{"text": {"content": tx["description"] if tx["description"] else ''}}]},
                 "ID Transaction": {"rich_text": [{"text": {"content": tx["id"]}}]},
+                "Compte": {"select": {"name": tx["compte"]}},
             }
         )
         return response
@@ -205,7 +213,8 @@ def get_transactions_from_notion(force_reload: bool = False) -> Optional[pl.Data
                 "nom": props["Nom"]["title"][0]["text"]["content"],
                 "categorie": props["Catégorie"]["select"]["name"] if props["Catégorie"]["select"] else None,
                 "montant": props["Montant"]["number"],
-                "description": props["Description"]["rich_text"][0]["text"]["content"]
+                "description": props["Description"]["rich_text"][0]["text"]["content"],
+                "compte": props["Compte"]["select"]["name"]
             })
 
         has_more = response.get("has_more", False)

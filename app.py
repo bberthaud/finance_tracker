@@ -206,20 +206,28 @@ def create_bar_chart(df_totaux: pl.DataFrame, periode: str, lissage: bool) -> go
     )
     return fig
 
-def create_sidebar_filters(df: pl.DataFrame) -> Tuple[str, str, str, List[str]]:
+def create_sidebar_filters(df: pl.DataFrame) -> Tuple[str, str, str, List[str], str]:
     """Crée les filtres dans la sidebar.
     
     Args:
         df (pl.DataFrame): DataFrame des transactions
         
     Returns:
-        Tuple[str, str, str, List[str]]: Période, période spécifique, groupe, catégories sélectionnées
+        Tuple[str, str, str, List[str], str]: Période, période spécifique, groupe, catégories sélectionnées, compte
     """
     # Bouton de rechargement
     if st.sidebar.button("🔄 Recharger depuis Notion"):
         st.cache_data.clear()
         df = get_transactions(force_reload=True)
         st.rerun()
+
+    # Filtre par compte
+    # st.sidebar.subheader("Compte")
+    compte = st.sidebar.selectbox(
+        "Compte",
+        ["PERSO", "JOINT"],
+        index=0
+    )
 
     # Filtre de période
     st.sidebar.subheader("Temps")
@@ -252,7 +260,7 @@ def create_sidebar_filters(df: pl.DataFrame) -> Tuple[str, str, str, List[str]]:
         )
     ]
 
-    return periode, periode_specifique, groupe, selected_categories, lissage
+    return periode, periode_specifique, groupe, selected_categories, lissage, compte
     
 def display_transactions_table(df: pl.DataFrame, periode: str, periode_specifique: str) -> None:
     """Affiche le tableau des transactions.
@@ -264,7 +272,7 @@ def display_transactions_table(df: pl.DataFrame, periode: str, periode_specifiqu
     """
     st.subheader("Transactions")
     transactions_display = df.filter(pl.col(periode) == periode_specifique).select([
-        "date", "nom", "categorie", "montant", "description"
+        "date", "nom", "categorie", "montant", "description", "compte"
     ]).to_pandas()
 
     st.dataframe(
@@ -286,7 +294,8 @@ def display_transactions_table(df: pl.DataFrame, periode: str, periode_specifiqu
                 "Montant",
                 format="%.2f €"
             ),
-            "description": "Description"
+            "description": "Description",
+            "compte": "Compte"
         },
         hide_index=True
     )
@@ -308,8 +317,11 @@ def main() -> None:
     display_drive_message()
     
     # Création des filtres
-    periode, periode_specifique, groupe, selected_categories, lissage = create_sidebar_filters(df)
+    periode, periode_specifique, groupe, selected_categories, lissage, compte = create_sidebar_filters(df)
 
+    # Filtrage par compte
+    df = df.filter(pl.col("compte") == compte)
+    
     # Filtrage des données
     df = df.filter(
         pl.col("categorie-parent").is_in(selected_categories) | 
