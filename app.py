@@ -1,5 +1,6 @@
 import streamlit as st
 import plotly.graph_objects as go
+from streamlit_plotly_events import plotly_events
 import polars as pl
 import os
 from dotenv import load_dotenv
@@ -103,9 +104,11 @@ def create_pie_chart(df_categories: pl.DataFrame, labels: List[str], map_categor
         go.Figure: Figure Plotly
     """
     fig = go.Figure()
-    title = f'Dépenses par Catégorie sur {periode_specifique} avec TOTAL = -{df_categories["montant"].sum():,.0f}€'
+    title = f'Dépenses par Catégorie sur {periode_specifique}'
     if lissage:
         title += ' (/mois)'
+
+    total = df_categories["montant"].sum()
 
     if "hover_detail" in df_categories.columns:
         hover_template = "<b>%{label}</b> (%{percent:.1%})<br>Total: -%{value:,.0f}€<br><br>%{customdata}<extra></extra>"
@@ -122,7 +125,8 @@ def create_pie_chart(df_categories: pl.DataFrame, labels: List[str], map_categor
             line=dict(color='#B0B0B0', width=1)
         ),
         hovertemplate=hover_template,
-        customdata=customdata
+        customdata=customdata,
+        hole=0.4  # Crée un trou au centre pour afficher le total
     ))
 
     fig.update_traces(textposition='inside', textinfo='percent+label')
@@ -140,8 +144,16 @@ def create_pie_chart(df_categories: pl.DataFrame, labels: List[str], map_categor
             y=-0.2,
             xanchor="center",
             x=0.5
-        )
+        ),
+        annotations=[dict(
+            text=f"-{total:,.0f}€",
+            x=0.5,
+            y=0.5,
+            font_size=24,
+            showarrow=False
+        )]
     )
+
     return fig
 
 def create_bar_chart(df_totaux: pl.DataFrame, periode: str, lissage: bool) -> go.Figure:
