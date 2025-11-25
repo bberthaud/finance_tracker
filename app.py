@@ -1,6 +1,5 @@
 import streamlit as st
 import plotly.graph_objects as go
-from streamlit_plotly_events import plotly_events
 import polars as pl
 import os
 from dotenv import load_dotenv
