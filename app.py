@@ -103,7 +103,7 @@ def create_pie_chart(df_categories: pl.DataFrame, labels: List[str], map_categor
         go.Figure: Figure Plotly
     """
     fig = go.Figure()
-    title = f'Dépenses par Catégorie sur {periode_specifique}'
+    title = f'Dépenses par Catégorie sur {periode_specifique} avec TOTAL = -{df_categories["montant"].sum():,.0f}€'
     if lissage:
         title += ' (/mois)'
 
