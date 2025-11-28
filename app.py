@@ -148,7 +148,6 @@ def create_pie_chart(df_categories: pl.DataFrame, labels: List[str], map_categor
             text=f"-{total:,.0f}€",
             x=0.5,
             y=0.5,
-            font_size=24,
             showarrow=False
         )]
     )
@@ -217,14 +216,14 @@ def create_bar_chart(df_totaux: pl.DataFrame, periode: str, lissage: bool) -> go
     )
     return fig
 
-def create_sidebar_filters(df: pl.DataFrame) -> Tuple[str, str, str, List[str], str]:
+def create_sidebar_filters(df: pl.DataFrame) -> Tuple[str, str, str, List[str], bool, str]:
     """Crée les filtres dans la sidebar.
     
     Args:
         df (pl.DataFrame): DataFrame des transactions
         
     Returns:
-        Tuple[str, str, str, List[str], str]: Période, période spécifique, groupe, catégories sélectionnées, compte
+        Tuple[str, str, str, List[str], bool, str]: Période, période spécifique, groupe, catégories sélectionnées, lissage, compte
     """
     # Bouton de rechargement
     if st.sidebar.button("🔄 Recharger depuis Notion"):
@@ -262,14 +261,38 @@ def create_sidebar_filters(df: pl.DataFrame) -> Tuple[str, str, str, List[str], 
         format_func=lambda x: x.capitalize()
     )
 
-    selected_categories = [
-        cat for cat in CATEGORY_COLORS.keys()
-        if st.sidebar.checkbox(
-            cat,
-            value=cat not in ['Exclus', 'Taxes'],
-            key=f"cat_{cat}"
-        )
-    ]
+    # available_categories = CATEGORY_COLORS.keys()
+    # selected_categories = [
+    #     cat for cat in available_categories
+    #     if st.sidebar.checkbox(
+    #         cat,
+    #         value=cat not in ['Exclus', 'Taxes'],
+    #         key=f"cat_{cat}"
+    #     )
+    # ]
+
+    categories_structure = {}
+    for parent in CATEGORY_COLORS.keys():
+        df_parent = df.filter(pl.col("categorie-parent") == parent)
+        categories_structure[parent] = df_parent.select("categorie-enfant").unique().sort("categorie-enfant").to_series().to_list()
+
+    selected_categories = []
+    for parent, children in categories_structure.items():
+        parent_default = parent not in ["Exclus", "Taxes"]
+        with st.sidebar.expander(parent):
+            parent_checked = st.checkbox(
+                f"**{parent}**", value=parent_default, key=f"parent_{parent}"
+            )
+            # if parent_checked:
+            #     selected_categories.append(parent)
+            for child in children:
+                child_checked = st.checkbox(
+                    f"• {child}", value=parent_checked, key=f"child_{parent}_{child}"
+                )
+                if child_checked:
+                    selected_categories.append(child)
+        if parent_checked:
+            selected_categories.append(parent)
 
     return periode, periode_specifique, groupe, selected_categories, lissage, compte
     
@@ -332,15 +355,16 @@ def main() -> None:
 
     # Filtrage par compte
     df = df.filter(pl.col("compte") == compte)
-    
-    # Filtrage des données
+
+    # Filtrage des données selon la sélection
     df = df.filter(
-        pl.col("categorie-parent").is_in(selected_categories) | 
-        pl.col("categorie-parent").is_null()
+        pl.col("categorie-parent").is_in(selected_categories) & 
+        pl.col("categorie-enfant").is_in(selected_categories) | 
+        pl.col(f"categorie-{groupe}").is_null()
     )
 
     # Préparation des données pour les graphiques
-    df_camembert = df.filter(pl.col("categorie-parent") != "Revenus")
+    df_camembert = df.filter(pl.col(f"categorie-{groupe}") != "Revenus")
     df_camembert = df_camembert.filter(pl.col(periode) == periode_specifique)
 
     # Calcul du facteur de lissage
