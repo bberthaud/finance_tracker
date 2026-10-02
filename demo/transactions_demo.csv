@@ -1,0 +1,1215 @@
+date,nom,categorie,montant,description,compte
+2026-09-30,Total Energies,Transports > Carburant,-76.81,CB TOTAL ENERGIES,PERSO
+2026-09-30,EDF,Maison > Électricité,-59.48,CB EDF,PERSO
+2026-09-30,DGFIP,Taxes > Impôts,-193.75,CB DGFIP,JOINT
+2026-09-29,Le Comptoir,Sorties > Bars,-13.03,CB LE COMPTOIR,PERSO
+2026-09-27,Pharmacie du Centre,Santé > Pharmacie,-30.21,CB PHARMACIE DU CENTRE,PERSO
+2026-09-25,Paiement non catégorisé,,-43.02,CB DIVERS,PERSO
+2026-09-25,Monoprix,Quotidien > Courses,-77.13,CB MONOPRIX,JOINT
+2026-09-24,Maison Kayser,Quotidien > Boulangerie,-5.72,CB MAISON KAYSER,PERSO
+2026-09-24,Monoprix,Quotidien > Courses,-74.2,CB MONOPRIX,JOINT
+2026-09-24,SNCF Connect,Transports > Train,-110.08,CB SNCF CONNECT,JOINT
+2026-09-23,Monoprix,Quotidien > Courses,-82.53,CB MONOPRIX,PERSO
+2026-09-23,Esso,Transports > Carburant,-76.85,CB ESSO,JOINT
+2026-09-22,Biocoop,Quotidien > Courses,-95.14,CB BIOCOOP,PERSO
+2026-09-22,Biocoop,Quotidien > Courses,-47.48,CB BIOCOOP,PERSO
+2026-09-21,Biocoop,Quotidien > Courses,-49.31,CB BIOCOOP,PERSO
+2026-09-21,Maison Kayser,Quotidien > Boulangerie,-4.33,CB MAISON KAYSER,JOINT
+2026-09-19,Le Bistrot,Sorties > Restaurants,-18.51,CB LE BISTROT,PERSO
+2026-09-18,SNCF Connect,Transports > Train,-116.23,CB SNCF CONNECT,PERSO
+2026-09-17,Maison Kayser,Quotidien > Boulangerie,-6.96,CB MAISON KAYSER,PERSO
+2026-09-17,Maison Kayser,Quotidien > Boulangerie,-10.07,CB MAISON KAYSER,PERSO
+2026-09-17,Agence Immo,Maison > Loyer,-850.0,CB AGENCE IMMO,JOINT
+2026-09-16,Pizzeria Napoli,Sorties > Restaurants,-43.09,CB PIZZERIA NAPOLI,PERSO
+2026-09-15,Sushi Shop,Sorties > Restaurants,-49.51,CB SUSHI SHOP,PERSO
+2026-09-15,Remboursement Ameli,Santé > Pharmacie,26.65,VIR CPAM,PERSO
+2026-09-15,Biocoop,Quotidien > Courses,-49.37,CB BIOCOOP,JOINT
+2026-09-14,Le Comptoir,Sorties > Bars,-11.33,CB LE COMPTOIR,JOINT
+2026-09-14,Pharmacie du Centre,Santé > Pharmacie,-25.72,CB PHARMACIE DU CENTRE,JOINT
+2026-09-13,Esso,Transports > Carburant,-41.84,CB ESSO,PERSO
+2026-09-13,Virement épargne,Exclus > Virement interne,-244.64,CB VIREMENT ÉPARGNE,PERSO
+2026-09-13,Le Bistrot,Sorties > Restaurants,-15.08,CB LE BISTROT,JOINT
+2026-09-12,Le Comptoir,Sorties > Bars,-35.5,CB LE COMPTOIR,PERSO
+2026-09-12,Monoprix,Quotidien > Courses,-80.39,CB MONOPRIX,JOINT
+2026-09-11,Boulangerie Paul,Quotidien > Boulangerie,-10.86,CB BOULANGERIE PAUL,PERSO
+2026-09-11,Boulangerie Paul,Quotidien > Boulangerie,-10.4,CB BOULANGERIE PAUL,JOINT
+2026-09-11,Virement épargne,Exclus > Virement interne,-360.16,CB VIREMENT ÉPARGNE,JOINT
+2026-09-10,Carrefour,Quotidien > Courses,-15.84,CB CARREFOUR,JOINT
+2026-09-10,Le Bistrot,Sorties > Restaurants,-61.7,CB LE BISTROT,JOINT
+2026-09-08,Netflix,Loisirs > Streaming,-14.17,CB NETFLIX,PERSO
+2026-09-08,Basic Fit,Loisirs > Sport,-54.35,CB BASIC FIT,PERSO
+2026-09-08,Agence Immo,Maison > Loyer,-850.0,CB AGENCE IMMO,PERSO
+2026-09-08,Restos du Coeur,Dons > Associations,-23.25,CB RESTOS DU COEUR,JOINT
+2026-09-08,Remboursement Ameli,Santé > Pharmacie,6.87,VIR CPAM,JOINT
+2026-09-07,Paiement non catégorisé,,-11.13,CB DIVERS,JOINT
+2026-09-06,Boulangerie Paul,Quotidien > Boulangerie,-9.08,CB BOULANGERIE PAUL,PERSO
+2026-09-06,Maison Kayser,Quotidien > Boulangerie,-7.17,CB MAISON KAYSER,PERSO
+2026-09-06,DGFIP,Taxes > Impôts,-225.31,CB DGFIP,PERSO
+2026-09-05,Boulangerie Paul,Quotidien > Boulangerie,-9.76,CB BOULANGERIE PAUL,JOINT
+2026-09-05,Netflix,Loisirs > Streaming,-13.43,CB NETFLIX,JOINT
+2026-09-04,Monoprix,Quotidien > Courses,-40.67,CB MONOPRIX,PERSO
+2026-09-04,Croix Rouge,Dons > Associations,-11.56,CB CROIX ROUGE,PERSO
+2026-09-03,EDF,Maison > Électricité,-51.01,CB EDF,JOINT
+2026-09-02,Carrefour,Quotidien > Courses,-60.94,CB CARREFOUR,PERSO
+2026-09-02,Biocoop,Quotidien > Courses,-62.6,CB BIOCOOP,PERSO
+2026-09-02,Netflix,Loisirs > Streaming,-15.67,CB NETFLIX,PERSO
+2026-09-02,Basic Fit,Loisirs > Sport,-48.47,CB BASIC FIT,JOINT
+2026-09-01,Salaire,Revenus > Salaire,2600,VIR SEPA,PERSO
+2026-09-01,Carrefour,Quotidien > Courses,-92.77,CB CARREFOUR,PERSO
+2026-09-01,Virement commun,Revenus > Salaire,1500,VIR SEPA,JOINT
+2026-09-01,Maison Kayser,Quotidien > Boulangerie,-2.06,CB MAISON KAYSER,JOINT
+2026-08-31,Agence Immo,Maison > Loyer,-850.0,CB AGENCE IMMO,JOINT
+2026-08-30,Pharmacie du Centre,Santé > Pharmacie,-30.29,CB PHARMACIE DU CENTRE,PERSO
+2026-08-29,Monoprix,Quotidien > Courses,-104.5,CB MONOPRIX,PERSO
+2026-08-29,Carrefour,Quotidien > Courses,-119.55,CB CARREFOUR,PERSO
+2026-08-28,Boulangerie Paul,Quotidien > Boulangerie,-8.5,CB BOULANGERIE PAUL,PERSO
+2026-08-28,Le Comptoir,Sorties > Bars,-30.26,CB LE COMPTOIR,PERSO
+2026-08-28,Croix Rouge,Dons > Associations,-18.23,CB CROIX ROUGE,PERSO
+2026-08-28,Carrefour,Quotidien > Courses,-113.83,CB CARREFOUR,JOINT
+2026-08-26,Boulangerie Paul,Quotidien > Boulangerie,-5.92,CB BOULANGERIE PAUL,JOINT
+2026-08-26,Paiement non catégorisé,,-11.99,CB DIVERS,JOINT
+2026-08-25,Monoprix,Quotidien > Courses,-90.72,CB MONOPRIX,JOINT
+2026-08-25,Basic Fit,Loisirs > Sport,-41.85,CB BASIC FIT,JOINT
+2026-08-24,Maison Kayser,Quotidien > Boulangerie,-5.96,CB MAISON KAYSER,PERSO
+2026-08-24,Boulangerie Paul,Quotidien > Boulangerie,-7.18,CB BOULANGERIE PAUL,JOINT
+2026-08-21,Total Energies,Transports > Carburant,-55.31,CB TOTAL ENERGIES,PERSO
+2026-08-21,EDF,Maison > Électricité,-80.52,CB EDF,JOINT
+2026-08-21,Restos du Coeur,Dons > Associations,-24.04,CB RESTOS DU COEUR,JOINT
+2026-08-20,Agence Immo,Maison > Loyer,-850.0,CB AGENCE IMMO,PERSO
+2026-08-20,Biocoop,Quotidien > Courses,-41.06,CB BIOCOOP,JOINT
+2026-08-19,Carrefour,Quotidien > Courses,-72.47,CB CARREFOUR,PERSO
+2026-08-17,Pizzeria Napoli,Sorties > Restaurants,-22.3,CB PIZZERIA NAPOLI,PERSO
+2026-08-17,Pizzeria Napoli,Sorties > Restaurants,-50.09,CB PIZZERIA NAPOLI,JOINT
+2026-08-17,Virement épargne,Exclus > Virement interne,-216.72,CB VIREMENT ÉPARGNE,JOINT
+2026-08-16,Netflix,Loisirs > Streaming,-12.8,CB NETFLIX,PERSO
+2026-08-16,Boulangerie Paul,Quotidien > Boulangerie,-10.98,CB BOULANGERIE PAUL,JOINT
+2026-08-16,Boulangerie Paul,Quotidien > Boulangerie,-5.86,CB BOULANGERIE PAUL,JOINT
+2026-08-15,Carrefour,Quotidien > Courses,-28.04,CB CARREFOUR,PERSO
+2026-08-14,Boulangerie Paul,Quotidien > Boulangerie,-8.99,CB BOULANGERIE PAUL,PERSO
+2026-08-14,Pharmacie du Centre,Santé > Pharmacie,-29.94,CB PHARMACIE DU CENTRE,JOINT
+2026-08-13,Le Comptoir,Sorties > Bars,-37.89,CB LE COMPTOIR,JOINT
+2026-08-12,EDF,Maison > Électricité,-74.25,CB EDF,PERSO
+2026-08-12,Virement épargne,Exclus > Virement interne,-350.49,CB VIREMENT ÉPARGNE,PERSO
+2026-08-12,Pizzeria Napoli,Sorties > Restaurants,-63.88,CB PIZZERIA NAPOLI,JOINT
+2026-08-12,Spotify,Loisirs > Streaming,-16.75,CB SPOTIFY,JOINT
+2026-08-11,Monoprix,Quotidien > Courses,-43.2,CB MONOPRIX,PERSO
+2026-08-11,Paiement non catégorisé,,-40.6,CB DIVERS,PERSO
+2026-08-09,SNCF Connect,Transports > Train,-80.8,CB SNCF CONNECT,JOINT
+2026-08-09,DGFIP,Taxes > Impôts,-230.48,CB DGFIP,JOINT
+2026-08-07,Monoprix,Quotidien > Courses,-62.93,CB MONOPRIX,PERSO
+2026-08-07,Monoprix,Quotidien > Courses,-103.94,CB MONOPRIX,JOINT
+2026-08-05,Esso,Transports > Carburant,-52.53,CB ESSO,PERSO
+2026-08-05,DGFIP,Taxes > Impôts,-182.59,CB DGFIP,PERSO
+2026-08-04,Le Bistrot,Sorties > Restaurants,-51.05,CB LE BISTROT,PERSO
+2026-08-04,Basic Fit,Loisirs > Sport,-49.23,CB BASIC FIT,PERSO
+2026-08-03,Maison Kayser,Quotidien > Boulangerie,-11.33,CB MAISON KAYSER,PERSO
+2026-08-03,Maison Kayser,Quotidien > Boulangerie,-8.55,CB MAISON KAYSER,PERSO
+2026-08-03,Sushi Shop,Sorties > Restaurants,-15.06,CB SUSHI SHOP,PERSO
+2026-08-03,Spotify,Loisirs > Streaming,-9.64,CB SPOTIFY,PERSO
+2026-08-03,SNCF Connect,Transports > Train,-119.33,CB SNCF CONNECT,PERSO
+2026-08-03,Biocoop,Quotidien > Courses,-41.02,CB BIOCOOP,JOINT
+2026-08-02,Carrefour,Quotidien > Courses,-86.67,CB CARREFOUR,PERSO
+2026-08-02,Boulangerie Paul,Quotidien > Boulangerie,-5.72,CB BOULANGERIE PAUL,PERSO
+2026-08-01,Salaire,Revenus > Salaire,2600,VIR SEPA,PERSO
+2026-08-01,Monoprix,Quotidien > Courses,-25.46,CB MONOPRIX,PERSO
+2026-08-01,Le Comptoir,Sorties > Bars,-29.76,CB LE COMPTOIR,PERSO
+2026-08-01,Virement commun,Revenus > Salaire,1500,VIR SEPA,JOINT
+2026-08-01,Total Energies,Transports > Carburant,-58.84,CB TOTAL ENERGIES,JOINT
+2026-07-31,Maison Kayser,Quotidien > Boulangerie,-2.54,CB MAISON KAYSER,PERSO
+2026-07-30,Monoprix,Quotidien > Courses,-85.73,CB MONOPRIX,PERSO
+2026-07-30,Maison Kayser,Quotidien > Boulangerie,-11.63,CB MAISON KAYSER,JOINT
+2026-07-28,Monoprix,Quotidien > Courses,-26.99,CB MONOPRIX,PERSO
+2026-07-28,Maison Kayser,Quotidien > Boulangerie,-2.59,CB MAISON KAYSER,JOINT
+2026-07-28,Le Bistrot,Sorties > Restaurants,-51.07,CB LE BISTROT,JOINT
+2026-07-28,DGFIP,Taxes > Impôts,-295.82,CB DGFIP,JOINT
+2026-07-27,Carrefour,Quotidien > Courses,-63.08,CB CARREFOUR,PERSO
+2026-07-27,Paiement non catégorisé,,-14.53,CB DIVERS,JOINT
+2026-07-26,Le Comptoir,Sorties > Bars,-13.35,CB LE COMPTOIR,PERSO
+2026-07-26,Virement épargne,Exclus > Virement interne,-362.38,CB VIREMENT ÉPARGNE,PERSO
+2026-07-26,Carrefour,Quotidien > Courses,-32.43,CB CARREFOUR,JOINT
+2026-07-26,Carrefour,Quotidien > Courses,-36.7,CB CARREFOUR,JOINT
+2026-07-25,SNCF Connect,Transports > Train,-103.15,CB SNCF CONNECT,PERSO
+2026-07-25,DGFIP,Taxes > Impôts,-279.79,CB DGFIP,PERSO
+2026-07-25,Le Comptoir,Sorties > Bars,-18.31,CB LE COMPTOIR,JOINT
+2026-07-24,Restos du Coeur,Dons > Associations,-10.05,CB RESTOS DU COEUR,JOINT
+2026-07-23,Paiement non catégorisé,,-20.78,CB DIVERS,PERSO
+2026-07-23,Pizzeria Napoli,Sorties > Restaurants,-22.3,CB PIZZERIA NAPOLI,JOINT
+2026-07-23,Agence Immo,Maison > Loyer,-850.0,CB AGENCE IMMO,JOINT
+2026-07-22,Carrefour,Quotidien > Courses,-79.52,CB CARREFOUR,PERSO
+2026-07-22,Sushi Shop,Sorties > Restaurants,-50.92,CB SUSHI SHOP,PERSO
+2026-07-21,Decathlon,Loisirs > Sport,-25.69,CB DECATHLON,JOINT
+2026-07-20,Maison Kayser,Quotidien > Boulangerie,-3.87,CB MAISON KAYSER,PERSO
+2026-07-19,Monoprix,Quotidien > Courses,-55.81,CB MONOPRIX,PERSO
+2026-07-19,Boulangerie Paul,Quotidien > Boulangerie,-6.18,CB BOULANGERIE PAUL,PERSO
+2026-07-19,Pharmacie du Centre,Santé > Pharmacie,-38.26,CB PHARMACIE DU CENTRE,JOINT
+2026-07-18,Boulangerie Paul,Quotidien > Boulangerie,-8.36,CB BOULANGERIE PAUL,PERSO
+2026-07-18,Decathlon,Loisirs > Sport,-51.23,CB DECATHLON,PERSO
+2026-07-18,Esso,Transports > Carburant,-71.0,CB ESSO,PERSO
+2026-07-18,Monoprix,Quotidien > Courses,-21.23,CB MONOPRIX,JOINT
+2026-07-17,Le Bistrot,Sorties > Restaurants,-59.84,CB LE BISTROT,PERSO
+2026-07-16,Boulangerie Paul,Quotidien > Boulangerie,-5.84,CB BOULANGERIE PAUL,PERSO
+2026-07-16,Brewdog,Sorties > Bars,-23.74,CB BREWDOG,PERSO
+2026-07-16,Spotify,Loisirs > Streaming,-16.59,CB SPOTIFY,JOINT
+2026-07-15,Pharmacie du Centre,Santé > Pharmacie,-35.62,CB PHARMACIE DU CENTRE,PERSO
+2026-07-15,Restos du Coeur,Dons > Associations,-15.26,CB RESTOS DU COEUR,PERSO
+2026-07-15,EDF,Maison > Électricité,-87.14,CB EDF,JOINT
+2026-07-14,Agence Immo,Maison > Loyer,-850.0,CB AGENCE IMMO,PERSO
+2026-07-14,Biocoop,Quotidien > Courses,-89.63,CB BIOCOOP,JOINT
+2026-07-13,Biocoop,Quotidien > Courses,-87.81,CB BIOCOOP,PERSO
+2026-07-13,SNCF Connect,Transports > Train,-85.19,CB SNCF CONNECT,JOINT
+2026-07-12,Carrefour,Quotidien > Courses,-47.06,CB CARREFOUR,PERSO
+2026-07-10,EDF,Maison > Électricité,-49.61,CB EDF,PERSO
+2026-07-10,Maison Kayser,Quotidien > Boulangerie,-5.24,CB MAISON KAYSER,JOINT
+2026-07-09,Total Energies,Transports > Carburant,-60.43,CB TOTAL ENERGIES,PERSO
+2026-07-08,Carrefour,Quotidien > Courses,-29.06,CB CARREFOUR,PERSO
+2026-07-07,Pizzeria Napoli,Sorties > Restaurants,-15.53,CB PIZZERIA NAPOLI,PERSO
+2026-07-07,Virement épargne,Exclus > Virement interne,-212.67,CB VIREMENT ÉPARGNE,JOINT
+2026-07-06,Spotify,Loisirs > Streaming,-11.47,CB SPOTIFY,PERSO
+2026-07-06,Biocoop,Quotidien > Courses,-44.51,CB BIOCOOP,JOINT
+2026-07-05,Maison Kayser,Quotidien > Boulangerie,-3.67,CB MAISON KAYSER,PERSO
+2026-07-05,Boulangerie Paul,Quotidien > Boulangerie,-7.73,CB BOULANGERIE PAUL,JOINT
+2026-07-03,Esso,Transports > Carburant,-56.57,CB ESSO,JOINT
+2026-07-02,Spotify,Loisirs > Streaming,-15.85,CB SPOTIFY,PERSO
+2026-07-01,Salaire,Revenus > Salaire,2600,VIR SEPA,PERSO
+2026-07-01,Virement commun,Revenus > Salaire,1500,VIR SEPA,JOINT
+2026-06-30,Monoprix,Quotidien > Courses,-25.98,CB MONOPRIX,JOINT
+2026-06-30,Pizzeria Napoli,Sorties > Restaurants,-52.24,CB PIZZERIA NAPOLI,JOINT
+2026-06-28,Remboursement Ameli,Santé > Pharmacie,17.24,VIR CPAM,JOINT
+2026-06-27,Sushi Shop,Sorties > Restaurants,-39.12,CB SUSHI SHOP,PERSO
+2026-06-27,Carrefour,Quotidien > Courses,-115.98,CB CARREFOUR,JOINT
+2026-06-26,Monoprix,Quotidien > Courses,-103.37,CB MONOPRIX,PERSO
+2026-06-26,Monoprix,Quotidien > Courses,-47.75,CB MONOPRIX,JOINT
+2026-06-25,EDF,Maison > Électricité,-89.26,CB EDF,PERSO
+2026-06-25,Virement épargne,Exclus > Virement interne,-274.82,CB VIREMENT ÉPARGNE,PERSO
+2026-06-24,Boulangerie Paul,Quotidien > Boulangerie,-9.68,CB BOULANGERIE PAUL,PERSO
+2026-06-24,Maison Kayser,Quotidien > Boulangerie,-6.76,CB MAISON KAYSER,JOINT
+2026-06-23,Le Comptoir,Sorties > Bars,-16.09,CB LE COMPTOIR,PERSO
+2026-06-23,Esso,Transports > Carburant,-41.47,CB ESSO,PERSO
+2026-06-23,Paiement non catégorisé,,-27.52,CB DIVERS,PERSO
+2026-06-22,Boulangerie Paul,Quotidien > Boulangerie,-11.97,CB BOULANGERIE PAUL,PERSO
+2026-06-22,Sushi Shop,Sorties > Restaurants,-53.11,CB SUSHI SHOP,PERSO
+2026-06-21,Paiement non catégorisé,,-19.1,CB DIVERS,JOINT
+2026-06-20,Biocoop,Quotidien > Courses,-60.21,CB BIOCOOP,PERSO
+2026-06-20,Monoprix,Quotidien > Courses,-29.29,CB MONOPRIX,PERSO
+2026-06-19,Maison Kayser,Quotidien > Boulangerie,-4.91,CB MAISON KAYSER,PERSO
+2026-06-19,Boulangerie Paul,Quotidien > Boulangerie,-3.14,CB BOULANGERIE PAUL,PERSO
+2026-06-19,Spotify,Loisirs > Streaming,-13.04,CB SPOTIFY,PERSO
+2026-06-19,Agence Immo,Maison > Loyer,-850.0,CB AGENCE IMMO,PERSO
+2026-06-19,Restos du Coeur,Dons > Associations,-25.05,CB RESTOS DU COEUR,JOINT
+2026-06-18,Decathlon,Loisirs > Sport,-36.03,CB DECATHLON,PERSO
+2026-06-17,Le Comptoir,Sorties > Bars,-39.48,CB LE COMPTOIR,JOINT
+2026-06-16,Carrefour,Quotidien > Courses,-114.46,CB CARREFOUR,PERSO
+2026-06-16,Carrefour,Quotidien > Courses,-51.22,CB CARREFOUR,JOINT
+2026-06-15,DGFIP,Taxes > Impôts,-226.6,CB DGFIP,PERSO
+2026-06-15,Agence Immo,Maison > Loyer,-850.0,CB AGENCE IMMO,JOINT
+2026-06-13,Maison Kayser,Quotidien > Boulangerie,-9.82,CB MAISON KAYSER,PERSO
+2026-06-13,SNCF Connect,Transports > Train,-85.85,CB SNCF CONNECT,JOINT
+2026-06-12,Maison Kayser,Quotidien > Boulangerie,-4.8,CB MAISON KAYSER,PERSO
+2026-06-12,Carrefour,Quotidien > Courses,-113.77,CB CARREFOUR,JOINT
+2026-06-12,Maison Kayser,Quotidien > Boulangerie,-4.07,CB MAISON KAYSER,JOINT
+2026-06-12,DGFIP,Taxes > Impôts,-165.26,CB DGFIP,JOINT
+2026-06-11,Monoprix,Quotidien > Courses,-46.99,CB MONOPRIX,PERSO
+2026-06-11,Monoprix,Quotidien > Courses,-105.53,CB MONOPRIX,PERSO
+2026-06-11,Monoprix,Quotidien > Courses,-47.99,CB MONOPRIX,PERSO
+2026-06-11,Netflix,Loisirs > Streaming,-10.57,CB NETFLIX,JOINT
+2026-06-09,Pharmacie du Centre,Santé > Pharmacie,-29.67,CB PHARMACIE DU CENTRE,JOINT
+2026-06-08,Brewdog,Sorties > Bars,-23.98,CB BREWDOG,PERSO
+2026-06-08,Croix Rouge,Dons > Associations,-10.21,CB CROIX ROUGE,PERSO
+2026-06-08,Decathlon,Loisirs > Sport,-42.39,CB DECATHLON,JOINT
+2026-06-07,Le Bistrot,Sorties > Restaurants,-40.39,CB LE BISTROT,PERSO
+2026-06-06,SNCF Connect,Transports > Train,-98.05,CB SNCF CONNECT,PERSO
+2026-06-06,Total Energies,Transports > Carburant,-71.91,CB TOTAL ENERGIES,JOINT
+2026-06-05,Carrefour,Quotidien > Courses,-35.53,CB CARREFOUR,PERSO
+2026-06-04,Total Energies,Transports > Carburant,-75.82,CB TOTAL ENERGIES,PERSO
+2026-06-04,Pharmacie du Centre,Santé > Pharmacie,-16.61,CB PHARMACIE DU CENTRE,PERSO
+2026-06-04,Le Bistrot,Sorties > Restaurants,-61.7,CB LE BISTROT,JOINT
+2026-06-04,Virement épargne,Exclus > Virement interne,-265.2,CB VIREMENT ÉPARGNE,JOINT
+2026-06-03,Spotify,Loisirs > Streaming,-12.81,CB SPOTIFY,PERSO
+2026-06-03,Maison Kayser,Quotidien > Boulangerie,-8.97,CB MAISON KAYSER,JOINT
+2026-06-01,Salaire,Revenus > Salaire,2600,VIR SEPA,PERSO
+2026-06-01,Virement commun,Revenus > Salaire,1500,VIR SEPA,JOINT
+2026-06-01,Boulangerie Paul,Quotidien > Boulangerie,-5.0,CB BOULANGERIE PAUL,JOINT
+2026-06-01,EDF,Maison > Électricité,-71.65,CB EDF,JOINT
+2026-05-30,Decathlon,Loisirs > Sport,-52.83,CB DECATHLON,PERSO
+2026-05-29,Boulangerie Paul,Quotidien > Boulangerie,-11.77,CB BOULANGERIE PAUL,PERSO
+2026-05-29,Le Bistrot,Sorties > Restaurants,-26.63,CB LE BISTROT,PERSO
+2026-05-29,Brewdog,Sorties > Bars,-37.57,CB BREWDOG,PERSO
+2026-05-28,Maison Kayser,Quotidien > Boulangerie,-3.71,CB MAISON KAYSER,PERSO
+2026-05-28,Decathlon,Loisirs > Sport,-43.92,CB DECATHLON,JOINT
+2026-05-27,Restos du Coeur,Dons > Associations,-11.95,CB RESTOS DU COEUR,PERSO
+2026-05-26,Agence Immo,Maison > Loyer,-850.0,CB AGENCE IMMO,PERSO
+2026-05-26,Virement épargne,Exclus > Virement interne,-265.28,CB VIREMENT ÉPARGNE,PERSO
+2026-05-25,Netflix,Loisirs > Streaming,-17.65,CB NETFLIX,PERSO
+2026-05-25,DGFIP,Taxes > Impôts,-161.4,CB DGFIP,PERSO
+2026-05-24,Boulangerie Paul,Quotidien > Boulangerie,-9.12,CB BOULANGERIE PAUL,JOINT
+2026-05-24,SNCF Connect,Transports > Train,-61.84,CB SNCF CONNECT,JOINT
+2026-05-23,Boulangerie Paul,Quotidien > Boulangerie,-6.76,CB BOULANGERIE PAUL,PERSO
+2026-05-22,Esso,Transports > Carburant,-49.62,CB ESSO,PERSO
+2026-05-22,Biocoop,Quotidien > Courses,-34.5,CB BIOCOOP,JOINT
+2026-05-21,Carrefour,Quotidien > Courses,-46.5,CB CARREFOUR,PERSO
+2026-05-20,Netflix,Loisirs > Streaming,-12.19,CB NETFLIX,JOINT
+2026-05-19,Monoprix,Quotidien > Courses,-115.73,CB MONOPRIX,PERSO
+2026-05-19,Maison Kayser,Quotidien > Boulangerie,-6.34,CB MAISON KAYSER,PERSO
+2026-05-19,Total Energies,Transports > Carburant,-43.08,CB TOTAL ENERGIES,PERSO
+2026-05-19,Agence Immo,Maison > Loyer,-850.0,CB AGENCE IMMO,JOINT
+2026-05-18,Maison Kayser,Quotidien > Boulangerie,-6.05,CB MAISON KAYSER,PERSO
+2026-05-17,Biocoop,Quotidien > Courses,-40.3,CB BIOCOOP,PERSO
+2026-05-17,EDF,Maison > Électricité,-89.48,CB EDF,PERSO
+2026-05-17,Le Bistrot,Sorties > Restaurants,-39.69,CB LE BISTROT,JOINT
+2026-05-16,Paiement non catégorisé,,-15.27,CB DIVERS,PERSO
+2026-05-16,Paiement non catégorisé,,-31.72,CB DIVERS,JOINT
+2026-05-15,Maison Kayser,Quotidien > Boulangerie,-2.92,CB MAISON KAYSER,JOINT
+2026-05-14,Monoprix,Quotidien > Courses,-73.07,CB MONOPRIX,JOINT
+2026-05-14,Pizzeria Napoli,Sorties > Restaurants,-22.29,CB PIZZERIA NAPOLI,JOINT
+2026-05-14,Esso,Transports > Carburant,-55.41,CB ESSO,JOINT
+2026-05-13,SNCF Connect,Transports > Train,-110.17,CB SNCF CONNECT,PERSO
+2026-05-13,Carrefour,Quotidien > Courses,-23.61,CB CARREFOUR,JOINT
+2026-05-12,Carrefour,Quotidien > Courses,-98.47,CB CARREFOUR,PERSO
+2026-05-12,Virement épargne,Exclus > Virement interne,-296.85,CB VIREMENT ÉPARGNE,JOINT
+2026-05-10,Biocoop,Quotidien > Courses,-54.91,CB BIOCOOP,JOINT
+2026-05-10,DGFIP,Taxes > Impôts,-215.2,CB DGFIP,JOINT
+2026-05-09,Monoprix,Quotidien > Courses,-41.5,CB MONOPRIX,PERSO
+2026-05-09,Pharmacie du Centre,Santé > Pharmacie,-9.86,CB PHARMACIE DU CENTRE,JOINT
+2026-05-08,Biocoop,Quotidien > Courses,-40.54,CB BIOCOOP,PERSO
+2026-05-08,Pizzeria Napoli,Sorties > Restaurants,-44.05,CB PIZZERIA NAPOLI,PERSO
+2026-05-08,Remboursement Ameli,Santé > Pharmacie,23.02,VIR CPAM,JOINT
+2026-05-06,Le Comptoir,Sorties > Bars,-25.38,CB LE COMPTOIR,PERSO
+2026-05-06,EDF,Maison > Électricité,-68.45,CB EDF,JOINT
+2026-05-06,Restos du Coeur,Dons > Associations,-19.86,CB RESTOS DU COEUR,JOINT
+2026-05-05,Biocoop,Quotidien > Courses,-111.4,CB BIOCOOP,PERSO
+2026-05-04,Carrefour,Quotidien > Courses,-113.67,CB CARREFOUR,PERSO
+2026-05-04,Maison Kayser,Quotidien > Boulangerie,-5.9,CB MAISON KAYSER,JOINT
+2026-05-04,Maison Kayser,Quotidien > Boulangerie,-5.6,CB MAISON KAYSER,JOINT
+2026-05-03,Boulangerie Paul,Quotidien > Boulangerie,-11.92,CB BOULANGERIE PAUL,PERSO
+2026-05-03,Biocoop,Quotidien > Courses,-98.8,CB BIOCOOP,JOINT
+2026-05-03,Le Comptoir,Sorties > Bars,-21.06,CB LE COMPTOIR,JOINT
+2026-05-02,Sushi Shop,Sorties > Restaurants,-46.17,CB SUSHI SHOP,PERSO
+2026-05-02,Pharmacie du Centre,Santé > Pharmacie,-31.09,CB PHARMACIE DU CENTRE,PERSO
+2026-05-01,Salaire,Revenus > Salaire,2600,VIR SEPA,PERSO
+2026-05-01,Spotify,Loisirs > Streaming,-17.36,CB SPOTIFY,PERSO
+2026-05-01,Virement commun,Revenus > Salaire,1500,VIR SEPA,JOINT
+2026-04-30,Maison Kayser,Quotidien > Boulangerie,-9.08,CB MAISON KAYSER,PERSO
+2026-04-30,SNCF Connect,Transports > Train,-119.96,CB SNCF CONNECT,PERSO
+2026-04-30,Paiement non catégorisé,,-14.14,CB DIVERS,PERSO
+2026-04-30,Biocoop,Quotidien > Courses,-16.7,CB BIOCOOP,JOINT
+2026-04-29,Monoprix,Quotidien > Courses,-48.67,CB MONOPRIX,PERSO
+2026-04-29,Biocoop,Quotidien > Courses,-21.4,CB BIOCOOP,PERSO
+2026-04-28,Maison Kayser,Quotidien > Boulangerie,-10.49,CB MAISON KAYSER,PERSO
+2026-04-28,Brewdog,Sorties > Bars,-28.69,CB BREWDOG,PERSO
+2026-04-28,Netflix,Loisirs > Streaming,-11.42,CB NETFLIX,PERSO
+2026-04-27,Biocoop,Quotidien > Courses,-75.63,CB BIOCOOP,PERSO
+2026-04-27,Netflix,Loisirs > Streaming,-9.3,CB NETFLIX,JOINT
+2026-04-25,EDF,Maison > Électricité,-86.18,CB EDF,PERSO
+2026-04-25,Virement épargne,Exclus > Virement interne,-219.72,CB VIREMENT ÉPARGNE,PERSO
+2026-04-24,Total Energies,Transports > Carburant,-77.49,CB TOTAL ENERGIES,PERSO
+2026-04-24,Maison Kayser,Quotidien > Boulangerie,-9.63,CB MAISON KAYSER,JOINT
+2026-04-23,Maison Kayser,Quotidien > Boulangerie,-8.71,CB MAISON KAYSER,PERSO
+2026-04-22,EDF,Maison > Électricité,-72.8,CB EDF,JOINT
+2026-04-22,Paiement non catégorisé,,-24.38,CB DIVERS,JOINT
+2026-04-21,Carrefour,Quotidien > Courses,-92.2,CB CARREFOUR,PERSO
+2026-04-21,Maison Kayser,Quotidien > Boulangerie,-2.47,CB MAISON KAYSER,PERSO
+2026-04-19,Carrefour,Quotidien > Courses,-47.86,CB CARREFOUR,JOINT
+2026-04-18,Pharmacie du Centre,Santé > Pharmacie,-14.91,CB PHARMACIE DU CENTRE,PERSO
+2026-04-18,Pharmacie du Centre,Santé > Pharmacie,-22.07,CB PHARMACIE DU CENTRE,JOINT
+2026-04-18,DGFIP,Taxes > Impôts,-229.41,CB DGFIP,JOINT
+2026-04-17,Biocoop,Quotidien > Courses,-30.04,CB BIOCOOP,PERSO
+2026-04-17,Le Comptoir,Sorties > Bars,-13.89,CB LE COMPTOIR,JOINT
+2026-04-17,Virement épargne,Exclus > Virement interne,-395.5,CB VIREMENT ÉPARGNE,JOINT
+2026-04-16,Biocoop,Quotidien > Courses,-86.27,CB BIOCOOP,PERSO
+2026-04-16,Netflix,Loisirs > Streaming,-9.66,CB NETFLIX,PERSO
+2026-04-16,Boulangerie Paul,Quotidien > Boulangerie,-4.3,CB BOULANGERIE PAUL,JOINT
+2026-04-16,Le Bistrot,Sorties > Restaurants,-22.7,CB LE BISTROT,JOINT
+2026-04-15,DGFIP,Taxes > Impôts,-203.95,CB DGFIP,PERSO
+2026-04-15,Maison Kayser,Quotidien > Boulangerie,-8.42,CB MAISON KAYSER,JOINT
+2026-04-14,Sushi Shop,Sorties > Restaurants,-18.17,CB SUSHI SHOP,PERSO
+2026-04-14,Biocoop,Quotidien > Courses,-76.32,CB BIOCOOP,JOINT
+2026-04-14,Basic Fit,Loisirs > Sport,-46.73,CB BASIC FIT,JOINT
+2026-04-13,Pizzeria Napoli,Sorties > Restaurants,-45.65,CB PIZZERIA NAPOLI,PERSO
+2026-04-13,Agence Immo,Maison > Loyer,-850.0,CB AGENCE IMMO,PERSO
+2026-04-11,Biocoop,Quotidien > Courses,-111.22,CB BIOCOOP,PERSO
+2026-04-11,Pizzeria Napoli,Sorties > Restaurants,-28.36,CB PIZZERIA NAPOLI,PERSO
+2026-04-11,Carrefour,Quotidien > Courses,-46.0,CB CARREFOUR,JOINT
+2026-04-10,Boulangerie Paul,Quotidien > Boulangerie,-6.16,CB BOULANGERIE PAUL,PERSO
+2026-04-10,Decathlon,Loisirs > Sport,-28.36,CB DECATHLON,PERSO
+2026-04-09,Monoprix,Quotidien > Courses,-38.21,CB MONOPRIX,PERSO
+2026-04-09,Croix Rouge,Dons > Associations,-22.97,CB CROIX ROUGE,PERSO
+2026-04-09,Maison Kayser,Quotidien > Boulangerie,-7.51,CB MAISON KAYSER,JOINT
+2026-04-08,Maison Kayser,Quotidien > Boulangerie,-5.76,CB MAISON KAYSER,PERSO
+2026-04-07,Total Energies,Transports > Carburant,-78.28,CB TOTAL ENERGIES,PERSO
+2026-04-07,SNCF Connect,Transports > Train,-92.18,CB SNCF CONNECT,JOINT
+2026-04-06,Sushi Shop,Sorties > Restaurants,-24.25,CB SUSHI SHOP,JOINT
+2026-04-05,Biocoop,Quotidien > Courses,-105.73,CB BIOCOOP,JOINT
+2026-04-03,Total Energies,Transports > Carburant,-45.5,CB TOTAL ENERGIES,JOINT
+2026-04-02,Le Comptoir,Sorties > Bars,-19.87,CB LE COMPTOIR,PERSO
+2026-04-02,Agence Immo,Maison > Loyer,-850.0,CB AGENCE IMMO,JOINT
+2026-04-01,Salaire,Revenus > Salaire,2600,VIR SEPA,PERSO
+2026-04-01,Virement commun,Revenus > Salaire,1500,VIR SEPA,JOINT
+2026-04-01,Restos du Coeur,Dons > Associations,-21.03,CB RESTOS DU COEUR,JOINT
+2026-03-31,Monoprix,Quotidien > Courses,-39.73,CB MONOPRIX,PERSO
+2026-03-31,Boulangerie Paul,Quotidien > Boulangerie,-8.15,CB BOULANGERIE PAUL,PERSO
+2026-03-30,Virement épargne,Exclus > Virement interne,-340.08,CB VIREMENT ÉPARGNE,PERSO
+2026-03-30,Paiement non catégorisé,,-26.24,CB DIVERS,PERSO
+2026-03-30,Basic Fit,Loisirs > Sport,-26.2,CB BASIC FIT,JOINT
+2026-03-27,Le Bistrot,Sorties > Restaurants,-44.56,CB LE BISTROT,PERSO
+2026-03-27,Pharmacie du Centre,Santé > Pharmacie,-5.76,CB PHARMACIE DU CENTRE,PERSO
+2026-03-27,Boulangerie Paul,Quotidien > Boulangerie,-3.27,CB BOULANGERIE PAUL,JOINT
+2026-03-27,Brewdog,Sorties > Bars,-21.57,CB BREWDOG,JOINT
+2026-03-26,Esso,Transports > Carburant,-75.96,CB ESSO,PERSO
+2026-03-25,Biocoop,Quotidien > Courses,-111.93,CB BIOCOOP,PERSO
+2026-03-25,Maison Kayser,Quotidien > Boulangerie,-9.02,CB MAISON KAYSER,PERSO
+2026-03-25,Carrefour,Quotidien > Courses,-45.14,CB CARREFOUR,JOINT
+2026-03-25,DGFIP,Taxes > Impôts,-185.15,CB DGFIP,JOINT
+2026-03-24,Biocoop,Quotidien > Courses,-49.61,CB BIOCOOP,PERSO
+2026-03-24,EDF,Maison > Électricité,-65.81,CB EDF,PERSO
+2026-03-24,Biocoop,Quotidien > Courses,-29.22,CB BIOCOOP,JOINT
+2026-03-22,Pizzeria Napoli,Sorties > Restaurants,-27.01,CB PIZZERIA NAPOLI,PERSO
+2026-03-21,Monoprix,Quotidien > Courses,-75.15,CB MONOPRIX,PERSO
+2026-03-21,Boulangerie Paul,Quotidien > Boulangerie,-5.11,CB BOULANGERIE PAUL,PERSO
+2026-03-21,Boulangerie Paul,Quotidien > Boulangerie,-2.8,CB BOULANGERIE PAUL,JOINT
+2026-03-20,SNCF Connect,Transports > Train,-101.9,CB SNCF CONNECT,JOINT
+2026-03-20,EDF,Maison > Électricité,-54.27,CB EDF,JOINT
+2026-03-19,Netflix,Loisirs > Streaming,-16.46,CB NETFLIX,PERSO
+2026-03-19,Restos du Coeur,Dons > Associations,-10.06,CB RESTOS DU COEUR,PERSO
+2026-03-18,Agence Immo,Maison > Loyer,-850.0,CB AGENCE IMMO,PERSO
+2026-03-18,Le Bistrot,Sorties > Restaurants,-40.47,CB LE BISTROT,JOINT
+2026-03-17,Biocoop,Quotidien > Courses,-31.77,CB BIOCOOP,PERSO
+2026-03-17,Pizzeria Napoli,Sorties > Restaurants,-56.51,CB PIZZERIA NAPOLI,PERSO
+2026-03-17,SNCF Connect,Transports > Train,-30.29,CB SNCF CONNECT,PERSO
+2026-03-17,Maison Kayser,Quotidien > Boulangerie,-11.93,CB MAISON KAYSER,JOINT
+2026-03-15,Boulangerie Paul,Quotidien > Boulangerie,-3.34,CB BOULANGERIE PAUL,PERSO
+2026-03-15,Monoprix,Quotidien > Courses,-119.25,CB MONOPRIX,JOINT
+2026-03-15,Croix Rouge,Dons > Associations,-24.81,CB CROIX ROUGE,JOINT
+2026-03-14,Maison Kayser,Quotidien > Boulangerie,-9.48,CB MAISON KAYSER,PERSO
+2026-03-13,Monoprix,Quotidien > Courses,-41.04,CB MONOPRIX,PERSO
+2026-03-13,Monoprix,Quotidien > Courses,-106.31,CB MONOPRIX,JOINT
+2026-03-12,Maison Kayser,Quotidien > Boulangerie,-11.16,CB MAISON KAYSER,PERSO
+2026-03-12,DGFIP,Taxes > Impôts,-160.95,CB DGFIP,PERSO
+2026-03-12,Monoprix,Quotidien > Courses,-82.82,CB MONOPRIX,JOINT
+2026-03-12,Spotify,Loisirs > Streaming,-11.07,CB SPOTIFY,JOINT
+2026-03-11,Netflix,Loisirs > Streaming,-13.83,CB NETFLIX,PERSO
+2026-03-10,Monoprix,Quotidien > Courses,-85.12,CB MONOPRIX,PERSO
+2026-03-10,Pizzeria Napoli,Sorties > Restaurants,-15.19,CB PIZZERIA NAPOLI,JOINT
+2026-03-10,Paiement non catégorisé,,-15.54,CB DIVERS,JOINT
+2026-03-08,Agence Immo,Maison > Loyer,-850.0,CB AGENCE IMMO,JOINT
+2026-03-08,Pharmacie du Centre,Santé > Pharmacie,-6.18,CB PHARMACIE DU CENTRE,JOINT
+2026-03-06,Boulangerie Paul,Quotidien > Boulangerie,-10.6,CB BOULANGERIE PAUL,JOINT
+2026-03-05,Virement épargne,Exclus > Virement interne,-372.75,CB VIREMENT ÉPARGNE,JOINT
+2026-03-04,Decathlon,Loisirs > Sport,-54.18,CB DECATHLON,PERSO
+2026-03-03,Brewdog,Sorties > Bars,-22.3,CB BREWDOG,PERSO
+2026-03-03,Esso,Transports > Carburant,-67.21,CB ESSO,PERSO
+2026-03-02,Carrefour,Quotidien > Courses,-52.75,CB CARREFOUR,PERSO
+2026-03-02,Le Comptoir,Sorties > Bars,-37.35,CB LE COMPTOIR,PERSO
+2026-03-02,Total Energies,Transports > Carburant,-75.01,CB TOTAL ENERGIES,JOINT
+2026-03-01,Salaire,Revenus > Salaire,2600,VIR SEPA,PERSO
+2026-03-01,Virement commun,Revenus > Salaire,1500,VIR SEPA,JOINT
+2026-02-28,Biocoop,Quotidien > Courses,-98.66,CB BIOCOOP,PERSO
+2026-02-28,Maison Kayser,Quotidien > Boulangerie,-7.02,CB MAISON KAYSER,PERSO
+2026-02-28,Le Bistrot,Sorties > Restaurants,-42.25,CB LE BISTROT,JOINT
+2026-02-27,Pharmacie du Centre,Santé > Pharmacie,-21.77,CB PHARMACIE DU CENTRE,PERSO
+2026-02-27,Croix Rouge,Dons > Associations,-22.22,CB CROIX ROUGE,JOINT
+2026-02-26,Biocoop,Quotidien > Courses,-64.83,CB BIOCOOP,PERSO
+2026-02-26,Maison Kayser,Quotidien > Boulangerie,-11.97,CB MAISON KAYSER,JOINT
+2026-02-25,Carrefour,Quotidien > Courses,-44.97,CB CARREFOUR,JOINT
+2026-02-24,EDF,Maison > Électricité,-86.58,CB EDF,PERSO
+2026-02-23,Boulangerie Paul,Quotidien > Boulangerie,-10.48,CB BOULANGERIE PAUL,PERSO
+2026-02-23,Netflix,Loisirs > Streaming,-15.94,CB NETFLIX,PERSO
+2026-02-23,Paiement non catégorisé,,-26.26,CB DIVERS,PERSO
+2026-02-21,Biocoop,Quotidien > Courses,-65.45,CB BIOCOOP,PERSO
+2026-02-21,Virement épargne,Exclus > Virement interne,-210.15,CB VIREMENT ÉPARGNE,PERSO
+2026-02-21,SNCF Connect,Transports > Train,-40.44,CB SNCF CONNECT,JOINT
+2026-02-20,Carrefour,Quotidien > Courses,-87.24,CB CARREFOUR,PERSO
+2026-02-20,Brewdog,Sorties > Bars,-25.48,CB BREWDOG,PERSO
+2026-02-19,Biocoop,Quotidien > Courses,-117.07,CB BIOCOOP,PERSO
+2026-02-19,Carrefour,Quotidien > Courses,-38.89,CB CARREFOUR,PERSO
+2026-02-19,EDF,Maison > Électricité,-78.15,CB EDF,JOINT
+2026-02-18,Boulangerie Paul,Quotidien > Boulangerie,-3.38,CB BOULANGERIE PAUL,PERSO
+2026-02-18,Boulangerie Paul,Quotidien > Boulangerie,-2.89,CB BOULANGERIE PAUL,JOINT
+2026-02-16,Le Bistrot,Sorties > Restaurants,-32.88,CB LE BISTROT,PERSO
+2026-02-16,Decathlon,Loisirs > Sport,-48.2,CB DECATHLON,PERSO
+2026-02-16,Monoprix,Quotidien > Courses,-83.55,CB MONOPRIX,JOINT
+2026-02-16,Paiement non catégorisé,,-19.56,CB DIVERS,JOINT
+2026-02-14,Maison Kayser,Quotidien > Boulangerie,-2.19,CB MAISON KAYSER,PERSO
+2026-02-14,Boulangerie Paul,Quotidien > Boulangerie,-3.51,CB BOULANGERIE PAUL,PERSO
+2026-02-14,Carrefour,Quotidien > Courses,-116.27,CB CARREFOUR,JOINT
+2026-02-13,Esso,Transports > Carburant,-44.87,CB ESSO,PERSO
+2026-02-12,Agence Immo,Maison > Loyer,-850.0,CB AGENCE IMMO,PERSO
+2026-02-11,Le Bistrot,Sorties > Restaurants,-40.28,CB LE BISTROT,PERSO
+2026-02-11,Monoprix,Quotidien > Courses,-83.31,CB MONOPRIX,JOINT
+2026-02-11,Le Comptoir,Sorties > Bars,-17.55,CB LE COMPTOIR,JOINT
+2026-02-11,Total Energies,Transports > Carburant,-47.71,CB TOTAL ENERGIES,JOINT
+2026-02-10,Netflix,Loisirs > Streaming,-14.02,CB NETFLIX,PERSO
+2026-02-10,Esso,Transports > Carburant,-53.95,CB ESSO,PERSO
+2026-02-10,SNCF Connect,Transports > Train,-102.75,CB SNCF CONNECT,PERSO
+2026-02-09,Le Comptoir,Sorties > Bars,-23.49,CB LE COMPTOIR,PERSO
+2026-02-09,Decathlon,Loisirs > Sport,-54.04,CB DECATHLON,JOINT
+2026-02-08,DGFIP,Taxes > Impôts,-166.38,CB DGFIP,PERSO
+2026-02-07,Boulangerie Paul,Quotidien > Boulangerie,-7.73,CB BOULANGERIE PAUL,PERSO
+2026-02-06,Sushi Shop,Sorties > Restaurants,-43.9,CB SUSHI SHOP,PERSO
+2026-02-06,Boulangerie Paul,Quotidien > Boulangerie,-9.39,CB BOULANGERIE PAUL,JOINT
+2026-02-06,Pharmacie du Centre,Santé > Pharmacie,-28.6,CB PHARMACIE DU CENTRE,JOINT
+2026-02-06,Virement épargne,Exclus > Virement interne,-280.17,CB VIREMENT ÉPARGNE,JOINT
+2026-02-05,Monoprix,Quotidien > Courses,-90.72,CB MONOPRIX,PERSO
+2026-02-05,Croix Rouge,Dons > Associations,-20.77,CB CROIX ROUGE,PERSO
+2026-02-05,Spotify,Loisirs > Streaming,-11.56,CB SPOTIFY,JOINT
+2026-02-04,Remboursement Ameli,Santé > Pharmacie,15.33,VIR CPAM,PERSO
+2026-02-03,DGFIP,Taxes > Impôts,-214.16,CB DGFIP,JOINT
+2026-02-02,Carrefour,Quotidien > Courses,-101.27,CB CARREFOUR,PERSO
+2026-02-02,Boulangerie Paul,Quotidien > Boulangerie,-6.18,CB BOULANGERIE PAUL,JOINT
+2026-02-01,Salaire,Revenus > Salaire,2600,VIR SEPA,PERSO
+2026-02-01,Virement commun,Revenus > Salaire,1500,VIR SEPA,JOINT
+2026-02-01,Carrefour,Quotidien > Courses,-86.53,CB CARREFOUR,JOINT
+2026-02-01,Pizzeria Napoli,Sorties > Restaurants,-65.93,CB PIZZERIA NAPOLI,JOINT
+2026-02-01,Agence Immo,Maison > Loyer,-850.0,CB AGENCE IMMO,JOINT
+2026-01-31,EDF,Maison > Électricité,-72.69,CB EDF,PERSO
+2026-01-31,Remboursement Ameli,Santé > Pharmacie,14.83,VIR CPAM,PERSO
+2026-01-29,Maison Kayser,Quotidien > Boulangerie,-8.39,CB MAISON KAYSER,PERSO
+2026-01-28,Monoprix,Quotidien > Courses,-113.79,CB MONOPRIX,PERSO
+2026-01-28,Spotify,Loisirs > Streaming,-14.46,CB SPOTIFY,PERSO
+2026-01-28,Agence Immo,Maison > Loyer,-850.0,CB AGENCE IMMO,PERSO
+2026-01-27,Monoprix,Quotidien > Courses,-109.71,CB MONOPRIX,PERSO
+2026-01-27,Boulangerie Paul,Quotidien > Boulangerie,-11.24,CB BOULANGERIE PAUL,PERSO
+2026-01-27,Pharmacie du Centre,Santé > Pharmacie,-35.29,CB PHARMACIE DU CENTRE,PERSO
+2026-01-27,Virement épargne,Exclus > Virement interne,-312.58,CB VIREMENT ÉPARGNE,JOINT
+2026-01-25,Maison Kayser,Quotidien > Boulangerie,-10.82,CB MAISON KAYSER,JOINT
+2026-01-24,Biocoop,Quotidien > Courses,-32.98,CB BIOCOOP,PERSO
+2026-01-23,Pizzeria Napoli,Sorties > Restaurants,-31.36,CB PIZZERIA NAPOLI,PERSO
+2026-01-23,DGFIP,Taxes > Impôts,-200.46,CB DGFIP,JOINT
+2026-01-22,Biocoop,Quotidien > Courses,-107.65,CB BIOCOOP,JOINT
+2026-01-22,Le Bistrot,Sorties > Restaurants,-60.39,CB LE BISTROT,JOINT
+2026-01-21,Carrefour,Quotidien > Courses,-23.28,CB CARREFOUR,PERSO
+2026-01-21,Maison Kayser,Quotidien > Boulangerie,-11.49,CB MAISON KAYSER,PERSO
+2026-01-21,Maison Kayser,Quotidien > Boulangerie,-8.27,CB MAISON KAYSER,PERSO
+2026-01-20,Maison Kayser,Quotidien > Boulangerie,-4.11,CB MAISON KAYSER,PERSO
+2026-01-20,Monoprix,Quotidien > Courses,-20.31,CB MONOPRIX,JOINT
+2026-01-19,Croix Rouge,Dons > Associations,-17.86,CB CROIX ROUGE,JOINT
+2026-01-18,Biocoop,Quotidien > Courses,-80.63,CB BIOCOOP,PERSO
+2026-01-18,Spotify,Loisirs > Streaming,-12.55,CB SPOTIFY,JOINT
+2026-01-17,Decathlon,Loisirs > Sport,-25.23,CB DECATHLON,PERSO
+2026-01-17,DGFIP,Taxes > Impôts,-264.47,CB DGFIP,PERSO
+2026-01-17,Esso,Transports > Carburant,-64.1,CB ESSO,JOINT
+2026-01-17,Agence Immo,Maison > Loyer,-850.0,CB AGENCE IMMO,JOINT
+2026-01-16,Virement épargne,Exclus > Virement interne,-293.36,CB VIREMENT ÉPARGNE,PERSO
+2026-01-15,Esso,Transports > Carburant,-58.66,CB ESSO,PERSO
+2026-01-15,Paiement non catégorisé,,-48.5,CB DIVERS,PERSO
+2026-01-14,Brewdog,Sorties > Bars,-9.92,CB BREWDOG,PERSO
+2026-01-14,Paiement non catégorisé,,-31.27,CB DIVERS,JOINT
+2026-01-13,Le Bistrot,Sorties > Restaurants,-59.26,CB LE BISTROT,PERSO
+2026-01-13,Spotify,Loisirs > Streaming,-15.47,CB SPOTIFY,PERSO
+2026-01-13,Boulangerie Paul,Quotidien > Boulangerie,-6.03,CB BOULANGERIE PAUL,JOINT
+2026-01-13,Boulangerie Paul,Quotidien > Boulangerie,-7.53,CB BOULANGERIE PAUL,JOINT
+2026-01-12,Boulangerie Paul,Quotidien > Boulangerie,-2.51,CB BOULANGERIE PAUL,JOINT
+2026-01-11,Le Comptoir,Sorties > Bars,-23.5,CB LE COMPTOIR,PERSO
+2026-01-11,EDF,Maison > Électricité,-65.56,CB EDF,JOINT
+2026-01-11,Remboursement Ameli,Santé > Pharmacie,21.85,VIR CPAM,JOINT
+2026-01-09,Le Bistrot,Sorties > Restaurants,-42.73,CB LE BISTROT,JOINT
+2026-01-08,Sushi Shop,Sorties > Restaurants,-67.62,CB SUSHI SHOP,PERSO
+2026-01-08,Esso,Transports > Carburant,-62.47,CB ESSO,PERSO
+2026-01-07,Croix Rouge,Dons > Associations,-16.55,CB CROIX ROUGE,PERSO
+2026-01-07,Basic Fit,Loisirs > Sport,-57.56,CB BASIC FIT,JOINT
+2026-01-06,Biocoop,Quotidien > Courses,-24.81,CB BIOCOOP,PERSO
+2026-01-06,Pharmacie du Centre,Santé > Pharmacie,-37.6,CB PHARMACIE DU CENTRE,JOINT
+2026-01-05,Monoprix,Quotidien > Courses,-115.42,CB MONOPRIX,PERSO
+2026-01-05,Biocoop,Quotidien > Courses,-77.14,CB BIOCOOP,PERSO
+2026-01-05,Monoprix,Quotidien > Courses,-103.95,CB MONOPRIX,JOINT
+2026-01-05,SNCF Connect,Transports > Train,-28.82,CB SNCF CONNECT,JOINT
+2026-01-04,Le Comptoir,Sorties > Bars,-27.55,CB LE COMPTOIR,JOINT
+2026-01-02,Boulangerie Paul,Quotidien > Boulangerie,-10.64,CB BOULANGERIE PAUL,PERSO
+2026-01-02,SNCF Connect,Transports > Train,-48.55,CB SNCF CONNECT,PERSO
+2026-01-02,Monoprix,Quotidien > Courses,-37.59,CB MONOPRIX,JOINT
+2026-01-01,Salaire,Revenus > Salaire,2600,VIR SEPA,PERSO
+2026-01-01,Virement commun,Revenus > Salaire,1500,VIR SEPA,JOINT
+2026-01-01,Biocoop,Quotidien > Courses,-64.41,CB BIOCOOP,JOINT
+2025-12-31,Le Comptoir,Sorties > Bars,-24.42,CB LE COMPTOIR,PERSO
+2025-12-31,Esso,Transports > Carburant,-46.14,CB ESSO,PERSO
+2025-12-31,Biocoop,Quotidien > Courses,-119.71,CB BIOCOOP,JOINT
+2025-12-29,Monoprix,Quotidien > Courses,-98.93,CB MONOPRIX,PERSO
+2025-12-29,Monoprix,Quotidien > Courses,-57.0,CB MONOPRIX,PERSO
+2025-12-28,Carrefour,Quotidien > Courses,-105.52,CB CARREFOUR,PERSO
+2025-12-28,Maison Kayser,Quotidien > Boulangerie,-7.42,CB MAISON KAYSER,JOINT
+2025-12-27,Esso,Transports > Carburant,-56.43,CB ESSO,JOINT
+2025-12-27,DGFIP,Taxes > Impôts,-286.61,CB DGFIP,JOINT
+2025-12-26,Boulangerie Paul,Quotidien > Boulangerie,-3.58,CB BOULANGERIE PAUL,JOINT
+2025-12-25,Netflix,Loisirs > Streaming,-10.14,CB NETFLIX,PERSO
+2025-12-25,Esso,Transports > Carburant,-54.84,CB ESSO,PERSO
+2025-12-25,Pharmacie du Centre,Santé > Pharmacie,-35.73,CB PHARMACIE DU CENTRE,JOINT
+2025-12-23,Virement épargne,Exclus > Virement interne,-399.27,CB VIREMENT ÉPARGNE,PERSO
+2025-12-22,Monoprix,Quotidien > Courses,-103.78,CB MONOPRIX,JOINT
+2025-12-21,Sushi Shop,Sorties > Restaurants,-69.9,CB SUSHI SHOP,PERSO
+2025-12-21,Agence Immo,Maison > Loyer,-850.0,CB AGENCE IMMO,PERSO
+2025-12-20,Maison Kayser,Quotidien > Boulangerie,-2.42,CB MAISON KAYSER,PERSO
+2025-12-20,Basic Fit,Loisirs > Sport,-57.98,CB BASIC FIT,PERSO
+2025-12-20,Le Comptoir,Sorties > Bars,-33.72,CB LE COMPTOIR,JOINT
+2025-12-18,Boulangerie Paul,Quotidien > Boulangerie,-2.79,CB BOULANGERIE PAUL,PERSO
+2025-12-18,Carrefour,Quotidien > Courses,-51.48,CB CARREFOUR,JOINT
+2025-12-17,SNCF Connect,Transports > Train,-32.3,CB SNCF CONNECT,PERSO
+2025-12-17,Pharmacie du Centre,Santé > Pharmacie,-30.75,CB PHARMACIE DU CENTRE,PERSO
+2025-12-17,Decathlon,Loisirs > Sport,-35.93,CB DECATHLON,JOINT
+2025-12-17,Croix Rouge,Dons > Associations,-29.33,CB CROIX ROUGE,JOINT
+2025-12-16,Paiement non catégorisé,,-14.01,CB DIVERS,PERSO
+2025-12-15,Maison Kayser,Quotidien > Boulangerie,-8.9,CB MAISON KAYSER,PERSO
+2025-12-15,Carrefour,Quotidien > Courses,-29.25,CB CARREFOUR,JOINT
+2025-12-15,Biocoop,Quotidien > Courses,-33.13,CB BIOCOOP,JOINT
+2025-12-15,Sushi Shop,Sorties > Restaurants,-45.47,CB SUSHI SHOP,JOINT
+2025-12-15,Agence Immo,Maison > Loyer,-850.0,CB AGENCE IMMO,JOINT
+2025-12-14,Biocoop,Quotidien > Courses,-99.12,CB BIOCOOP,PERSO
+2025-12-13,Spotify,Loisirs > Streaming,-14.81,CB SPOTIFY,PERSO
+2025-12-12,Monoprix,Quotidien > Courses,-67.1,CB MONOPRIX,PERSO
+2025-12-12,Sushi Shop,Sorties > Restaurants,-51.92,CB SUSHI SHOP,PERSO
+2025-12-12,Pizzeria Napoli,Sorties > Restaurants,-58.47,CB PIZZERIA NAPOLI,JOINT
+2025-12-11,SNCF Connect,Transports > Train,-79.62,CB SNCF CONNECT,JOINT
+2025-12-11,Remboursement Ameli,Santé > Pharmacie,28.37,VIR CPAM,JOINT
+2025-12-10,Maison Kayser,Quotidien > Boulangerie,-5.28,CB MAISON KAYSER,PERSO
+2025-12-10,Netflix,Loisirs > Streaming,-16.96,CB NETFLIX,JOINT
+2025-12-10,Virement épargne,Exclus > Virement interne,-224.83,CB VIREMENT ÉPARGNE,JOINT
+2025-12-09,Biocoop,Quotidien > Courses,-112.05,CB BIOCOOP,PERSO
+2025-12-09,Restos du Coeur,Dons > Associations,-17.74,CB RESTOS DU COEUR,PERSO
+2025-12-08,Boulangerie Paul,Quotidien > Boulangerie,-11.85,CB BOULANGERIE PAUL,JOINT
+2025-12-08,Paiement non catégorisé,,-20.57,CB DIVERS,JOINT
+2025-12-07,DGFIP,Taxes > Impôts,-266.24,CB DGFIP,PERSO
+2025-12-06,Monoprix,Quotidien > Courses,-115.43,CB MONOPRIX,PERSO
+2025-12-06,Maison Kayser,Quotidien > Boulangerie,-6.46,CB MAISON KAYSER,PERSO
+2025-12-05,EDF,Maison > Électricité,-75.6,CB EDF,JOINT
+2025-12-04,Monoprix,Quotidien > Courses,-83.85,CB MONOPRIX,PERSO
+2025-12-04,Boulangerie Paul,Quotidien > Boulangerie,-5.61,CB BOULANGERIE PAUL,JOINT
+2025-12-03,Boulangerie Paul,Quotidien > Boulangerie,-4.94,CB BOULANGERIE PAUL,PERSO
+2025-12-03,Pizzeria Napoli,Sorties > Restaurants,-68.9,CB PIZZERIA NAPOLI,PERSO
+2025-12-02,Brewdog,Sorties > Bars,-9.0,CB BREWDOG,PERSO
+2025-12-01,Salaire,Revenus > Salaire,2600,VIR SEPA,PERSO
+2025-12-01,EDF,Maison > Électricité,-57.54,CB EDF,PERSO
+2025-12-01,Virement commun,Revenus > Salaire,1500,VIR SEPA,JOINT
+2025-11-30,Pizzeria Napoli,Sorties > Restaurants,-60.71,CB PIZZERIA NAPOLI,PERSO
+2025-11-30,Decathlon,Loisirs > Sport,-28.98,CB DECATHLON,PERSO
+2025-11-29,Monoprix,Quotidien > Courses,-47.49,CB MONOPRIX,PERSO
+2025-11-29,Brewdog,Sorties > Bars,-15.11,CB BREWDOG,PERSO
+2025-11-28,Boulangerie Paul,Quotidien > Boulangerie,-4.0,CB BOULANGERIE PAUL,PERSO
+2025-11-28,Maison Kayser,Quotidien > Boulangerie,-4.5,CB MAISON KAYSER,PERSO
+2025-11-27,Boulangerie Paul,Quotidien > Boulangerie,-7.27,CB BOULANGERIE PAUL,PERSO
+2025-11-27,Esso,Transports > Carburant,-41.77,CB ESSO,JOINT
+2025-11-27,DGFIP,Taxes > Impôts,-290.01,CB DGFIP,JOINT
+2025-11-26,Biocoop,Quotidien > Courses,-44.92,CB BIOCOOP,PERSO
+2025-11-26,Esso,Transports > Carburant,-43.96,CB ESSO,PERSO
+2025-11-26,Sushi Shop,Sorties > Restaurants,-56.1,CB SUSHI SHOP,JOINT
+2025-11-26,Agence Immo,Maison > Loyer,-850.0,CB AGENCE IMMO,JOINT
+2025-11-26,Pharmacie du Centre,Santé > Pharmacie,-15.27,CB PHARMACIE DU CENTRE,JOINT
+2025-11-25,Netflix,Loisirs > Streaming,-14.91,CB NETFLIX,JOINT
+2025-11-24,Le Comptoir,Sorties > Bars,-10.16,CB LE COMPTOIR,JOINT
+2025-11-23,Boulangerie Paul,Quotidien > Boulangerie,-5.71,CB BOULANGERIE PAUL,PERSO
+2025-11-23,SNCF Connect,Transports > Train,-112.15,CB SNCF CONNECT,PERSO
+2025-11-23,SNCF Connect,Transports > Train,-86.07,CB SNCF CONNECT,JOINT
+2025-11-22,Monoprix,Quotidien > Courses,-19.59,CB MONOPRIX,PERSO
+2025-11-22,Monoprix,Quotidien > Courses,-102.69,CB MONOPRIX,PERSO
+2025-11-21,Boulangerie Paul,Quotidien > Boulangerie,-10.73,CB BOULANGERIE PAUL,JOINT
+2025-11-20,Monoprix,Quotidien > Courses,-90.56,CB MONOPRIX,PERSO
+2025-11-20,Paiement non catégorisé,,-25.57,CB DIVERS,PERSO
+2025-11-20,Monoprix,Quotidien > Courses,-26.64,CB MONOPRIX,JOINT
+2025-11-20,Carrefour,Quotidien > Courses,-45.58,CB CARREFOUR,JOINT
+2025-11-18,Pharmacie du Centre,Santé > Pharmacie,-13.96,CB PHARMACIE DU CENTRE,PERSO
+2025-11-17,Maison Kayser,Quotidien > Boulangerie,-9.69,CB MAISON KAYSER,PERSO
+2025-11-17,Biocoop,Quotidien > Courses,-71.29,CB BIOCOOP,JOINT
+2025-11-17,Boulangerie Paul,Quotidien > Boulangerie,-3.87,CB BOULANGERIE PAUL,JOINT
+2025-11-17,Boulangerie Paul,Quotidien > Boulangerie,-11.75,CB BOULANGERIE PAUL,JOINT
+2025-11-15,Biocoop,Quotidien > Courses,-109.78,CB BIOCOOP,PERSO
+2025-11-15,Monoprix,Quotidien > Courses,-114.45,CB MONOPRIX,PERSO
+2025-11-15,Agence Immo,Maison > Loyer,-850.0,CB AGENCE IMMO,PERSO
+2025-11-14,Le Comptoir,Sorties > Bars,-19.19,CB LE COMPTOIR,PERSO
+2025-11-14,Virement épargne,Exclus > Virement interne,-224.37,CB VIREMENT ÉPARGNE,PERSO
+2025-11-14,Biocoop,Quotidien > Courses,-52.05,CB BIOCOOP,JOINT
+2025-11-13,Boulangerie Paul,Quotidien > Boulangerie,-7.44,CB BOULANGERIE PAUL,JOINT
+2025-11-12,Netflix,Loisirs > Streaming,-12.48,CB NETFLIX,PERSO
+2025-11-11,Restos du Coeur,Dons > Associations,-13.99,CB RESTOS DU COEUR,JOINT
+2025-11-10,Boulangerie Paul,Quotidien > Boulangerie,-10.46,CB BOULANGERIE PAUL,PERSO
+2025-11-10,Total Energies,Transports > Carburant,-45.84,CB TOTAL ENERGIES,PERSO
+2025-11-10,DGFIP,Taxes > Impôts,-266.43,CB DGFIP,PERSO
+2025-11-09,Pizzeria Napoli,Sorties > Restaurants,-19.61,CB PIZZERIA NAPOLI,PERSO
+2025-11-09,Sushi Shop,Sorties > Restaurants,-36.28,CB SUSHI SHOP,JOINT
+2025-11-08,Biocoop,Quotidien > Courses,-62.14,CB BIOCOOP,PERSO
+2025-11-08,Spotify,Loisirs > Streaming,-9.48,CB SPOTIFY,PERSO
+2025-11-07,Paiement non catégorisé,,-17.87,CB DIVERS,JOINT
+2025-11-05,Le Bistrot,Sorties > Restaurants,-39.71,CB LE BISTROT,PERSO
+2025-11-05,Biocoop,Quotidien > Courses,-75.38,CB BIOCOOP,JOINT
+2025-11-05,Decathlon,Loisirs > Sport,-43.28,CB DECATHLON,JOINT
+2025-11-04,Croix Rouge,Dons > Associations,-28.8,CB CROIX ROUGE,PERSO
+2025-11-02,EDF,Maison > Électricité,-51.07,CB EDF,JOINT
+2025-11-02,Virement épargne,Exclus > Virement interne,-308.61,CB VIREMENT ÉPARGNE,JOINT
+2025-11-01,Salaire,Revenus > Salaire,2600,VIR SEPA,PERSO
+2025-11-01,EDF,Maison > Électricité,-72.69,CB EDF,PERSO
+2025-11-01,Virement commun,Revenus > Salaire,1500,VIR SEPA,JOINT
+2025-10-31,Restos du Coeur,Dons > Associations,-22.1,CB RESTOS DU COEUR,PERSO
+2025-10-31,SNCF Connect,Transports > Train,-59.45,CB SNCF CONNECT,JOINT
+2025-10-30,Le Bistrot,Sorties > Restaurants,-46.87,CB LE BISTROT,PERSO
+2025-10-30,Boulangerie Paul,Quotidien > Boulangerie,-2.82,CB BOULANGERIE PAUL,JOINT
+2025-10-29,Boulangerie Paul,Quotidien > Boulangerie,-3.14,CB BOULANGERIE PAUL,PERSO
+2025-10-28,Brewdog,Sorties > Bars,-36.23,CB BREWDOG,PERSO
+2025-10-27,Monoprix,Quotidien > Courses,-114.5,CB MONOPRIX,PERSO
+2025-10-27,Spotify,Loisirs > Streaming,-14.03,CB SPOTIFY,JOINT
+2025-10-26,Carrefour,Quotidien > Courses,-116.45,CB CARREFOUR,PERSO
+2025-10-26,DGFIP,Taxes > Impôts,-159.28,CB DGFIP,PERSO
+2025-10-25,Monoprix,Quotidien > Courses,-50.65,CB MONOPRIX,PERSO
+2025-10-25,Boulangerie Paul,Quotidien > Boulangerie,-3.73,CB BOULANGERIE PAUL,PERSO
+2025-10-25,Le Bistrot,Sorties > Restaurants,-40.52,CB LE BISTROT,PERSO
+2025-10-25,Paiement non catégorisé,,-33.11,CB DIVERS,JOINT
+2025-10-24,Monoprix,Quotidien > Courses,-23.26,CB MONOPRIX,PERSO
+2025-10-24,Maison Kayser,Quotidien > Boulangerie,-9.76,CB MAISON KAYSER,PERSO
+2025-10-23,Virement épargne,Exclus > Virement interne,-379.83,CB VIREMENT ÉPARGNE,PERSO
+2025-10-23,Le Bistrot,Sorties > Restaurants,-34.24,CB LE BISTROT,JOINT
+2025-10-22,Restos du Coeur,Dons > Associations,-25.42,CB RESTOS DU COEUR,JOINT
+2025-10-21,Biocoop,Quotidien > Courses,-32.65,CB BIOCOOP,PERSO
+2025-10-21,Remboursement Ameli,Santé > Pharmacie,9.31,VIR CPAM,PERSO
+2025-10-21,Biocoop,Quotidien > Courses,-20.5,CB BIOCOOP,JOINT
+2025-10-21,Basic Fit,Loisirs > Sport,-25.11,CB BASIC FIT,JOINT
+2025-10-20,SNCF Connect,Transports > Train,-86.24,CB SNCF CONNECT,PERSO
+2025-10-20,Biocoop,Quotidien > Courses,-96.32,CB BIOCOOP,JOINT
+2025-10-20,Pizzeria Napoli,Sorties > Restaurants,-51.42,CB PIZZERIA NAPOLI,JOINT
+2025-10-20,DGFIP,Taxes > Impôts,-200.51,CB DGFIP,JOINT
+2025-10-19,Spotify,Loisirs > Streaming,-14.68,CB SPOTIFY,PERSO
+2025-10-17,Monoprix,Quotidien > Courses,-60.75,CB MONOPRIX,PERSO
+2025-10-17,Biocoop,Quotidien > Courses,-119.05,CB BIOCOOP,JOINT
+2025-10-17,Pharmacie du Centre,Santé > Pharmacie,-7.7,CB PHARMACIE DU CENTRE,JOINT
+2025-10-16,Le Bistrot,Sorties > Restaurants,-67.32,CB LE BISTROT,PERSO
+2025-10-15,Spotify,Loisirs > Streaming,-12.96,CB SPOTIFY,PERSO
+2025-10-15,Agence Immo,Maison > Loyer,-850.0,CB AGENCE IMMO,PERSO
+2025-10-15,EDF,Maison > Électricité,-71.11,CB EDF,PERSO
+2025-10-14,Monoprix,Quotidien > Courses,-111.38,CB MONOPRIX,JOINT
+2025-10-12,Monoprix,Quotidien > Courses,-79.03,CB MONOPRIX,JOINT
+2025-10-11,Pharmacie du Centre,Santé > Pharmacie,-36.82,CB PHARMACIE DU CENTRE,PERSO
+2025-10-11,Boulangerie Paul,Quotidien > Boulangerie,-4.52,CB BOULANGERIE PAUL,JOINT
+2025-10-10,Basic Fit,Loisirs > Sport,-22.25,CB BASIC FIT,PERSO
+2025-10-10,Maison Kayser,Quotidien > Boulangerie,-7.58,CB MAISON KAYSER,JOINT
+2025-10-10,Le Comptoir,Sorties > Bars,-30.68,CB LE COMPTOIR,JOINT
+2025-10-08,Carrefour,Quotidien > Courses,-60.85,CB CARREFOUR,PERSO
+2025-10-08,Boulangerie Paul,Quotidien > Boulangerie,-11.58,CB BOULANGERIE PAUL,PERSO
+2025-10-08,Paiement non catégorisé,,-36.84,CB DIVERS,PERSO
+2025-10-07,Maison Kayser,Quotidien > Boulangerie,-3.03,CB MAISON KAYSER,PERSO
+2025-10-07,Agence Immo,Maison > Loyer,-850.0,CB AGENCE IMMO,JOINT
+2025-10-06,Boulangerie Paul,Quotidien > Boulangerie,-9.59,CB BOULANGERIE PAUL,PERSO
+2025-10-06,Virement épargne,Exclus > Virement interne,-275.34,CB VIREMENT ÉPARGNE,JOINT
+2025-10-05,Brewdog,Sorties > Bars,-39.07,CB BREWDOG,PERSO
+2025-10-05,EDF,Maison > Électricité,-55.19,CB EDF,JOINT
+2025-10-04,Maison Kayser,Quotidien > Boulangerie,-5.35,CB MAISON KAYSER,JOINT
+2025-10-03,Monoprix,Quotidien > Courses,-87.41,CB MONOPRIX,PERSO
+2025-10-03,Esso,Transports > Carburant,-54.75,CB ESSO,PERSO
+2025-10-02,Total Energies,Transports > Carburant,-58.47,CB TOTAL ENERGIES,PERSO
+2025-10-01,Salaire,Revenus > Salaire,2600,VIR SEPA,PERSO
+2025-10-01,Virement commun,Revenus > Salaire,1500,VIR SEPA,JOINT
+2025-10-01,Esso,Transports > Carburant,-66.82,CB ESSO,JOINT
+2025-09-30,Croix Rouge,Dons > Associations,-13.61,CB CROIX ROUGE,PERSO
+2025-09-29,Carrefour,Quotidien > Courses,-110.52,CB CARREFOUR,PERSO
+2025-09-28,Brewdog,Sorties > Bars,-11.91,CB BREWDOG,PERSO
+2025-09-28,Spotify,Loisirs > Streaming,-14.99,CB SPOTIFY,PERSO
+2025-09-28,Total Energies,Transports > Carburant,-66.27,CB TOTAL ENERGIES,PERSO
+2025-09-28,DGFIP,Taxes > Impôts,-152.81,CB DGFIP,JOINT
+2025-09-26,Agence Immo,Maison > Loyer,-850.0,CB AGENCE IMMO,PERSO
+2025-09-25,Basic Fit,Loisirs > Sport,-28.18,CB BASIC FIT,JOINT
+2025-09-24,Le Bistrot,Sorties > Restaurants,-38.75,CB LE BISTROT,PERSO
+2025-09-23,Monoprix,Quotidien > Courses,-87.04,CB MONOPRIX,PERSO
+2025-09-23,Biocoop,Quotidien > Courses,-81.47,CB BIOCOOP,PERSO
+2025-09-22,Brewdog,Sorties > Bars,-9.92,CB BREWDOG,PERSO
+2025-09-22,Sushi Shop,Sorties > Restaurants,-38.65,CB SUSHI SHOP,JOINT
+2025-09-21,Remboursement Ameli,Santé > Pharmacie,29.3,VIR CPAM,PERSO
+2025-09-21,Remboursement Ameli,Santé > Pharmacie,15.44,VIR CPAM,JOINT
+2025-09-20,Monoprix,Quotidien > Courses,-21.9,CB MONOPRIX,PERSO
+2025-09-20,Biocoop,Quotidien > Courses,-45.96,CB BIOCOOP,PERSO
+2025-09-20,EDF,Maison > Électricité,-64.31,CB EDF,PERSO
+2025-09-20,Biocoop,Quotidien > Courses,-90.77,CB BIOCOOP,JOINT
+2025-09-20,Maison Kayser,Quotidien > Boulangerie,-8.62,CB MAISON KAYSER,JOINT
+2025-09-19,Virement épargne,Exclus > Virement interne,-262.61,CB VIREMENT ÉPARGNE,JOINT
+2025-09-18,Pizzeria Napoli,Sorties > Restaurants,-35.5,CB PIZZERIA NAPOLI,PERSO
+2025-09-17,Biocoop,Quotidien > Courses,-49.14,CB BIOCOOP,PERSO
+2025-09-17,Sushi Shop,Sorties > Restaurants,-52.32,CB SUSHI SHOP,JOINT
+2025-09-17,EDF,Maison > Électricité,-62.11,CB EDF,JOINT
+2025-09-16,SNCF Connect,Transports > Train,-56.17,CB SNCF CONNECT,JOINT
+2025-09-15,Monoprix,Quotidien > Courses,-37.59,CB MONOPRIX,JOINT
+2025-09-15,Maison Kayser,Quotidien > Boulangerie,-8.74,CB MAISON KAYSER,JOINT
+2025-09-14,Boulangerie Paul,Quotidien > Boulangerie,-10.53,CB BOULANGERIE PAUL,PERSO
+2025-09-14,Boulangerie Paul,Quotidien > Boulangerie,-6.52,CB BOULANGERIE PAUL,PERSO
+2025-09-14,Restos du Coeur,Dons > Associations,-17.94,CB RESTOS DU COEUR,JOINT
+2025-09-13,Maison Kayser,Quotidien > Boulangerie,-5.39,CB MAISON KAYSER,PERSO
+2025-09-12,Maison Kayser,Quotidien > Boulangerie,-6.27,CB MAISON KAYSER,PERSO
+2025-09-12,Boulangerie Paul,Quotidien > Boulangerie,-9.55,CB BOULANGERIE PAUL,JOINT
+2025-09-11,Boulangerie Paul,Quotidien > Boulangerie,-6.16,CB BOULANGERIE PAUL,PERSO
+2025-09-10,Netflix,Loisirs > Streaming,-17.24,CB NETFLIX,PERSO
+2025-09-10,Monoprix,Quotidien > Courses,-50.79,CB MONOPRIX,JOINT
+2025-09-10,Esso,Transports > Carburant,-45.49,CB ESSO,JOINT
+2025-09-08,Le Comptoir,Sorties > Bars,-29.35,CB LE COMPTOIR,JOINT
+2025-09-07,Maison Kayser,Quotidien > Boulangerie,-6.42,CB MAISON KAYSER,JOINT
+2025-09-06,DGFIP,Taxes > Impôts,-200.97,CB DGFIP,PERSO
+2025-09-05,Biocoop,Quotidien > Courses,-23.48,CB BIOCOOP,PERSO
+2025-09-05,Total Energies,Transports > Carburant,-63.12,CB TOTAL ENERGIES,PERSO
+2025-09-05,Carrefour,Quotidien > Courses,-23.92,CB CARREFOUR,JOINT
+2025-09-05,Agence Immo,Maison > Loyer,-850.0,CB AGENCE IMMO,JOINT
+2025-09-04,Biocoop,Quotidien > Courses,-60.17,CB BIOCOOP,PERSO
+2025-09-04,Decathlon,Loisirs > Sport,-44.02,CB DECATHLON,PERSO
+2025-09-04,SNCF Connect,Transports > Train,-35.28,CB SNCF CONNECT,PERSO
+2025-09-04,Paiement non catégorisé,,-23.23,CB DIVERS,JOINT
+2025-09-03,Maison Kayser,Quotidien > Boulangerie,-11.54,CB MAISON KAYSER,PERSO
+2025-09-03,Pizzeria Napoli,Sorties > Restaurants,-20.02,CB PIZZERIA NAPOLI,PERSO
+2025-09-03,Virement épargne,Exclus > Virement interne,-373.97,CB VIREMENT ÉPARGNE,PERSO
+2025-09-03,Paiement non catégorisé,,-38.58,CB DIVERS,PERSO
+2025-09-03,Pharmacie du Centre,Santé > Pharmacie,-24.56,CB PHARMACIE DU CENTRE,JOINT
+2025-09-02,Biocoop,Quotidien > Courses,-31.53,CB BIOCOOP,JOINT
+2025-09-01,Salaire,Revenus > Salaire,2600,VIR SEPA,PERSO
+2025-09-01,Pharmacie du Centre,Santé > Pharmacie,-37.52,CB PHARMACIE DU CENTRE,PERSO
+2025-09-01,Virement commun,Revenus > Salaire,1500,VIR SEPA,JOINT
+2025-09-01,Netflix,Loisirs > Streaming,-12.56,CB NETFLIX,JOINT
+2025-08-31,Monoprix,Quotidien > Courses,-110.98,CB MONOPRIX,PERSO
+2025-08-31,Maison Kayser,Quotidien > Boulangerie,-11.67,CB MAISON KAYSER,PERSO
+2025-08-31,Le Bistrot,Sorties > Restaurants,-47.15,CB LE BISTROT,PERSO
+2025-08-31,Pharmacie du Centre,Santé > Pharmacie,-22.13,CB PHARMACIE DU CENTRE,PERSO
+2025-08-31,Carrefour,Quotidien > Courses,-56.8,CB CARREFOUR,JOINT
+2025-08-30,Brewdog,Sorties > Bars,-23.09,CB BREWDOG,PERSO
+2025-08-29,Biocoop,Quotidien > Courses,-28.88,CB BIOCOOP,PERSO
+2025-08-29,Total Energies,Transports > Carburant,-44.64,CB TOTAL ENERGIES,PERSO
+2025-08-29,Agence Immo,Maison > Loyer,-850.0,CB AGENCE IMMO,PERSO
+2025-08-28,Biocoop,Quotidien > Courses,-99.68,CB BIOCOOP,PERSO
+2025-08-28,Paiement non catégorisé,,-23.07,CB DIVERS,JOINT
+2025-08-27,EDF,Maison > Électricité,-63.67,CB EDF,PERSO
+2025-08-25,Boulangerie Paul,Quotidien > Boulangerie,-11.63,CB BOULANGERIE PAUL,PERSO
+2025-08-24,Monoprix,Quotidien > Courses,-18.5,CB MONOPRIX,PERSO
+2025-08-24,Restos du Coeur,Dons > Associations,-14.43,CB RESTOS DU COEUR,JOINT
+2025-08-23,Restos du Coeur,Dons > Associations,-29.03,CB RESTOS DU COEUR,PERSO
+2025-08-21,Le Comptoir,Sorties > Bars,-27.52,CB LE COMPTOIR,PERSO
+2025-08-21,Spotify,Loisirs > Streaming,-16.41,CB SPOTIFY,PERSO
+2025-08-21,Biocoop,Quotidien > Courses,-84.59,CB BIOCOOP,JOINT
+2025-08-19,SNCF Connect,Transports > Train,-60.25,CB SNCF CONNECT,PERSO
+2025-08-19,Boulangerie Paul,Quotidien > Boulangerie,-10.3,CB BOULANGERIE PAUL,JOINT
+2025-08-19,Basic Fit,Loisirs > Sport,-20.59,CB BASIC FIT,JOINT
+2025-08-17,Biocoop,Quotidien > Courses,-117.01,CB BIOCOOP,PERSO
+2025-08-17,SNCF Connect,Transports > Train,-29.98,CB SNCF CONNECT,JOINT
+2025-08-17,EDF,Maison > Électricité,-65.17,CB EDF,JOINT
+2025-08-17,Pharmacie du Centre,Santé > Pharmacie,-25.78,CB PHARMACIE DU CENTRE,JOINT
+2025-08-16,Decathlon,Loisirs > Sport,-57.85,CB DECATHLON,PERSO
+2025-08-16,Agence Immo,Maison > Loyer,-850.0,CB AGENCE IMMO,JOINT
+2025-08-15,Boulangerie Paul,Quotidien > Boulangerie,-5.39,CB BOULANGERIE PAUL,PERSO
+2025-08-15,Esso,Transports > Carburant,-61.5,CB ESSO,PERSO
+2025-08-15,DGFIP,Taxes > Impôts,-205.58,CB DGFIP,PERSO
+2025-08-15,DGFIP,Taxes > Impôts,-267.48,CB DGFIP,JOINT
+2025-08-12,Maison Kayser,Quotidien > Boulangerie,-7.37,CB MAISON KAYSER,PERSO
+2025-08-12,Paiement non catégorisé,,-29.5,CB DIVERS,PERSO
+2025-08-11,Monoprix,Quotidien > Courses,-28.8,CB MONOPRIX,PERSO
+2025-08-11,Boulangerie Paul,Quotidien > Boulangerie,-4.16,CB BOULANGERIE PAUL,JOINT
+2025-08-09,Carrefour,Quotidien > Courses,-110.92,CB CARREFOUR,PERSO
+2025-08-09,Boulangerie Paul,Quotidien > Boulangerie,-9.91,CB BOULANGERIE PAUL,PERSO
+2025-08-09,Le Bistrot,Sorties > Restaurants,-52.01,CB LE BISTROT,PERSO
+2025-08-09,Total Energies,Transports > Carburant,-52.95,CB TOTAL ENERGIES,JOINT
+2025-08-08,Le Bistrot,Sorties > Restaurants,-35.43,CB LE BISTROT,PERSO
+2025-08-07,Carrefour,Quotidien > Courses,-93.49,CB CARREFOUR,PERSO
+2025-08-05,Boulangerie Paul,Quotidien > Boulangerie,-9.87,CB BOULANGERIE PAUL,JOINT
+2025-08-05,Pizzeria Napoli,Sorties > Restaurants,-30.25,CB PIZZERIA NAPOLI,JOINT
+2025-08-05,Netflix,Loisirs > Streaming,-14.95,CB NETFLIX,JOINT
+2025-08-04,Virement épargne,Exclus > Virement interne,-390.11,CB VIREMENT ÉPARGNE,PERSO
+2025-08-04,Le Comptoir,Sorties > Bars,-25.29,CB LE COMPTOIR,JOINT
+2025-08-03,Maison Kayser,Quotidien > Boulangerie,-10.46,CB MAISON KAYSER,PERSO
+2025-08-03,Monoprix,Quotidien > Courses,-27.83,CB MONOPRIX,JOINT
+2025-08-03,Boulangerie Paul,Quotidien > Boulangerie,-9.87,CB BOULANGERIE PAUL,JOINT
+2025-08-02,Netflix,Loisirs > Streaming,-12.67,CB NETFLIX,PERSO
+2025-08-02,Monoprix,Quotidien > Courses,-117.67,CB MONOPRIX,JOINT
+2025-08-02,Carrefour,Quotidien > Courses,-77.7,CB CARREFOUR,JOINT
+2025-08-02,Virement épargne,Exclus > Virement interne,-328.67,CB VIREMENT ÉPARGNE,JOINT
+2025-08-01,Salaire,Revenus > Salaire,2600,VIR SEPA,PERSO
+2025-08-01,Virement commun,Revenus > Salaire,1500,VIR SEPA,JOINT
+2025-08-01,Le Bistrot,Sorties > Restaurants,-57.59,CB LE BISTROT,JOINT
+2025-07-31,SNCF Connect,Transports > Train,-89.06,CB SNCF CONNECT,PERSO
+2025-07-30,Maison Kayser,Quotidien > Boulangerie,-7.43,CB MAISON KAYSER,PERSO
+2025-07-30,Monoprix,Quotidien > Courses,-86.73,CB MONOPRIX,JOINT
+2025-07-30,Agence Immo,Maison > Loyer,-850.0,CB AGENCE IMMO,JOINT
+2025-07-29,Virement épargne,Exclus > Virement interne,-233.27,CB VIREMENT ÉPARGNE,PERSO
+2025-07-29,Maison Kayser,Quotidien > Boulangerie,-8.67,CB MAISON KAYSER,JOINT
+2025-07-28,Carrefour,Quotidien > Courses,-93.36,CB CARREFOUR,PERSO
+2025-07-28,Monoprix,Quotidien > Courses,-119.88,CB MONOPRIX,PERSO
+2025-07-28,Spotify,Loisirs > Streaming,-15.5,CB SPOTIFY,PERSO
+2025-07-28,Esso,Transports > Carburant,-43.21,CB ESSO,PERSO
+2025-07-28,Agence Immo,Maison > Loyer,-850.0,CB AGENCE IMMO,PERSO
+2025-07-27,EDF,Maison > Électricité,-72.29,CB EDF,JOINT
+2025-07-26,Biocoop,Quotidien > Courses,-58.27,CB BIOCOOP,JOINT
+2025-07-25,Biocoop,Quotidien > Courses,-51.24,CB BIOCOOP,PERSO
+2025-07-25,Pharmacie du Centre,Santé > Pharmacie,-36.65,CB PHARMACIE DU CENTRE,JOINT
+2025-07-24,Monoprix,Quotidien > Courses,-101.16,CB MONOPRIX,PERSO
+2025-07-23,Boulangerie Paul,Quotidien > Boulangerie,-5.22,CB BOULANGERIE PAUL,PERSO
+2025-07-23,Maison Kayser,Quotidien > Boulangerie,-5.18,CB MAISON KAYSER,PERSO
+2025-07-23,Sushi Shop,Sorties > Restaurants,-31.45,CB SUSHI SHOP,JOINT
+2025-07-22,DGFIP,Taxes > Impôts,-245.49,CB DGFIP,JOINT
+2025-07-21,Esso,Transports > Carburant,-64.93,CB ESSO,PERSO
+2025-07-21,Virement épargne,Exclus > Virement interne,-351.12,CB VIREMENT ÉPARGNE,JOINT
+2025-07-21,Remboursement Ameli,Santé > Pharmacie,21.16,VIR CPAM,JOINT
+2025-07-20,Monoprix,Quotidien > Courses,-79.0,CB MONOPRIX,JOINT
+2025-07-19,Biocoop,Quotidien > Courses,-46.35,CB BIOCOOP,PERSO
+2025-07-19,Sushi Shop,Sorties > Restaurants,-39.3,CB SUSHI SHOP,JOINT
+2025-07-19,Decathlon,Loisirs > Sport,-29.49,CB DECATHLON,JOINT
+2025-07-17,Carrefour,Quotidien > Courses,-60.22,CB CARREFOUR,JOINT
+2025-07-16,Biocoop,Quotidien > Courses,-30.6,CB BIOCOOP,PERSO
+2025-07-15,DGFIP,Taxes > Impôts,-264.06,CB DGFIP,PERSO
+2025-07-15,Boulangerie Paul,Quotidien > Boulangerie,-7.83,CB BOULANGERIE PAUL,JOINT
+2025-07-13,Maison Kayser,Quotidien > Boulangerie,-11.13,CB MAISON KAYSER,PERSO
+2025-07-11,Monoprix,Quotidien > Courses,-22.33,CB MONOPRIX,PERSO
+2025-07-11,Le Bistrot,Sorties > Restaurants,-42.63,CB LE BISTROT,PERSO
+2025-07-11,Decathlon,Loisirs > Sport,-38.78,CB DECATHLON,PERSO
+2025-07-11,Remboursement Ameli,Santé > Pharmacie,24.9,VIR CPAM,PERSO
+2025-07-10,Paiement non catégorisé,,-21.13,CB DIVERS,PERSO
+2025-07-10,Paiement non catégorisé,,-40.49,CB DIVERS,JOINT
+2025-07-09,Biocoop,Quotidien > Courses,-113.1,CB BIOCOOP,PERSO
+2025-07-09,Maison Kayser,Quotidien > Boulangerie,-8.38,CB MAISON KAYSER,JOINT
+2025-07-09,SNCF Connect,Transports > Train,-117.9,CB SNCF CONNECT,JOINT
+2025-07-08,Maison Kayser,Quotidien > Boulangerie,-4.39,CB MAISON KAYSER,PERSO
+2025-07-08,EDF,Maison > Électricité,-69.35,CB EDF,PERSO
+2025-07-08,Pharmacie du Centre,Santé > Pharmacie,-27.09,CB PHARMACIE DU CENTRE,PERSO
+2025-07-08,Croix Rouge,Dons > Associations,-25.98,CB CROIX ROUGE,JOINT
+2025-07-07,Brewdog,Sorties > Bars,-16.0,CB BREWDOG,JOINT
+2025-07-05,Le Bistrot,Sorties > Restaurants,-69.36,CB LE BISTROT,PERSO
+2025-07-05,Pizzeria Napoli,Sorties > Restaurants,-42.24,CB PIZZERIA NAPOLI,PERSO
+2025-07-04,Brewdog,Sorties > Bars,-35.83,CB BREWDOG,PERSO
+2025-07-04,Croix Rouge,Dons > Associations,-24.94,CB CROIX ROUGE,PERSO
+2025-07-04,Spotify,Loisirs > Streaming,-17.99,CB SPOTIFY,JOINT
+2025-07-03,Netflix,Loisirs > Streaming,-14.89,CB NETFLIX,PERSO
+2025-07-03,Carrefour,Quotidien > Courses,-33.91,CB CARREFOUR,JOINT
+2025-07-03,Boulangerie Paul,Quotidien > Boulangerie,-4.88,CB BOULANGERIE PAUL,JOINT
+2025-07-02,Maison Kayser,Quotidien > Boulangerie,-10.56,CB MAISON KAYSER,PERSO
+2025-07-01,Salaire,Revenus > Salaire,2600,VIR SEPA,PERSO
+2025-07-01,Brewdog,Sorties > Bars,-24.83,CB BREWDOG,PERSO
+2025-07-01,Virement commun,Revenus > Salaire,1500,VIR SEPA,JOINT
+2025-07-01,Esso,Transports > Carburant,-51.83,CB ESSO,JOINT
+2025-06-30,DGFIP,Taxes > Impôts,-227.84,CB DGFIP,PERSO
+2025-06-30,Netflix,Loisirs > Streaming,-11.4,CB NETFLIX,JOINT
+2025-06-30,Paiement non catégorisé,,-31.97,CB DIVERS,JOINT
+2025-06-28,Monoprix,Quotidien > Courses,-110.39,CB MONOPRIX,PERSO
+2025-06-28,Maison Kayser,Quotidien > Boulangerie,-3.16,CB MAISON KAYSER,JOINT
+2025-06-27,Brewdog,Sorties > Bars,-12.77,CB BREWDOG,PERSO
+2025-06-27,Monoprix,Quotidien > Courses,-84.57,CB MONOPRIX,JOINT
+2025-06-27,Agence Immo,Maison > Loyer,-850.0,CB AGENCE IMMO,JOINT
+2025-06-27,DGFIP,Taxes > Impôts,-255.81,CB DGFIP,JOINT
+2025-06-26,Sushi Shop,Sorties > Restaurants,-27.84,CB SUSHI SHOP,PERSO
+2025-06-25,Carrefour,Quotidien > Courses,-115.81,CB CARREFOUR,PERSO
+2025-06-25,EDF,Maison > Électricité,-49.11,CB EDF,PERSO
+2025-06-24,SNCF Connect,Transports > Train,-81.81,CB SNCF CONNECT,PERSO
+2025-06-23,Maison Kayser,Quotidien > Boulangerie,-2.03,CB MAISON KAYSER,PERSO
+2025-06-23,Maison Kayser,Quotidien > Boulangerie,-4.31,CB MAISON KAYSER,PERSO
+2025-06-23,Decathlon,Loisirs > Sport,-24.97,CB DECATHLON,PERSO
+2025-06-23,Total Energies,Transports > Carburant,-41.15,CB TOTAL ENERGIES,JOINT
+2025-06-22,Boulangerie Paul,Quotidien > Boulangerie,-10.6,CB BOULANGERIE PAUL,PERSO
+2025-06-22,Le Bistrot,Sorties > Restaurants,-58.52,CB LE BISTROT,PERSO
+2025-06-22,Monoprix,Quotidien > Courses,-57.88,CB MONOPRIX,JOINT
+2025-06-22,Boulangerie Paul,Quotidien > Boulangerie,-7.15,CB BOULANGERIE PAUL,JOINT
+2025-06-21,Le Comptoir,Sorties > Bars,-11.67,CB LE COMPTOIR,PERSO
+2025-06-21,Virement épargne,Exclus > Virement interne,-255.63,CB VIREMENT ÉPARGNE,PERSO
+2025-06-21,Sushi Shop,Sorties > Restaurants,-49.24,CB SUSHI SHOP,JOINT
+2025-06-20,Monoprix,Quotidien > Courses,-27.44,CB MONOPRIX,PERSO
+2025-06-20,Carrefour,Quotidien > Courses,-74.71,CB CARREFOUR,PERSO
+2025-06-19,Pharmacie du Centre,Santé > Pharmacie,-28.53,CB PHARMACIE DU CENTRE,PERSO
+2025-06-18,SNCF Connect,Transports > Train,-40.05,CB SNCF CONNECT,JOINT
+2025-06-17,Esso,Transports > Carburant,-56.1,CB ESSO,PERSO
+2025-06-17,Croix Rouge,Dons > Associations,-28.65,CB CROIX ROUGE,JOINT
+2025-06-16,Restos du Coeur,Dons > Associations,-10.8,CB RESTOS DU COEUR,PERSO
+2025-06-16,Pharmacie du Centre,Santé > Pharmacie,-27.67,CB PHARMACIE DU CENTRE,JOINT
+2025-06-15,Monoprix,Quotidien > Courses,-96.45,CB MONOPRIX,PERSO
+2025-06-15,Spotify,Loisirs > Streaming,-16.13,CB SPOTIFY,PERSO
+2025-06-15,Carrefour,Quotidien > Courses,-94.85,CB CARREFOUR,JOINT
+2025-06-14,Pizzeria Napoli,Sorties > Restaurants,-59.21,CB PIZZERIA NAPOLI,PERSO
+2025-06-14,Maison Kayser,Quotidien > Boulangerie,-10.69,CB MAISON KAYSER,JOINT
+2025-06-12,Le Bistrot,Sorties > Restaurants,-17.98,CB LE BISTROT,JOINT
+2025-06-11,Carrefour,Quotidien > Courses,-25.98,CB CARREFOUR,JOINT
+2025-06-11,Maison Kayser,Quotidien > Boulangerie,-2.88,CB MAISON KAYSER,JOINT
+2025-06-10,Monoprix,Quotidien > Courses,-76.8,CB MONOPRIX,PERSO
+2025-06-10,Monoprix,Quotidien > Courses,-58.22,CB MONOPRIX,JOINT
+2025-06-09,Carrefour,Quotidien > Courses,-36.82,CB CARREFOUR,PERSO
+2025-06-08,Biocoop,Quotidien > Courses,-77.59,CB BIOCOOP,PERSO
+2025-06-08,Boulangerie Paul,Quotidien > Boulangerie,-8.6,CB BOULANGERIE PAUL,PERSO
+2025-06-08,Virement épargne,Exclus > Virement interne,-296.5,CB VIREMENT ÉPARGNE,JOINT
+2025-06-07,Le Comptoir,Sorties > Bars,-22.15,CB LE COMPTOIR,JOINT
+2025-06-06,Boulangerie Paul,Quotidien > Boulangerie,-3.74,CB BOULANGERIE PAUL,PERSO
+2025-06-06,Netflix,Loisirs > Streaming,-10.28,CB NETFLIX,PERSO
+2025-06-05,Remboursement Ameli,Santé > Pharmacie,14.59,VIR CPAM,JOINT
+2025-06-04,Decathlon,Loisirs > Sport,-31.52,CB DECATHLON,JOINT
+2025-06-04,EDF,Maison > Électricité,-86.08,CB EDF,JOINT
+2025-06-03,Esso,Transports > Carburant,-61.6,CB ESSO,PERSO
+2025-06-03,Paiement non catégorisé,,-26.15,CB DIVERS,PERSO
+2025-06-02,Maison Kayser,Quotidien > Boulangerie,-7.94,CB MAISON KAYSER,PERSO
+2025-06-01,Salaire,Revenus > Salaire,2600,VIR SEPA,PERSO
+2025-06-01,Agence Immo,Maison > Loyer,-850.0,CB AGENCE IMMO,PERSO
+2025-06-01,Virement commun,Revenus > Salaire,1500,VIR SEPA,JOINT
+2025-05-31,Carrefour,Quotidien > Courses,-27.03,CB CARREFOUR,PERSO
+2025-05-31,Pharmacie du Centre,Santé > Pharmacie,-38.79,CB PHARMACIE DU CENTRE,JOINT
+2025-05-29,Agence Immo,Maison > Loyer,-850.0,CB AGENCE IMMO,PERSO
+2025-05-28,Maison Kayser,Quotidien > Boulangerie,-3.02,CB MAISON KAYSER,PERSO
+2025-05-27,Pizzeria Napoli,Sorties > Restaurants,-30.56,CB PIZZERIA NAPOLI,JOINT
+2025-05-27,Restos du Coeur,Dons > Associations,-27.23,CB RESTOS DU COEUR,JOINT
+2025-05-26,Boulangerie Paul,Quotidien > Boulangerie,-8.84,CB BOULANGERIE PAUL,PERSO
+2025-05-26,SNCF Connect,Transports > Train,-71.32,CB SNCF CONNECT,PERSO
+2025-05-25,Basic Fit,Loisirs > Sport,-55.27,CB BASIC FIT,PERSO
+2025-05-24,Pizzeria Napoli,Sorties > Restaurants,-23.41,CB PIZZERIA NAPOLI,PERSO
+2025-05-23,Biocoop,Quotidien > Courses,-78.62,CB BIOCOOP,PERSO
+2025-05-23,Sushi Shop,Sorties > Restaurants,-64.04,CB SUSHI SHOP,PERSO
+2025-05-23,DGFIP,Taxes > Impôts,-233.28,CB DGFIP,PERSO
+2025-05-23,Netflix,Loisirs > Streaming,-10.61,CB NETFLIX,JOINT
+2025-05-23,Esso,Transports > Carburant,-78.97,CB ESSO,JOINT
+2025-05-22,Biocoop,Quotidien > Courses,-112.53,CB BIOCOOP,PERSO
+2025-05-21,Sushi Shop,Sorties > Restaurants,-38.84,CB SUSHI SHOP,PERSO
+2025-05-20,Brewdog,Sorties > Bars,-24.7,CB BREWDOG,PERSO
+2025-05-20,Le Bistrot,Sorties > Restaurants,-54.85,CB LE BISTROT,JOINT
+2025-05-19,Remboursement Ameli,Santé > Pharmacie,28.73,VIR CPAM,JOINT
+2025-05-18,EDF,Maison > Électricité,-71.83,CB EDF,PERSO
+2025-05-16,Croix Rouge,Dons > Associations,-14.83,CB CROIX ROUGE,PERSO
+2025-05-16,Monoprix,Quotidien > Courses,-84.72,CB MONOPRIX,JOINT
+2025-05-16,Agence Immo,Maison > Loyer,-850.0,CB AGENCE IMMO,JOINT
+2025-05-15,Brewdog,Sorties > Bars,-33.86,CB BREWDOG,PERSO
+2025-05-15,Virement épargne,Exclus > Virement interne,-295.22,CB VIREMENT ÉPARGNE,PERSO
+2025-05-14,Monoprix,Quotidien > Courses,-73.11,CB MONOPRIX,JOINT
+2025-05-13,Monoprix,Quotidien > Courses,-110.34,CB MONOPRIX,PERSO
+2025-05-12,Boulangerie Paul,Quotidien > Boulangerie,-11.84,CB BOULANGERIE PAUL,PERSO
+2025-05-12,Le Comptoir,Sorties > Bars,-14.21,CB LE COMPTOIR,JOINT
+2025-05-11,Spotify,Loisirs > Streaming,-12.92,CB SPOTIFY,PERSO
+2025-05-11,Esso,Transports > Carburant,-58.59,CB ESSO,PERSO
+2025-05-11,Biocoop,Quotidien > Courses,-119.65,CB BIOCOOP,JOINT
+2025-05-10,Carrefour,Quotidien > Courses,-57.46,CB CARREFOUR,JOINT
+2025-05-09,Netflix,Loisirs > Streaming,-16.67,CB NETFLIX,PERSO
+2025-05-09,Monoprix,Quotidien > Courses,-51.94,CB MONOPRIX,JOINT
+2025-05-09,Maison Kayser,Quotidien > Boulangerie,-4.16,CB MAISON KAYSER,JOINT
+2025-05-08,Biocoop,Quotidien > Courses,-77.17,CB BIOCOOP,PERSO
+2025-05-07,Boulangerie Paul,Quotidien > Boulangerie,-9.43,CB BOULANGERIE PAUL,JOINT
+2025-05-06,Monoprix,Quotidien > Courses,-41.91,CB MONOPRIX,PERSO
+2025-05-06,Esso,Transports > Carburant,-41.15,CB ESSO,PERSO
+2025-05-06,EDF,Maison > Électricité,-66.54,CB EDF,JOINT
+2025-05-05,Virement épargne,Exclus > Virement interne,-315.4,CB VIREMENT ÉPARGNE,JOINT
+2025-05-04,Maison Kayser,Quotidien > Boulangerie,-10.5,CB MAISON KAYSER,PERSO
+2025-05-04,Boulangerie Paul,Quotidien > Boulangerie,-5.07,CB BOULANGERIE PAUL,JOINT
+2025-05-04,Maison Kayser,Quotidien > Boulangerie,-9.21,CB MAISON KAYSER,JOINT
+2025-05-04,SNCF Connect,Transports > Train,-114.69,CB SNCF CONNECT,JOINT
+2025-05-03,Carrefour,Quotidien > Courses,-113.85,CB CARREFOUR,PERSO
+2025-05-03,Maison Kayser,Quotidien > Boulangerie,-7.33,CB MAISON KAYSER,PERSO
+2025-05-03,Pharmacie du Centre,Santé > Pharmacie,-5.36,CB PHARMACIE DU CENTRE,PERSO
+2025-05-03,Paiement non catégorisé,,-18.24,CB DIVERS,PERSO
+2025-05-03,DGFIP,Taxes > Impôts,-159.8,CB DGFIP,JOINT
+2025-05-03,Paiement non catégorisé,,-49.73,CB DIVERS,JOINT
+2025-05-02,Decathlon,Loisirs > Sport,-41.37,CB DECATHLON,JOINT
+2025-05-01,Salaire,Revenus > Salaire,2600,VIR SEPA,PERSO
+2025-05-01,Biocoop,Quotidien > Courses,-47.66,CB BIOCOOP,PERSO
+2025-05-01,Maison Kayser,Quotidien > Boulangerie,-7.06,CB MAISON KAYSER,PERSO
+2025-05-01,Virement commun,Revenus > Salaire,1500,VIR SEPA,JOINT
+2025-04-30,Maison Kayser,Quotidien > Boulangerie,-3.65,CB MAISON KAYSER,JOINT
+2025-04-30,Boulangerie Paul,Quotidien > Boulangerie,-3.28,CB BOULANGERIE PAUL,JOINT
+2025-04-29,Brewdog,Sorties > Bars,-37.02,CB BREWDOG,PERSO
+2025-04-29,DGFIP,Taxes > Impôts,-274.93,CB DGFIP,PERSO
+2025-04-28,Virement épargne,Exclus > Virement interne,-353.96,CB VIREMENT ÉPARGNE,PERSO
+2025-04-27,Brewdog,Sorties > Bars,-34.08,CB BREWDOG,PERSO
+2025-04-27,Netflix,Loisirs > Streaming,-11.33,CB NETFLIX,PERSO
+2025-04-26,Boulangerie Paul,Quotidien > Boulangerie,-6.25,CB BOULANGERIE PAUL,PERSO
+2025-04-26,Biocoop,Quotidien > Courses,-93.49,CB BIOCOOP,JOINT
+2025-04-25,Boulangerie Paul,Quotidien > Boulangerie,-8.88,CB BOULANGERIE PAUL,PERSO
+2025-04-25,Pharmacie du Centre,Santé > Pharmacie,-12.85,CB PHARMACIE DU CENTRE,JOINT
+2025-04-25,Restos du Coeur,Dons > Associations,-29.15,CB RESTOS DU COEUR,JOINT
+2025-04-24,Maison Kayser,Quotidien > Boulangerie,-8.79,CB MAISON KAYSER,JOINT
+2025-04-23,Agence Immo,Maison > Loyer,-850.0,CB AGENCE IMMO,PERSO
+2025-04-22,Carrefour,Quotidien > Courses,-24.81,CB CARREFOUR,PERSO
+2025-04-22,Sushi Shop,Sorties > Restaurants,-22.33,CB SUSHI SHOP,PERSO
+2025-04-22,Maison Kayser,Quotidien > Boulangerie,-2.29,CB MAISON KAYSER,JOINT
+2025-04-22,Le Bistrot,Sorties > Restaurants,-36.67,CB LE BISTROT,JOINT
+2025-04-22,Remboursement Ameli,Santé > Pharmacie,7.86,VIR CPAM,JOINT
+2025-04-21,Boulangerie Paul,Quotidien > Boulangerie,-6.0,CB BOULANGERIE PAUL,PERSO
+2025-04-21,Decathlon,Loisirs > Sport,-45.51,CB DECATHLON,PERSO
+2025-04-20,Le Bistrot,Sorties > Restaurants,-44.21,CB LE BISTROT,PERSO
+2025-04-20,Sushi Shop,Sorties > Restaurants,-32.45,CB SUSHI SHOP,PERSO
+2025-04-19,Biocoop,Quotidien > Courses,-58.52,CB BIOCOOP,PERSO
+2025-04-19,Paiement non catégorisé,,-22.12,CB DIVERS,PERSO
+2025-04-18,Pharmacie du Centre,Santé > Pharmacie,-19.52,CB PHARMACIE DU CENTRE,PERSO
+2025-04-18,Monoprix,Quotidien > Courses,-94.11,CB MONOPRIX,JOINT
+2025-04-17,Monoprix,Quotidien > Courses,-84.18,CB MONOPRIX,PERSO
+2025-04-16,Carrefour,Quotidien > Courses,-17.56,CB CARREFOUR,PERSO
+2025-04-16,Maison Kayser,Quotidien > Boulangerie,-3.94,CB MAISON KAYSER,PERSO
+2025-04-16,Carrefour,Quotidien > Courses,-78.34,CB CARREFOUR,JOINT
+2025-04-16,Monoprix,Quotidien > Courses,-38.04,CB MONOPRIX,JOINT
+2025-04-15,Carrefour,Quotidien > Courses,-79.18,CB CARREFOUR,PERSO
+2025-04-15,Boulangerie Paul,Quotidien > Boulangerie,-7.57,CB BOULANGERIE PAUL,PERSO
+2025-04-15,Spotify,Loisirs > Streaming,-10.43,CB SPOTIFY,PERSO
+2025-04-14,Le Bistrot,Sorties > Restaurants,-16.49,CB LE BISTROT,JOINT
+2025-04-12,EDF,Maison > Électricité,-78.71,CB EDF,JOINT
+2025-04-11,Biocoop,Quotidien > Courses,-84.7,CB BIOCOOP,PERSO
+2025-04-11,Spotify,Loisirs > Streaming,-9.45,CB SPOTIFY,JOINT
+2025-04-11,Decathlon,Loisirs > Sport,-28.47,CB DECATHLON,JOINT
+2025-04-10,Monoprix,Quotidien > Courses,-15.62,CB MONOPRIX,JOINT
+2025-04-09,Total Energies,Transports > Carburant,-68.54,CB TOTAL ENERGIES,PERSO
+2025-04-09,Esso,Transports > Carburant,-70.45,CB ESSO,JOINT
+2025-04-09,SNCF Connect,Transports > Train,-96.44,CB SNCF CONNECT,JOINT
+2025-04-08,Virement épargne,Exclus > Virement interne,-367.85,CB VIREMENT ÉPARGNE,JOINT
+2025-04-07,Restos du Coeur,Dons > Associations,-19.32,CB RESTOS DU COEUR,PERSO
+2025-04-07,DGFIP,Taxes > Impôts,-154.65,CB DGFIP,JOINT
+2025-04-07,Paiement non catégorisé,,-25.93,CB DIVERS,JOINT
+2025-04-06,Biocoop,Quotidien > Courses,-115.78,CB BIOCOOP,PERSO
+2025-04-06,Brewdog,Sorties > Bars,-12.34,CB BREWDOG,JOINT
+2025-04-05,Carrefour,Quotidien > Courses,-47.59,CB CARREFOUR,PERSO
+2025-04-05,SNCF Connect,Transports > Train,-56.91,CB SNCF CONNECT,PERSO
+2025-04-03,Esso,Transports > Carburant,-49.57,CB ESSO,PERSO
+2025-04-03,EDF,Maison > Électricité,-51.88,CB EDF,PERSO
+2025-04-02,Maison Kayser,Quotidien > Boulangerie,-11.58,CB MAISON KAYSER,PERSO
+2025-04-01,Salaire,Revenus > Salaire,2600,VIR SEPA,PERSO
+2025-04-01,Virement commun,Revenus > Salaire,1500,VIR SEPA,JOINT
+2025-04-01,Agence Immo,Maison > Loyer,-850.0,CB AGENCE IMMO,JOINT
+2025-03-31,Carrefour,Quotidien > Courses,-112.83,CB CARREFOUR,PERSO
+2025-03-31,Boulangerie Paul,Quotidien > Boulangerie,-2.1,CB BOULANGERIE PAUL,PERSO
+2025-03-31,Virement épargne,Exclus > Virement interne,-265.65,CB VIREMENT ÉPARGNE,PERSO
+2025-03-29,Sushi Shop,Sorties > Restaurants,-17.3,CB SUSHI SHOP,PERSO
+2025-03-29,Le Comptoir,Sorties > Bars,-37.86,CB LE COMPTOIR,PERSO
+2025-03-29,Basic Fit,Loisirs > Sport,-26.5,CB BASIC FIT,PERSO
+2025-03-29,Carrefour,Quotidien > Courses,-113.62,CB CARREFOUR,JOINT
+2025-03-28,Netflix,Loisirs > Streaming,-15.75,CB NETFLIX,PERSO
+2025-03-26,Esso,Transports > Carburant,-76.98,CB ESSO,PERSO
+2025-03-24,Boulangerie Paul,Quotidien > Boulangerie,-11.8,CB BOULANGERIE PAUL,PERSO
+2025-03-24,Total Energies,Transports > Carburant,-56.49,CB TOTAL ENERGIES,PERSO
+2025-03-24,Le Bistrot,Sorties > Restaurants,-54.57,CB LE BISTROT,JOINT
+2025-03-24,Basic Fit,Loisirs > Sport,-32.56,CB BASIC FIT,JOINT
+2025-03-23,SNCF Connect,Transports > Train,-63.8,CB SNCF CONNECT,JOINT
+2025-03-22,Le Comptoir,Sorties > Bars,-19.45,CB LE COMPTOIR,PERSO
+2025-03-22,Le Bistrot,Sorties > Restaurants,-43.6,CB LE BISTROT,JOINT
+2025-03-22,Esso,Transports > Carburant,-76.0,CB ESSO,JOINT
+2025-03-22,EDF,Maison > Électricité,-63.92,CB EDF,JOINT
+2025-03-22,Remboursement Ameli,Santé > Pharmacie,10.34,VIR CPAM,JOINT
+2025-03-21,Boulangerie Paul,Quotidien > Boulangerie,-2.04,CB BOULANGERIE PAUL,PERSO
+2025-03-20,Monoprix,Quotidien > Courses,-31.32,CB MONOPRIX,PERSO
+2025-03-20,Spotify,Loisirs > Streaming,-9.93,CB SPOTIFY,PERSO
+2025-03-20,Spotify,Loisirs > Streaming,-9.63,CB SPOTIFY,JOINT
+2025-03-20,Pharmacie du Centre,Santé > Pharmacie,-31.18,CB PHARMACIE DU CENTRE,JOINT
+2025-03-19,Sushi Shop,Sorties > Restaurants,-16.98,CB SUSHI SHOP,PERSO
+2025-03-19,Carrefour,Quotidien > Courses,-116.89,CB CARREFOUR,JOINT
+2025-03-18,Biocoop,Quotidien > Courses,-108.42,CB BIOCOOP,PERSO
+2025-03-18,Maison Kayser,Quotidien > Boulangerie,-6.42,CB MAISON KAYSER,PERSO
+2025-03-18,Boulangerie Paul,Quotidien > Boulangerie,-10.83,CB BOULANGERIE PAUL,PERSO
+2025-03-18,Croix Rouge,Dons > Associations,-21.38,CB CROIX ROUGE,JOINT
+2025-03-17,Monoprix,Quotidien > Courses,-87.19,CB MONOPRIX,PERSO
+2025-03-16,Paiement non catégorisé,,-40.72,CB DIVERS,JOINT
+2025-03-15,Virement épargne,Exclus > Virement interne,-242.04,CB VIREMENT ÉPARGNE,JOINT
+2025-03-14,Maison Kayser,Quotidien > Boulangerie,-9.29,CB MAISON KAYSER,JOINT
+2025-03-14,Brewdog,Sorties > Bars,-29.46,CB BREWDOG,JOINT
+2025-03-13,Agence Immo,Maison > Loyer,-850.0,CB AGENCE IMMO,PERSO
+2025-03-13,DGFIP,Taxes > Impôts,-153.55,CB DGFIP,PERSO
+2025-03-13,Boulangerie Paul,Quotidien > Boulangerie,-8.06,CB BOULANGERIE PAUL,JOINT
+2025-03-12,Pharmacie du Centre,Santé > Pharmacie,-11.99,CB PHARMACIE DU CENTRE,PERSO
+2025-03-12,Paiement non catégorisé,,-33.87,CB DIVERS,PERSO
+2025-03-12,Monoprix,Quotidien > Courses,-26.38,CB MONOPRIX,JOINT
+2025-03-11,Biocoop,Quotidien > Courses,-56.97,CB BIOCOOP,JOINT
+2025-03-10,Biocoop,Quotidien > Courses,-15.82,CB BIOCOOP,PERSO
+2025-03-10,DGFIP,Taxes > Impôts,-275.06,CB DGFIP,JOINT
+2025-03-09,SNCF Connect,Transports > Train,-88.64,CB SNCF CONNECT,PERSO
+2025-03-09,Boulangerie Paul,Quotidien > Boulangerie,-11.0,CB BOULANGERIE PAUL,JOINT
+2025-03-08,EDF,Maison > Électricité,-84.25,CB EDF,PERSO
+2025-03-08,Restos du Coeur,Dons > Associations,-16.1,CB RESTOS DU COEUR,PERSO
+2025-03-07,Monoprix,Quotidien > Courses,-37.12,CB MONOPRIX,PERSO
+2025-03-07,Agence Immo,Maison > Loyer,-850.0,CB AGENCE IMMO,JOINT
+2025-03-05,Sushi Shop,Sorties > Restaurants,-45.39,CB SUSHI SHOP,PERSO
+2025-03-04,Monoprix,Quotidien > Courses,-107.2,CB MONOPRIX,PERSO
+2025-03-03,Carrefour,Quotidien > Courses,-66.3,CB CARREFOUR,PERSO
+2025-03-02,Maison Kayser,Quotidien > Boulangerie,-8.34,CB MAISON KAYSER,PERSO
+2025-03-02,Monoprix,Quotidien > Courses,-116.07,CB MONOPRIX,JOINT
+2025-03-01,Salaire,Revenus > Salaire,2600,VIR SEPA,PERSO
+2025-03-01,Virement commun,Revenus > Salaire,1500,VIR SEPA,JOINT
+2025-03-01,Maison Kayser,Quotidien > Boulangerie,-2.44,CB MAISON KAYSER,JOINT
+2025-02-28,Boulangerie Paul,Quotidien > Boulangerie,-11.61,CB BOULANGERIE PAUL,JOINT
+2025-02-26,Sushi Shop,Sorties > Restaurants,-41.0,CB SUSHI SHOP,PERSO
+2025-02-26,Spotify,Loisirs > Streaming,-12.62,CB SPOTIFY,PERSO
+2025-02-26,Paiement non catégorisé,,-25.48,CB DIVERS,PERSO
+2025-02-26,Biocoop,Quotidien > Courses,-59.42,CB BIOCOOP,JOINT
+2025-02-26,Paiement non catégorisé,,-34.43,CB DIVERS,JOINT
+2025-02-25,Biocoop,Quotidien > Courses,-116.26,CB BIOCOOP,PERSO
+2025-02-24,Boulangerie Paul,Quotidien > Boulangerie,-6.85,CB BOULANGERIE PAUL,PERSO
+2025-02-24,Biocoop,Quotidien > Courses,-116.71,CB BIOCOOP,JOINT
+2025-02-23,Carrefour,Quotidien > Courses,-91.64,CB CARREFOUR,PERSO
+2025-02-23,Boulangerie Paul,Quotidien > Boulangerie,-4.2,CB BOULANGERIE PAUL,PERSO
+2025-02-22,Maison Kayser,Quotidien > Boulangerie,-7.14,CB MAISON KAYSER,PERSO
+2025-02-22,Le Comptoir,Sorties > Bars,-21.16,CB LE COMPTOIR,PERSO
+2025-02-22,Boulangerie Paul,Quotidien > Boulangerie,-3.86,CB BOULANGERIE PAUL,JOINT
+2025-02-22,Total Energies,Transports > Carburant,-50.62,CB TOTAL ENERGIES,JOINT
+2025-02-21,Biocoop,Quotidien > Courses,-47.73,CB BIOCOOP,PERSO
+2025-02-20,Le Comptoir,Sorties > Bars,-26.53,CB LE COMPTOIR,JOINT
+2025-02-20,Virement épargne,Exclus > Virement interne,-366.75,CB VIREMENT ÉPARGNE,JOINT
+2025-02-19,Boulangerie Paul,Quotidien > Boulangerie,-5.38,CB BOULANGERIE PAUL,PERSO
+2025-02-19,Le Bistrot,Sorties > Restaurants,-66.45,CB LE BISTROT,PERSO
+2025-02-17,Maison Kayser,Quotidien > Boulangerie,-2.57,CB MAISON KAYSER,JOINT
+2025-02-16,Biocoop,Quotidien > Courses,-73.36,CB BIOCOOP,JOINT
+2025-02-15,Biocoop,Quotidien > Courses,-54.21,CB BIOCOOP,PERSO
+2025-02-15,Esso,Transports > Carburant,-56.88,CB ESSO,PERSO
+2025-02-15,SNCF Connect,Transports > Train,-48.73,CB SNCF CONNECT,PERSO
+2025-02-15,DGFIP,Taxes > Impôts,-205.43,CB DGFIP,JOINT
+2025-02-14,Biocoop,Quotidien > Courses,-42.83,CB BIOCOOP,PERSO
+2025-02-14,Brewdog,Sorties > Bars,-29.09,CB BREWDOG,PERSO
+2025-02-11,Biocoop,Quotidien > Courses,-71.93,CB BIOCOOP,JOINT
+2025-02-11,SNCF Connect,Transports > Train,-86.32,CB SNCF CONNECT,JOINT
+2025-02-09,Virement épargne,Exclus > Virement interne,-275.79,CB VIREMENT ÉPARGNE,PERSO
+2025-02-09,Spotify,Loisirs > Streaming,-9.74,CB SPOTIFY,JOINT
+2025-02-08,Le Bistrot,Sorties > Restaurants,-66.79,CB LE BISTROT,JOINT
+2025-02-08,Decathlon,Loisirs > Sport,-28.17,CB DECATHLON,JOINT
+2025-02-08,Restos du Coeur,Dons > Associations,-28.67,CB RESTOS DU COEUR,JOINT
+2025-02-07,Basic Fit,Loisirs > Sport,-54.47,CB BASIC FIT,PERSO
+2025-02-07,Croix Rouge,Dons > Associations,-18.13,CB CROIX ROUGE,PERSO
+2025-02-07,Monoprix,Quotidien > Courses,-31.25,CB MONOPRIX,JOINT
+2025-02-06,Biocoop,Quotidien > Courses,-84.27,CB BIOCOOP,PERSO
+2025-02-06,Pharmacie du Centre,Santé > Pharmacie,-37.42,CB PHARMACIE DU CENTRE,PERSO
+2025-02-06,DGFIP,Taxes > Impôts,-279.7,CB DGFIP,PERSO
+2025-02-05,Carrefour,Quotidien > Courses,-94.86,CB CARREFOUR,PERSO
+2025-02-05,Esso,Transports > Carburant,-47.61,CB ESSO,PERSO
+2025-02-05,Pharmacie du Centre,Santé > Pharmacie,-23.82,CB PHARMACIE DU CENTRE,JOINT
+2025-02-04,Pizzeria Napoli,Sorties > Restaurants,-37.39,CB PIZZERIA NAPOLI,PERSO
+2025-02-04,Sushi Shop,Sorties > Restaurants,-62.4,CB SUSHI SHOP,JOINT
+2025-02-03,Carrefour,Quotidien > Courses,-27.71,CB CARREFOUR,PERSO
+2025-02-03,Boulangerie Paul,Quotidien > Boulangerie,-8.31,CB BOULANGERIE PAUL,PERSO
+2025-02-03,Maison Kayser,Quotidien > Boulangerie,-11.05,CB MAISON KAYSER,PERSO
+2025-02-03,EDF,Maison > Électricité,-74.35,CB EDF,PERSO
+2025-02-03,EDF,Maison > Électricité,-65.62,CB EDF,JOINT
+2025-02-02,Netflix,Loisirs > Streaming,-14.88,CB NETFLIX,PERSO
+2025-02-02,Agence Immo,Maison > Loyer,-850.0,CB AGENCE IMMO,PERSO
+2025-02-02,Boulangerie Paul,Quotidien > Boulangerie,-11.19,CB BOULANGERIE PAUL,JOINT
+2025-02-01,Salaire,Revenus > Salaire,2600,VIR SEPA,PERSO
+2025-02-01,Virement commun,Revenus > Salaire,1500,VIR SEPA,JOINT
+2025-02-01,Agence Immo,Maison > Loyer,-850.0,CB AGENCE IMMO,JOINT
+2025-01-30,Agence Immo,Maison > Loyer,-850.0,CB AGENCE IMMO,PERSO
+2025-01-30,DGFIP,Taxes > Impôts,-190.16,CB DGFIP,PERSO
+2025-01-28,Boulangerie Paul,Quotidien > Boulangerie,-6.94,CB BOULANGERIE PAUL,JOINT
+2025-01-28,Le Bistrot,Sorties > Restaurants,-28.83,CB LE BISTROT,JOINT
+2025-01-28,SNCF Connect,Transports > Train,-97.39,CB SNCF CONNECT,JOINT
+2025-01-27,Paiement non catégorisé,,-8.11,CB DIVERS,JOINT
+2025-01-26,Maison Kayser,Quotidien > Boulangerie,-4.2,CB MAISON KAYSER,PERSO
+2025-01-26,Maison Kayser,Quotidien > Boulangerie,-10.47,CB MAISON KAYSER,PERSO
+2025-01-26,Boulangerie Paul,Quotidien > Boulangerie,-3.1,CB BOULANGERIE PAUL,JOINT
+2025-01-25,Brewdog,Sorties > Bars,-11.67,CB BREWDOG,JOINT
+2025-01-24,Carrefour,Quotidien > Courses,-82.14,CB CARREFOUR,PERSO
+2025-01-24,Biocoop,Quotidien > Courses,-92.33,CB BIOCOOP,PERSO
+2025-01-24,Le Bistrot,Sorties > Restaurants,-66.83,CB LE BISTROT,JOINT
+2025-01-23,Carrefour,Quotidien > Courses,-17.79,CB CARREFOUR,PERSO
+2025-01-23,Boulangerie Paul,Quotidien > Boulangerie,-10.69,CB BOULANGERIE PAUL,PERSO
+2025-01-22,Total Energies,Transports > Carburant,-54.81,CB TOTAL ENERGIES,PERSO
+2025-01-22,EDF,Maison > Électricité,-73.8,CB EDF,PERSO
+2025-01-20,Biocoop,Quotidien > Courses,-37.96,CB BIOCOOP,PERSO
+2025-01-20,Le Bistrot,Sorties > Restaurants,-45.36,CB LE BISTROT,PERSO
+2025-01-20,Total Energies,Transports > Carburant,-50.68,CB TOTAL ENERGIES,PERSO
+2025-01-20,Pharmacie du Centre,Santé > Pharmacie,-38.37,CB PHARMACIE DU CENTRE,JOINT
+2025-01-19,Carrefour,Quotidien > Courses,-108.68,CB CARREFOUR,PERSO
+2025-01-19,Brewdog,Sorties > Bars,-36.33,CB BREWDOG,PERSO
+2025-01-19,Biocoop,Quotidien > Courses,-71.59,CB BIOCOOP,JOINT
+2025-01-18,Sushi Shop,Sorties > Restaurants,-17.39,CB SUSHI SHOP,PERSO
+2025-01-18,Biocoop,Quotidien > Courses,-29.66,CB BIOCOOP,JOINT
+2025-01-18,EDF,Maison > Électricité,-61.83,CB EDF,JOINT
+2025-01-17,Carrefour,Quotidien > Courses,-53.01,CB CARREFOUR,JOINT
+2025-01-17,Maison Kayser,Quotidien > Boulangerie,-5.82,CB MAISON KAYSER,JOINT
+2025-01-17,Esso,Transports > Carburant,-78.15,CB ESSO,JOINT
+2025-01-14,Biocoop,Quotidien > Courses,-83.24,CB BIOCOOP,PERSO
+2025-01-13,Netflix,Loisirs > Streaming,-16.7,CB NETFLIX,PERSO
+2025-01-13,Croix Rouge,Dons > Associations,-26.44,CB CROIX ROUGE,PERSO
+2025-01-13,Paiement non catégorisé,,-44.81,CB DIVERS,PERSO
+2025-01-13,Biocoop,Quotidien > Courses,-59.99,CB BIOCOOP,JOINT
+2025-01-13,Boulangerie Paul,Quotidien > Boulangerie,-8.8,CB BOULANGERIE PAUL,JOINT
+2025-01-12,Boulangerie Paul,Quotidien > Boulangerie,-2.93,CB BOULANGERIE PAUL,PERSO
+2025-01-10,Netflix,Loisirs > Streaming,-14.77,CB NETFLIX,JOINT
+2025-01-09,Carrefour,Quotidien > Courses,-82.5,CB CARREFOUR,JOINT
+2025-01-08,Pharmacie du Centre,Santé > Pharmacie,-16.35,CB PHARMACIE DU CENTRE,PERSO
+2025-01-08,DGFIP,Taxes > Impôts,-289.36,CB DGFIP,JOINT
+2025-01-07,Virement épargne,Exclus > Virement interne,-388.58,CB VIREMENT ÉPARGNE,PERSO
+2025-01-06,Decathlon,Loisirs > Sport,-31.12,CB DECATHLON,PERSO
+2025-01-06,SNCF Connect,Transports > Train,-85.32,CB SNCF CONNECT,PERSO
+2025-01-05,Carrefour,Quotidien > Courses,-43.88,CB CARREFOUR,PERSO
+2025-01-05,Maison Kayser,Quotidien > Boulangerie,-6.23,CB MAISON KAYSER,PERSO
+2025-01-05,Agence Immo,Maison > Loyer,-850.0,CB AGENCE IMMO,JOINT
+2025-01-04,Maison Kayser,Quotidien > Boulangerie,-4.15,CB MAISON KAYSER,PERSO
+2025-01-04,Restos du Coeur,Dons > Associations,-16.48,CB RESTOS DU COEUR,JOINT
+2025-01-03,Carrefour,Quotidien > Courses,-59.3,CB CARREFOUR,PERSO
+2025-01-03,Sushi Shop,Sorties > Restaurants,-21.87,CB SUSHI SHOP,PERSO
+2025-01-03,Spotify,Loisirs > Streaming,-14.95,CB SPOTIFY,PERSO
+2025-01-03,Virement épargne,Exclus > Virement interne,-211.59,CB VIREMENT ÉPARGNE,JOINT
+2025-01-02,Le Comptoir,Sorties > Bars,-14.15,CB LE COMPTOIR,PERSO
+2025-01-01,Salaire,Revenus > Salaire,2600,VIR SEPA,PERSO
+2025-01-01,Virement commun,Revenus > Salaire,1500,VIR SEPA,JOINT
+2025-01-01,Decathlon,Loisirs > Sport,-37.39,CB DECATHLON,JOINT

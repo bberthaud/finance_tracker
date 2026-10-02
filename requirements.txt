@@ -12,10 +12,7 @@ notion-client==2.2.1
 # Google Drive
 google-auth==2.28.1
 google-api-python-client==2.118.0
-google-auth-oauthlib==1.2.0
 google-auth-httplib2==0.2.0
 
 # Banque
 woob==3.7
-prettytable
-ipykernel
