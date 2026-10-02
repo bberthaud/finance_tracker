@@ -9,3 +9,9 @@ exports/
 others/
 credentials/
 .streamlit/
+.pytest_cache/
+.ruff_cache/
+.hypothesis/
+.coverage
+coverage.xml
+htmlcov/

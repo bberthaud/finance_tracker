@@ -1,233 +1,194 @@
+"""Accès à la base Notion des transactions, et script de synchro banque → Notion (cron)."""
+
+import logging
 import os
-from dotenv import load_dotenv
-import polars as pl
+import sys
+import time
 from datetime import datetime
-import subprocess
-import json
-from notion_client import Client
-from drive import load_from_drive, save_to_drive
-import streamlit as st
-from typing import List, Dict, Optional, Any
+from functools import lru_cache
+from typing import Any, Callable, Dict, Iterator, List, Optional, Set
 
-load_dotenv(override=True)
-NOTION_TOKEN = os.getenv("NOTION_TOKEN")
-NOTION_DATABASE_ID = os.getenv("NOTION_DATABASE_ID")
-BANK_ID = {"PERSO": os.getenv("BANK_PERSO_ID"), "JOINT": os.getenv("BANK_JOINT_ID")}
+import polars as pl
 
-if not NOTION_TOKEN or not NOTION_DATABASE_ID:
-    raise ValueError("❌ Les variables d'environnement NOTION_TOKEN et NOTION_DATABASE_ID sont requises")
+from bank import BankTransaction, get_transactions_from_woob, is_existing_transaction
+from processing import Transaction, preprocess_transactions
 
-notion = Client(auth=NOTION_TOKEN)
+logger = logging.getLogger(__name__)
 
-def get_transactions_from_woob() -> List[Dict[str, Any]]:
-    """Récupère les transactions depuis Woob.
-    
-    Returns:
-        List[Dict[str, Any]]: Liste des transactions
+NOTION_CREATE_RETRIES = 3
+TRANSIENT_HTTP_STATUSES = {409, 429, 500, 502, 503, 504}
 
-    Debug: 
-        rm ~/.config/woob/bank.storage
-    """
+
+def notion_database_id() -> str:
+    database_id = os.getenv("NOTION_DATABASE_ID")
+    if not database_id:
+        raise ValueError("La variable d'environnement NOTION_DATABASE_ID est requise")
+    return database_id
+
+
+@lru_cache(maxsize=1)
+def get_notion_client() -> Any:
+    from notion_client import Client
+
+    token = os.getenv("NOTION_TOKEN")
+    if not token:
+        raise ValueError("La variable d'environnement NOTION_TOKEN est requise")
+    return Client(auth=token)
+
+
+def get_title(prop: Optional[dict]) -> str:
+    return _first_text((prop or {}).get("title"))
+
+
+def get_rich_text(prop: Optional[dict]) -> str:
+    return _first_text((prop or {}).get("rich_text"))
+
+
+def _first_text(items: Optional[list]) -> str:
+    if not items:
+        return ""
+    first = items[0]
+    return first.get("plain_text") or (first.get("text") or {}).get("content") or ""
+
+
+def get_select(prop: Optional[dict]) -> Optional[str]:
+    sel = (prop or {}).get("select")
+    return sel.get("name") if sel else None
+
+
+def get_date_start(prop: Optional[dict]) -> Optional[str]:
+    date = (prop or {}).get("date")
+    return date.get("start") if date else None
+
+
+def get_number(prop: Optional[dict]) -> Optional[float]:
+    return (prop or {}).get("number")
+
+
+def page_to_transaction(props: dict) -> Optional[Transaction]:
+    date = get_date_start(props.get("Date"))
+    if not date:
+        return None
+    return {
+        "date": date[:10],
+        "nom": get_title(props.get("Nom")),
+        "categorie": get_select(props.get("Catégorie")),
+        "montant": get_number(props.get("Montant")),
+        "description": get_rich_text(props.get("Description")),
+        "compte": get_select(props.get("Compte")),
+    }
+
+
+def iter_pages(client: Any, database_id: str, **query: Any) -> Iterator[dict]:
+    """Parcourt toutes les pages d'une base, en suivant la pagination."""
+    start_cursor = None
+    while True:
+        response = client.databases.query(database_id=database_id, start_cursor=start_cursor, **query)
+        yield from response["results"]
+        if not response.get("has_more"):
+            return
+        start_cursor = response.get("next_cursor")
+
+
+def fetch_transactions_from_notion(client: Any = None) -> pl.DataFrame:
+    client = client or get_notion_client()
+    rows = [page_to_transaction(page["properties"]) for page in iter_pages(client, notion_database_id())]
+    return preprocess_transactions([row for row in rows if row])
+
+
+def _id_property_filter(client: Any, database_id: str) -> Dict[str, Any]:
+    """Ne demander que la propriété « ID Transaction » quand son identifiant est connu."""
     try:
-        transactions = []
-        for compte in ['PERSO', 'JOINT']:
-            woob_path = os.path.join(os.path.dirname(__file__), ".venv/bin/woob")
-            result = subprocess.run([
-                woob_path, "bank", "history", BANK_ID[compte], "-n", "15", "-f", "json"
-            ], stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True)
-            
-            if result.returncode != 0:
-                print(f"❌ Erreur Woob: {result.stderr}")
-                return []
+        prop = client.databases.retrieve(database_id=database_id)["properties"]["ID Transaction"]
+        return {"filter_properties": [prop["id"]]}
+    except Exception:
+        logger.warning("Propriété « ID Transaction » introuvable, lecture complète des pages")
+        return {}
 
-            raw_transactions = json.loads(result.stdout)
-            transactions.extend(
-                [
-                    {
-                        "date": t["date"],
-                        "nom": t["label"],
-                        "categorie": t["category"],
-                        "montant": float(t["amount"]),
-                        "description": t["raw"],
-                        "id": t["id"].split("@")[0],
-                        "compte": compte
-                    }
-                    for t in raw_transactions
-                ]
+
+def get_existing_transaction_ids(client: Any = None) -> Set[str]:
+    client = client or get_notion_client()
+    database_id = notion_database_id()
+    query = _id_property_filter(client, database_id)
+    ids = (
+        get_rich_text(page["properties"].get("ID Transaction"))
+        for page in iter_pages(client, database_id, **query)
+    )
+    return {i for i in ids if i}
+
+
+def is_transient_error(exc: Exception) -> bool:
+    status = getattr(exc, "status", None)
+    if status is not None:
+        return status in TRANSIENT_HTTP_STATUSES
+    return type(exc).__name__ in {"RequestTimeoutError", "HTTPError", "ConnectError", "TimeoutException"}
+
+
+def transaction_properties(tx: BankTransaction) -> Dict[str, Any]:
+    return {
+        "Date": {"date": {"start": tx["date"]}},
+        "Nom": {"title": [{"text": {"content": tx["nom"] or ""}}]},
+        "Montant": {"number": tx["montant"]},
+        "Description": {"rich_text": [{"text": {"content": tx.get("description") or ""}}]},
+        "ID Transaction": {"rich_text": [{"text": {"content": tx["id"]}}]},
+        "Compte": {"select": {"name": tx["compte"]}},
+    }
+
+
+def send_transaction_to_notion(
+    tx: BankTransaction,
+    client: Any = None,
+    sleep: Callable[[float], None] = time.sleep,
+) -> Optional[dict]:
+    """Crée la page ; seules les erreurs temporaires (429, 5xx, réseau) sont retentées."""
+    client = client or get_notion_client()
+    database_id = notion_database_id()
+    for attempt in range(1, NOTION_CREATE_RETRIES + 1):
+        try:
+            return client.pages.create(
+                parent={"database_id": database_id}, properties=transaction_properties(tx)
             )
-        return transactions
+        except Exception as exc:
+            if not is_transient_error(exc) or attempt == NOTION_CREATE_RETRIES:
+                logger.error("Notion : échec de création id=%s : %s", tx.get("id"), exc)
+                return None
+            logger.warning(
+                "Notion : essai %s/%s échoué id=%s : %s", attempt, NOTION_CREATE_RETRIES, tx.get("id"), exc
+            )
+            sleep(2 ** (attempt - 1))
+    return None
 
-    except Exception as e:
-        print(f"❌ Erreur lors de la récupération des transactions Woob: {str(e)}")
-        return []
 
-def get_existing_transaction_ids() -> set:
-    """Récupère les IDs des transactions existantes dans Notion.
-    
-    Returns:
-        set: Ensemble des IDs de transactions
-    """
-    existing_ids = set()
-    has_more = True
-    start_cursor = None
+def send_transactions_to_notion(
+    transactions: List[BankTransaction],
+    client: Any = None,
+    sleep: Callable[[float], None] = time.sleep,
+) -> Dict[str, int]:
+    client = client or get_notion_client()
+    existing_ids = get_existing_transaction_ids(client)
+    logger.info("%s transactions déjà présentes dans Notion", len(existing_ids))
 
-    while has_more:
-        response = notion.databases.query(
-            database_id=NOTION_DATABASE_ID,
-            start_cursor=start_cursor if start_cursor else None
-        )
+    new = [tx for tx in transactions if not is_existing_transaction(tx["id"], existing_ids)]
+    success = sum(1 for tx in new if send_transaction_to_notion(tx, client, sleep))
+    logger.info("Notion : %s/%s transactions ajoutées", success, len(new))
+    return {"success": success, "failed": len(new) - success, "skipped": len(transactions) - len(new)}
 
-        for page in response["results"]:
-            prop = page["properties"].get("ID Transaction", {})
-            rich_text = prop.get("rich_text", [])
-            if rich_text:
-                existing_ids.add(rich_text[0]["text"]["content"])
 
-        has_more = response.get("has_more", False)
-        start_cursor = response.get("next_cursor")
+def main() -> int:
+    from dotenv import load_dotenv
 
-    return existing_ids
-
-def send_transaction_to_notion(tx: Dict[str, Any]) -> Optional[Dict[str, Any]]:
-    """Ajoute une transaction à la base Notion.
-    
-    Args:
-        tx (Dict[str, Any]): La transaction à ajouter
-        
-    Returns:
-        Optional[Dict[str, Any]]: La réponse de l'API Notion ou None en cas d'erreur
-    """
-    try:
-        response = notion.pages.create(
-            parent={"database_id": NOTION_DATABASE_ID},
-            properties={
-                "Date": {"date": {"start": tx["date"]}},
-                "Nom": {"title": [{"text": {"content": tx["nom"]}}]},
-                "Montant": {"number": tx["montant"]},
-                "Description": {"rich_text": [{"text": {"content": tx["description"] if tx["description"] else ''}}]},
-                "ID Transaction": {"rich_text": [{"text": {"content": tx["id"]}}]},
-                "Compte": {"select": {"name": tx["compte"]}},
-            }
-        )
-        return response
-    except Exception as e:
-        print(f"❌ Erreur lors de l'ajout de la transaction {tx.get('id')}: {str(e)}")
-        return None
-
-def send_transactions_to_notion(transactions: List[Dict[str, Any]]) -> Dict[str, int]:
-    """Envoie les transactions à Notion.
-    
-    Args:
-        transactions (List[Dict[str, Any]]): Liste des transactions à envoyer
-        
-    Returns:
-        Dict[str, int]: Nombre de transactions ajoutées avec succès
-    """
-    existing_ids = get_existing_transaction_ids()
-    print(f"🔎 {len(existing_ids)} transactions déjà présentes dans Notion.")
-
-    new_transactions = [txn for txn in transactions if txn["id"] not in existing_ids]
-    print(f"🆕 {len(new_transactions)} nouvelles transactions à ajouter.")
-
-    success = 0
-    for tx in new_transactions:
-        if send_transaction_to_notion(tx):
-            success += 1
-    print(f"[Notion] {success}/{len(new_transactions)} transactions ajoutées")
-    return {"success": success}
-
-def load_transactions_from_csv() -> Optional[pl.DataFrame]:
-    """Charge les transactions depuis le fichier CSV sur Google Drive.
-    
-    Returns:
-        Optional[pl.DataFrame]: Le DataFrame des transactions ou None en cas d'erreur
-    """
-    try:
-        df = load_from_drive("transactions.csv")
-        if df is None:
-            st.warning("⚠️ Aucun fichier CSV trouvé sur Google Drive")
-            return None
-        return df
-    except Exception as e:
-        st.error(f"❌ Erreur lors du chargement du CSV: {str(e)}")
-        return None
-
-def preprocess_transactions(transactions: List[Dict[str, Any]]) -> pl.DataFrame:
-    """Prétraite les transactions pour l'affichage.
-    
-    Args:
-        transactions (List[Dict[str, Any]]): Liste des transactions à prétraiter
-        
-    Returns:
-        pl.DataFrame: DataFrame prétraité
-    """
-    df = pl.DataFrame(transactions)
-    
-    # Conversion de la date et création des colonnes temporelles
-    df = df.with_columns([
-        pl.col("date").str.strptime(pl.Date, "%Y-%m-%d").alias("date")
-    ])
-
-    df = df.with_columns([
-        pl.col("date").dt.strftime("%Y-%m").alias("mois"),
-        pl.concat_str([
-            pl.col("date").dt.year().cast(pl.Utf8),
-            pl.lit("-T"),
-            pl.col("date").dt.quarter().cast(pl.Utf8)
-        ]).alias("trimestre"),
-        pl.col("date").dt.year().cast(pl.Utf8).alias("annee"),
-        pl.col("categorie").str.split(" > ").list.first().alias("categorie-parent"),
-        pl.col("categorie").str.split(" > ").list.last().alias("categorie-enfant")
-    ])
-    
-    return df.sort("date", descending=True)
-
-def get_transactions_from_notion(force_reload: bool = False) -> Optional[pl.DataFrame]:
-    """Récupère les transactions depuis Notion ou le CSV sur Google Drive.
-    
-    Args:
-        force_reload (bool): Force le rechargement depuis Notion
-        
-    Returns:
-        Optional[pl.DataFrame]: Le DataFrame des transactions ou None en cas d'erreur
-    """
-    # Vérification du CSV si pas de rechargement forcé
-    if not force_reload:
-        return load_transactions_from_csv()
-
-    # Récupération depuis Notion
-    transactions = []
-    has_more = True
-    start_cursor = None
-
-    while has_more:
-        response = notion.databases.query(
-            database_id=NOTION_DATABASE_ID,
-            start_cursor=start_cursor
-        )
-
-        for page in response["results"]:
-            props = page["properties"]
-            transactions.append({
-                "date": props["Date"]["date"]["start"],
-                "nom": props["Nom"]["title"][0]["text"]["content"],
-                "categorie": props["Catégorie"]["select"]["name"] if props["Catégorie"]["select"] else None,
-                "montant": props["Montant"]["number"],
-                "description": props["Description"]["rich_text"][0]["text"]["content"],
-                "compte": props["Compte"]["select"]["name"]
-            })
-
-        has_more = response.get("has_more", False)
-        start_cursor = response.get("next_cursor")
-
-    df = preprocess_transactions(transactions)
-    save_to_drive(df, "transactions.csv")
-    
-    return df
+    load_dotenv(override=True)
+    logging.basicConfig(level=logging.INFO, format="%(asctime)s %(levelname)s %(name)s %(message)s")
+    print(f"📅 {datetime.now().strftime('%Y-%m-%d')}")
+    transactions = get_transactions_from_woob()
+    print(f"Woob : {len(transactions)} transaction(s) lue(s)")
+    result = send_transactions_to_notion(transactions)
+    print(
+        f"Notion : {result['success']} ajoutée(s), {result['failed']} en échec, "
+        f"{result['skipped']} déjà présente(s)"
+    )
+    return 1 if result["failed"] else 0
 
 
 if __name__ == "__main__":
-    print(f"📅 {datetime.now().strftime('%Y-%m-%d')}")
-    transactions = get_transactions_from_woob()
-    send_transactions_to_notion(transactions)
-    print()
+    sys.exit(main())

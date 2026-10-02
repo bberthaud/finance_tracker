@@ -1,0 +1,38 @@
+[
+  {
+    "id": "page-complete",
+    "properties": {
+      "Date": {"date": {"start": "2026-09-14"}},
+      "Nom": {"title": [{"plain_text": "Carrefour", "text": {"content": "Carrefour"}}]},
+      "Catégorie": {"select": {"name": "Quotidien > Courses"}},
+      "Montant": {"number": -54.2},
+      "Description": {"rich_text": [{"plain_text": "CB CARREFOUR", "text": {"content": "CB CARREFOUR"}}]},
+      "Compte": {"select": {"name": "PERSO"}},
+      "ID Transaction": {"rich_text": [{"plain_text": "PERSO:a1b2c3"}]}
+    }
+  },
+  {
+    "id": "page-champs-vides",
+    "properties": {
+      "Date": {"date": {"start": "2026-09-01T08:30:00.000+02:00"}},
+      "Nom": {"title": []},
+      "Catégorie": {"select": null},
+      "Montant": {"number": 2600},
+      "Description": {"rich_text": []},
+      "Compte": {"select": {"name": "PERSO"}},
+      "ID Transaction": {"rich_text": [{"plain_text": "legacy123"}]}
+    }
+  },
+  {
+    "id": "page-sans-date",
+    "properties": {
+      "Date": {"date": null},
+      "Nom": {"title": [{"plain_text": "Brouillon"}]},
+      "Catégorie": {"select": null},
+      "Montant": {"number": null},
+      "Description": {"rich_text": []},
+      "Compte": {"select": null},
+      "ID Transaction": {"rich_text": []}
+    }
+  }
+]
