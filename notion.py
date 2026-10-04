@@ -174,11 +174,17 @@ def send_transactions_to_notion(
     return {"success": success, "failed": len(new) - success, "skipped": len(transactions) - len(new)}
 
 
+def configure_logging() -> None:
+    logging.basicConfig(level=logging.INFO, format="%(asctime)s %(levelname)s %(name)s %(message)s")
+    logging.getLogger("httpx").setLevel(logging.WARNING)
+    logging.getLogger("httpcore").setLevel(logging.WARNING)
+
+
 def main() -> int:
     from dotenv import load_dotenv
 
     load_dotenv(override=True)
-    logging.basicConfig(level=logging.INFO, format="%(asctime)s %(levelname)s %(name)s %(message)s")
+    configure_logging()
     print(f"📅 {datetime.now().strftime('%Y-%m-%d')}")
     transactions = get_transactions_from_woob()
     print(f"Woob : {len(transactions)} transaction(s) lue(s)")
