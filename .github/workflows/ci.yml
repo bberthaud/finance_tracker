@@ -11,12 +11,13 @@ jobs:
       - uses: actions/checkout@v4
       - uses: astral-sh/setup-uv@v6
         with:
+          version: "0.12.23"
           python-version: "3.12"
           enable-cache: true
       - run: uv sync --frozen --group dev
       - name: requirements.txt à jour
         run: |
-          uv export --frozen --no-dev --no-group sync --no-emit-project -o requirements.ci.txt
+          uv export --frozen --no-dev --no-group sync --no-emit-project --no-header -o requirements.ci.txt
           diff -u requirements.txt requirements.ci.txt
       - name: Lint
         run: |
