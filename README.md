@@ -15,14 +15,22 @@ Ouvrir http://localhost:8501, mot de passe `demo`. Les données viennent de `dem
 
 ## Installation
 
-Le venv du projet est un environnement Linux (WSL).
+Le venv du projet est un environnement Linux (WSL) : anacron et Woob s'exécutent sous Linux (`.venv/bin/python`). Depuis PowerShell, préfixer les commandes par `wsl -e bash -lc "cd /mnt/c/Users/bapti/Documents/Python/finance_tracker && ..."`.
+
+Installer [uv](https://docs.astral.sh/uv/) dans WSL (une fois) :
 
 ```bash
-python3 -m venv .venv
-.venv/bin/python -m pip install -r requirements-dev.txt
+curl -LsSf https://astral.sh/uv/install.sh | sh
 ```
 
-Depuis PowerShell, préfixer les commandes par `wsl -e bash -lc "cd /mnt/c/Users/bapti/Documents/Python/finance_tracker && ..."`.
+Puis, dans le dépôt :
+
+```bash
+uv sync --group dev --group sync
+make demo
+```
+
+`uv sync` installe les dépendances de l'application, le groupe `dev` (pytest, ruff, …) et le groupe `sync` (Woob). `requirements.txt` est un export pour Streamlit Community Cloud, sans ces deux groupes : ne pas l'éditer à la main.
 
 ## Configuration
 
