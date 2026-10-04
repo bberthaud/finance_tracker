@@ -1,11 +1,13 @@
 """Transformations pures (dates, filtres, lissage, agrégats, couleurs) — sans Streamlit ni APIs."""
 
+from datetime import date
 from typing import Dict, List, Optional, TypedDict
 
 import polars as pl
 
 PERIODES = ("mois", "trimestre", "annee")
 REVENUS = "Revenus"
+DAYS_PER_MONTH = 365.25 / 12
 DEFAULT_PIE_COLOR = "rgba(160, 160, 160, 0.85)"
 
 CATEGORY_COLORS = {
@@ -122,16 +124,57 @@ def filter_by_categories(df: pl.DataFrame, selected_children: List[str]) -> pl.D
     )
 
 
-def smoothing_divisor(lissage: bool, periode: str, n_months: int) -> int:
-    """Diviseur mensuel : nombre de mois présents, pas 12/3 fixes (année ou trimestre incomplets)."""
+def period_label(periode: str, day: date) -> str:
+    """Libellé de la période contenant `day`, au format des colonnes `mois`/`trimestre`/`annee`."""
+    if periode == "mois":
+        return day.strftime("%Y-%m")
+    if periode == "trimestre":
+        return f"{day.year}-T{(day.month - 1) // 3 + 1}"
+    return str(day.year)
+
+
+def elapsed_months(periode: str, today: date) -> float:
+    """Mois écoulés dans la période (trimestre ou année) en cours, au jour près, plancher à 1.
+
+    Jours écoulés du début de la période à `today` inclus, divisés par 365.25 / 12.
+    """
+    month = 1 if periode == "annee" else 3 * ((today.month - 1) // 3) + 1
+    days = (today - date(today.year, month, 1)).days + 1
+    return max(days / DAYS_PER_MONTH, 1.0)
+
+
+def smoothing_divisor(
+    lissage: bool,
+    periode: str,
+    n_months: int,
+    periode_specifique: Optional[str] = None,
+    today: Optional[date] = None,
+) -> float:
+    """Diviseur mensuel du lissage (vues trimestre et année ; 1 en vue mois ou sans lissage).
+
+    - Période en cours (contient `today`, défaut : date du jour) : mois écoulés au jour près,
+      voir `elapsed_months` (le 4 octobre 2026 : 277 jours, soit ≈ 9,10 mois).
+    - Période terminée : nombre de mois présents dans les données (pas 12/3 fixes).
+    Plancher à 1 dans les deux cas : en tout début de période, diviser par moins d'un mois
+    gonflerait les montants.
+    """
     if not lissage or periode == "mois":
-        return 1
-    return max(int(n_months or 0), 1)
+        return 1.0
+    today = today or date.today()
+    if periode_specifique is not None and periode_specifique == period_label(periode, today):
+        return elapsed_months(periode, today)
+    return float(max(int(n_months or 0), 1))
 
 
-def compute_totals(df: pl.DataFrame, periode: str, lissage: bool) -> pl.DataFrame:
-    """Dépenses, revenus et épargne par période, éventuellement ramenés au mois."""
-    divisor = pl.max_horizontal(pl.col("n_mois"), pl.lit(1)) if lissage and periode != "mois" else pl.lit(1)
+def compute_totals(
+    df: pl.DataFrame, periode: str, lissage: bool, today: Optional[date] = None
+) -> pl.DataFrame:
+    """Dépenses, revenus et épargne par période, éventuellement ramenés au mois (cf. `smoothing_divisor`)."""
+    today = today or date.today()
+    divisor = pl.struct([periode, "n_mois"]).map_elements(
+        lambda row: smoothing_divisor(lissage, periode, row["n_mois"], row[periode], today),
+        return_dtype=pl.Float64,
+    )
     is_revenu = pl.col("categorie-parent") == REVENUS
     return (
         df.group_by(periode)
@@ -156,7 +199,12 @@ def compute_totals(df: pl.DataFrame, periode: str, lissage: bool) -> pl.DataFram
 
 
 def compute_pie_data(
-    df: pl.DataFrame, periode: str, periode_specifique: str, groupe: str, lissage: bool
+    df: pl.DataFrame,
+    periode: str,
+    periode_specifique: str,
+    groupe: str,
+    lissage: bool,
+    today: Optional[date] = None,
 ) -> pl.DataFrame:
     """Dépenses (positives) par catégorie sur une période, avec détail des sous-catégories en vue parent.
 
@@ -168,7 +216,7 @@ def compute_pie_data(
     if expenses.is_empty():
         return pl.DataFrame(schema={"label": pl.Utf8, "montant": pl.Float64})
 
-    divisor = smoothing_divisor(lissage, periode, expenses["mois"].n_unique())
+    divisor = smoothing_divisor(lissage, periode, expenses["mois"].n_unique(), periode_specifique, today)
     pie = (
         expenses.group_by(cat_col)
         .agg((pl.col("montant").sum() / divisor).alias("solde"))

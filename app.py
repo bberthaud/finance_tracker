@@ -1,7 +1,7 @@
 import hmac
 import os
 from pathlib import Path
-from typing import List, NamedTuple, Optional
+from typing import Dict, List, NamedTuple, Optional
 
 import plotly.graph_objects as go
 import polars as pl
@@ -28,7 +28,11 @@ load_dotenv(override=False)
 DEFAULT_DEMO_CSV = Path(__file__).parent / "demo" / "transactions_demo.csv"
 MAP_PERIODE_NAMES = {"mois": "Mois", "trimestre": "Trimestre", "annee": "Année"}
 PLOTLY_CONFIG = {"displayModeBar": False}
+CHART_HEIGHT = 450
 COMPTES = ["PERSO", "JOINT"]
+HIDE_AMOUNTS_KEY = "masquer_montants"
+HIDDEN_AMOUNT = "••• €"
+NO_EXPENSE_MESSAGE = "Aucune dépense à afficher pour cette période."
 
 
 class DataLoadError(Exception):
@@ -46,6 +50,10 @@ class Filters(NamedTuple):
 
 def is_demo_mode() -> bool:
     return os.getenv("DATA_SOURCE", "").lower() == "demo"
+
+
+def amounts_hidden() -> bool:
+    return bool(st.session_state.get(HIDE_AMOUNTS_KEY))
 
 
 def check_password() -> bool:
@@ -119,19 +127,28 @@ def reload_from_notion() -> None:
     store_drive_message(save_to_drive(get_drive_service(), df))
 
 
+def pie_title(periode_specifique: str, lissage: bool) -> str:
+    return f"Dépenses par Catégorie sur {periode_specifique}" + (" (/mois)" if lissage else "")
+
+
 def create_pie_chart(
-    pie: pl.DataFrame, colors: List[str], periode_specifique: str, lissage: bool
+    pie: pl.DataFrame,
+    colors: List[str],
+    periode_specifique: str,
+    lissage: bool,
+    hide_amounts: bool = False,
 ) -> go.Figure:
-    title = f"Dépenses par Catégorie sur {periode_specifique}" + (" (/mois)" if lissage else "")
-    if "hover_detail" in pie.columns:
-        hover_template = (
-            "<b>%{label}</b> (%{percent:.1%})<br>Total: -%{value:,.0f}€"
-            "<br><br>%{customdata}<extra></extra>"
-        )
-        customdata = pie["hover_detail"].to_list()
+    hover_template = "<b>%{label}</b> (%{percent:.1%})"
+    customdata = None
+    if hide_amounts:
+        total = HIDDEN_AMOUNT
     else:
-        hover_template = "<b>%{label}</b> (%{percent:.1%})<br>Total: -%{value:,.0f}€<extra></extra>"
-        customdata = None
+        total = f"-{pie['montant'].sum():,.0f}€"
+        hover_template += "<br>Total: -%{value:,.0f}€"
+        if "hover_detail" in pie.columns:
+            hover_template += "<br><br>%{customdata}"
+            customdata = pie["hover_detail"].to_list()
+    hover_template += "<extra></extra>"
 
     fig = go.Figure(
         go.Pie(
@@ -145,18 +162,51 @@ def create_pie_chart(
     )
     fig.update_traces(textposition="inside", textinfo="percent+label")
     fig.update_layout(
-        title=dict(text=title, x=0.5, xanchor="center"),
+        title=dict(text=pie_title(periode_specifique, lissage), x=0.5, xanchor="center"),
+        height=CHART_HEIGHT,
         uniformtext_minsize=10,
         uniformtext_mode="hide",
         legend=dict(orientation="h", yanchor="top", y=-0.2, xanchor="center", x=0.5),
-        annotations=[dict(text=f"-{pie['montant'].sum():,.0f}€", x=0.5, y=0.5, showarrow=False)],
+        annotations=[dict(text=total, x=0.5, y=0.5, showarrow=False)],
     )
     return fig
 
 
-def create_bar_chart(totals: pl.DataFrame, periode: str, lissage: bool) -> go.Figure:
+def create_empty_pie_placeholder(periode_specifique: str, lissage: bool) -> go.Figure:
+    """Figure vide de la taille du camembert, avec le message centré à sa place."""
+    fig = go.Figure()
+    fig.update_layout(
+        title=dict(text=pie_title(periode_specifique, lissage), x=0.5, xanchor="center"),
+        height=CHART_HEIGHT,
+        xaxis=dict(visible=False),
+        yaxis=dict(visible=False),
+        plot_bgcolor="rgba(0,0,0,0)",
+        annotations=[
+            dict(
+                text=NO_EXPENSE_MESSAGE,
+                x=0.5,
+                y=0.5,
+                xref="paper",
+                yref="paper",
+                showarrow=False,
+                font=dict(size=16),
+            )
+        ],
+        dragmode=False,
+    )
+    return fig
+
+
+def create_bar_chart(
+    totals: pl.DataFrame, periode: str, lissage: bool, hide_amounts: bool = False
+) -> go.Figure:
     title = f"Épargne par {MAP_PERIODE_NAMES[periode]}" + (" (/mois)" if lissage else "")
     x = totals[periode].to_list()
+
+    def hover(name: str) -> str:
+        amount = "" if hide_amounts else ": %{y:,.0f}€"
+        return f"%{{x}}<br>{name}{amount}<extra></extra>"
+
     fig = go.Figure(
         [
             go.Bar(
@@ -164,14 +214,14 @@ def create_bar_chart(totals: pl.DataFrame, periode: str, lissage: bool) -> go.Fi
                 y=totals["depenses"].to_list(),
                 name="Dépenses",
                 marker_color=CATEGORY_COLORS["Quotidien"],
-                hovertemplate="%{x}<br>Dépenses: %{y:,.0f}€<extra></extra>",
+                hovertemplate=hover("Dépenses"),
             ),
             go.Bar(
                 x=x,
                 y=totals["revenus"].to_list(),
                 name="Revenus",
                 marker_color=CATEGORY_COLORS["Revenus"],
-                hovertemplate="%{x}<br>Revenus: %{y:,.0f}€<extra></extra>",
+                hovertemplate=hover("Revenus"),
             ),
             go.Scatter(
                 x=x,
@@ -179,15 +229,16 @@ def create_bar_chart(totals: pl.DataFrame, periode: str, lissage: bool) -> go.Fi
                 name="Épargne",
                 mode="lines+markers",
                 line=dict(color=CATEGORY_COLORS["Transports"], width=2),
-                hovertemplate="%{x}<br>Épargne: %{y:,.0f}€<extra></extra>",
+                hovertemplate=hover("Épargne"),
             ),
         ]
     )
     fig.update_layout(
         title=dict(text=title, x=0.5, xanchor="center"),
+        height=CHART_HEIGHT,
         barmode="group",
         xaxis_title=MAP_PERIODE_NAMES[periode],
-        yaxis_title="Montant (€)",
+        yaxis=dict(title="Montant (€)", showticklabels=not hide_amounts),
         legend=dict(orientation="h", yanchor="top", y=-0.2, xanchor="center", x=0.5),
         dragmode=False,
     )
@@ -220,24 +271,56 @@ def create_sidebar_filters(df: pl.DataFrame) -> Filters:
     st.sidebar.subheader("Catégories")
     groupe = st.sidebar.selectbox("Groupe", ["parent", "enfant"], format_func=str.capitalize)
 
+    structure = category_structure(df)
+    init_category_state(structure)
+    select_all, unselect_all = st.sidebar.columns(2)
+    select_all.button(
+        "Tout sélectionner", key="select_all", on_click=set_all_categories, args=(structure, True)
+    )
+    unselect_all.button(
+        "Tout désélectionner", key="unselect_all", on_click=set_all_categories, args=(structure, False)
+    )
+
     selected: List[str] = []
-    for parent, children in category_structure(df).items():
+    for parent, children in structure.items():
         with st.sidebar.expander(parent):
-            parent_checked = st.checkbox(
-                f"**{parent}**",
-                value=parent not in DEFAULT_EXCLUDED_PARENTS,
-                key=f"parent_{parent}",
-            )
+            parent_checked = st.checkbox(f"**{parent}**", key=parent_key(parent))
             if not children and parent_checked:
                 selected.append(parent)
             for child in children:
-                if st.checkbox(f"• {child}", value=parent_checked, key=f"child_{parent}_{child}"):
+                if st.checkbox(f"• {child}", key=child_key(parent, child)):
                     selected.append(child)
 
     return Filters(compte, periode, periode_specifique, lissage, groupe, selected)
 
 
-def display_transactions_table(df: pl.DataFrame, periode: str, periode_specifique: str) -> None:
+def parent_key(parent: str) -> str:
+    return f"parent_{parent}"
+
+
+def child_key(parent: str, child: str) -> str:
+    return f"child_{parent}_{child}"
+
+
+def init_category_state(structure: Dict[str, List[str]]) -> None:
+    """Valeurs initiales posées dans session_state (et non via `value=`) : sinon Streamlit avertit
+    quand `set_all_categories` modifie les cases. Un enfant démarre à la valeur de son parent."""
+    for parent, children in structure.items():
+        st.session_state.setdefault(parent_key(parent), parent not in DEFAULT_EXCLUDED_PARENTS)
+        for child in children:
+            st.session_state.setdefault(child_key(parent, child), st.session_state[parent_key(parent)])
+
+
+def set_all_categories(structure: Dict[str, List[str]], checked: bool) -> None:
+    for parent, children in structure.items():
+        st.session_state[parent_key(parent)] = checked
+        for child in children:
+            st.session_state[child_key(parent, child)] = checked
+
+
+def display_transactions_table(
+    df: pl.DataFrame, periode: str, periode_specifique: str, hide_amounts: bool = False
+) -> None:
     st.subheader("Transactions")
     table = (
         df.filter(pl.col(periode) == periode_specifique)
@@ -253,13 +336,21 @@ def display_transactions_table(df: pl.DataFrame, periode: str, periode_specifiqu
         color = CATEGORY_TEXT_COLORS.get(str(value or "").split(" > ")[0])
         return f"color: {color}" if color else ""
 
+    if hide_amounts:
+        table["montant"] = HIDDEN_AMOUNT
+        styled = table.style
+        montant_column = st.column_config.TextColumn("Montant")
+    else:
+        styled = table.style.map(montant_color, subset=["montant"])
+        montant_column = st.column_config.NumberColumn("Montant", format="%.2f €")
+
     st.dataframe(
-        table.style.map(montant_color, subset=["montant"]).map(categorie_color, subset=["categorie"]),
+        styled.map(categorie_color, subset=["categorie"]),
         column_config={
             "date": st.column_config.DateColumn("Date", format="YYYY-MM-DD"),
             "nom": "Nom",
             "categorie": "Catégorie",
-            "montant": st.column_config.NumberColumn("Montant", format="%.2f €"),
+            "montant": montant_column,
             "description": "Description",
             "compte": "Compte",
         },
@@ -281,6 +372,8 @@ def main() -> None:
     st.title("Suivi Financier")
     if is_demo_mode():
         st.caption("Mode démo : données fictives")
+    st.sidebar.toggle("Masquer les montants", key=HIDE_AMOUNTS_KEY)
+    hide_amounts = amounts_hidden()
 
     if not check_password():
         st.stop()
@@ -304,22 +397,19 @@ def main() -> None:
     col1, col2 = st.columns(2)
     with col1:
         st.plotly_chart(
-            create_bar_chart(compute_totals(df, f.periode, f.lissage), f.periode, f.lissage),
+            create_bar_chart(compute_totals(df, f.periode, f.lissage), f.periode, f.lissage, hide_amounts),
             use_container_width=True,
             config=PLOTLY_CONFIG,
         )
     with col2:
         if pie.is_empty():
-            st.info("Aucune dépense à afficher pour cette période.")
+            fig = create_empty_pie_placeholder(f.periode_specifique, f.lissage)
         else:
             colors = pie_colors_for_labels(pie["label"].to_list(), f.groupe, enfant_parent_map(df))
-            st.plotly_chart(
-                create_pie_chart(pie, colors, f.periode_specifique, f.lissage),
-                use_container_width=True,
-                config=PLOTLY_CONFIG,
-            )
+            fig = create_pie_chart(pie, colors, f.periode_specifique, f.lissage, hide_amounts)
+        st.plotly_chart(fig, use_container_width=True, config=PLOTLY_CONFIG)
 
-    display_transactions_table(df, f.periode, f.periode_specifique)
+    display_transactions_table(df, f.periode, f.periode_specifique, hide_amounts)
 
 
 if __name__ == "__main__":
