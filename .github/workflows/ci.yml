@@ -14,6 +14,10 @@ jobs:
           python-version: "3.12"
           enable-cache: true
       - run: uv sync --frozen --group dev
+      - name: requirements.txt à jour
+        run: |
+          uv export --frozen --no-dev --no-group sync --no-emit-project -o requirements.ci.txt
+          diff -u requirements.txt requirements.ci.txt
       - name: Lint
         run: |
           uv run ruff check .
