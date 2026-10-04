@@ -4,6 +4,7 @@ import polars as pl
 import pytest
 
 from processing import (
+    DAYS_PER_MONTH,
     DEFAULT_PIE_COLOR,
     category_structure,
     compute_pie_data,
@@ -87,6 +88,9 @@ class TestFiltreCategories:
         assert result.row(0, named=True)["montant"] == -10.0
 
 
+AUJOURDHUI = date(2026, 10, 4)
+
+
 class TestLissage:
     @pytest.mark.parametrize(
         ("lissage", "periode", "n_mois", "attendu"),
@@ -101,6 +105,28 @@ class TestLissage:
     )
     def test_diviseur(self, lissage, periode, n_mois, attendu):
         assert smoothing_divisor(lissage, periode, n_mois) == attendu
+
+    def test_annee_en_cours_au_jour_pres(self):
+        divisor = smoothing_divisor(True, "annee", 10, "2026", today=AUJOURDHUI)
+        assert divisor == pytest.approx(277 / DAYS_PER_MONTH)
+        assert divisor == pytest.approx(9.10, abs=0.01)
+
+    def test_trimestre_en_cours_au_jour_pres(self):
+        divisor = smoothing_divisor(True, "trimestre", 2, "2026-T2", today=date(2026, 5, 15))
+        assert divisor == pytest.approx((30 + 15) / DAYS_PER_MONTH)
+
+    @pytest.mark.parametrize(("periode", "valeur"), [("annee", "2025"), ("trimestre", "2026-T3")])
+    def test_periode_terminee_inchangee(self, periode, valeur):
+        assert smoothing_divisor(True, periode, 3, valeur, today=AUJOURDHUI) == 3
+
+    def test_premier_janvier_plancher_a_un_mois(self):
+        assert smoothing_divisor(True, "annee", 1, "2026", today=date(2026, 1, 1)) == 1
+
+    def test_vue_mois_en_cours_sans_lissage(self):
+        assert smoothing_divisor(True, "mois", 1, "2026-10", today=AUJOURDHUI) == 1
+
+    def test_sans_lissage_periode_en_cours(self):
+        assert smoothing_divisor(False, "annee", 10, "2026", today=AUJOURDHUI) == 1
 
 
 class TestTotaux:
@@ -118,12 +144,31 @@ class TestTotaux:
     def test_lissage_divise_par_les_mois_presents(self, sample_df):
         perso = sample_df.filter(pl.col("compte") == "PERSO")
         t1 = next(
-            t for t in compute_totals(perso, "trimestre", True).to_dicts() if t["trimestre"] == "2026-T1"
+            t
+            for t in compute_totals(perso, "trimestre", True, today=AUJOURDHUI).to_dicts()
+            if t["trimestre"] == "2026-T1"
         )
         brut = next(
             t for t in compute_totals(perso, "trimestre", False).to_dicts() if t["trimestre"] == "2026-T1"
         )
         assert t1["epargne"] == pytest.approx(brut["epargne"] / 2)
+
+    def test_lissage_annee_en_cours_au_jour_pres(self, sample_df):
+        lisse = compute_totals(sample_df, "annee", True, today=AUJOURDHUI).row(0, named=True)
+        brut = compute_totals(sample_df, "annee", False).row(0, named=True)
+        assert lisse["epargne"] == pytest.approx(brut["epargne"] / (277 / DAYS_PER_MONTH))
+
+    def test_lissage_mixte_periode_en_cours_et_terminee(self, sample_df):
+        """T1 terminé : 2 mois présents ; T2 en cours au 15 mai : 45 jours écoulés."""
+        totals = {
+            t["trimestre"]: t["depenses"]
+            for t in compute_totals(sample_df, "trimestre", True, today=date(2026, 5, 15)).to_dicts()
+        }
+        bruts = {
+            t["trimestre"]: t["depenses"] for t in compute_totals(sample_df, "trimestre", False).to_dicts()
+        }
+        assert totals["2026-T1"] == pytest.approx(bruts["2026-T1"] / 2)
+        assert totals["2026-T2"] == pytest.approx(bruts["2026-T2"] / (45 / DAYS_PER_MONTH))
 
     def test_periode_sans_revenu_vaut_zero(self, sample_df):
         avril = next(t for t in compute_totals(sample_df, "mois", False).to_dicts() if t["mois"] == "2026-04")
@@ -157,8 +202,19 @@ class TestCamembert:
     def test_lissage_trimestre(self, sample_df):
         perso = sample_df.filter(pl.col("compte") == "PERSO")
         brut = compute_pie_data(perso, "trimestre", "2026-T1", "parent", lissage=False)
-        lisse = compute_pie_data(perso, "trimestre", "2026-T1", "parent", lissage=True)
+        lisse = compute_pie_data(perso, "trimestre", "2026-T1", "parent", lissage=True, today=AUJOURDHUI)
         assert lisse["montant"].sum() == pytest.approx(brut["montant"].sum() / 2)
+
+    def test_lissage_annee_en_cours_coherent_avec_les_totaux(self, sample_df):
+        perso = sample_df.filter(pl.col("compte") == "PERSO")
+        brut = compute_pie_data(perso, "annee", "2026", "parent", lissage=False)
+        lisse = compute_pie_data(perso, "annee", "2026", "parent", lissage=True, today=AUJOURDHUI)
+        assert lisse["montant"].sum() == pytest.approx(brut["montant"].sum() / (277 / DAYS_PER_MONTH))
+        totaux_bruts = compute_totals(perso, "annee", False).row(0, named=True)
+        totaux_lisses = compute_totals(perso, "annee", True, today=AUJOURDHUI).row(0, named=True)
+        assert totaux_lisses["depenses"] / totaux_bruts["depenses"] == pytest.approx(
+            lisse["montant"].sum() / brut["montant"].sum()
+        )
 
 
 class TestCouleurs:

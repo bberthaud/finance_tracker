@@ -121,7 +121,7 @@ Une transaction prétraitée (`processing.TRANSACTIONS_SCHEMA`) :
 ## Règles de calcul
 
 - **Dépenses / revenus / épargne** : les revenus sont les lignes de parent `Revenus` ; tout le reste (y compris les lignes sans catégorie) compte en dépense ; épargne = somme de tout.
-- **Lissage mensuel** : en vue trimestre ou année, les montants sont divisés par le nombre de mois réellement présents dans la période (une année en cours sur 9 mois est divisée par 9).
+- **Lissage mensuel** : en vue trimestre ou année, les montants d'une période terminée sont divisés par le nombre de mois réellement présents ; ceux de la période en cours par les jours écoulés jusqu'à aujourd'hui inclus / (365,25 / 12), plancher à 1 mois (le 4 octobre 2026 : 277 jours, soit ≈ 9,10).
 - **Camembert** : dépenses de la période choisie, hors revenus ; une catégorie dont le solde est positif (remboursements supérieurs aux dépenses) n'est pas affichée.
 - **Filtre de catégories** : on garde les lignes dont la sous-catégorie est cochée, et toujours les lignes sans catégorie.
 
