@@ -15,3 +15,4 @@ credentials/
 .coverage
 coverage.xml
 htmlcov/
+SPEC.md
