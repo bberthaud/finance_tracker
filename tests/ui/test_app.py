@@ -130,6 +130,32 @@ def test_tout_deselectionner_puis_tout_selectionner(demo_env):
     assert all(c.value for c in category_checkboxes(at))
 
 
+def test_cocher_parent_coche_ses_enfants(demo_env):
+    at = login(start())
+    exclus_children = [c for c in category_checkboxes(at) if c.key.startswith("child_Exclus_")]
+    assert exclus_children
+    assert not at.checkbox(key="parent_Exclus").value
+    assert all(not c.value for c in exclus_children)
+
+    at.checkbox(key="parent_Exclus").check().run()
+    assert not at.exception
+    assert at.checkbox(key="parent_Exclus").value
+    assert all(c.value for c in category_checkboxes(at) if c.key.startswith("child_Exclus_"))
+
+
+def test_decocher_parent_decoche_ses_enfants(demo_env):
+    at = login(start())
+    quotidien_children = [c for c in category_checkboxes(at) if c.key.startswith("child_Quotidien_")]
+    assert quotidien_children
+    assert at.checkbox(key="parent_Quotidien").value
+    assert all(c.value for c in quotidien_children)
+
+    at.checkbox(key="parent_Quotidien").uncheck().run()
+    assert not at.exception
+    assert not at.checkbox(key="parent_Quotidien").value
+    assert all(not c.value for c in category_checkboxes(at) if c.key.startswith("child_Quotidien_"))
+
+
 def test_categories_exclues_par_defaut(demo_env):
     at = login(start())
     assert at.checkbox(key="parent_Quotidien").value

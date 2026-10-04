@@ -284,7 +284,12 @@ def create_sidebar_filters(df: pl.DataFrame) -> Filters:
     selected: List[str] = []
     for parent, children in structure.items():
         with st.sidebar.expander(parent):
-            parent_checked = st.checkbox(f"**{parent}**", key=parent_key(parent))
+            parent_checked = st.checkbox(
+                f"**{parent}**",
+                key=parent_key(parent),
+                on_change=sync_children_from_parent,
+                args=(parent, children),
+            )
             if not children and parent_checked:
                 selected.append(parent)
             for child in children:
@@ -309,6 +314,13 @@ def init_category_state(structure: Dict[str, List[str]]) -> None:
         st.session_state.setdefault(parent_key(parent), parent not in DEFAULT_EXCLUDED_PARENTS)
         for child in children:
             st.session_state.setdefault(child_key(parent, child), st.session_state[parent_key(parent)])
+
+
+def sync_children_from_parent(parent: str, children: List[str]) -> None:
+    """Cascade parent → enfants : exécutée en callback avant le rerun (pas après création des widgets)."""
+    checked = st.session_state[parent_key(parent)]
+    for child in children:
+        st.session_state[child_key(parent, child)] = checked
 
 
 def set_all_categories(structure: Dict[str, List[str]], checked: bool) -> None:
