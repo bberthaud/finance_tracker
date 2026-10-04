@@ -3,7 +3,7 @@ PY ?= .venv/bin/python
 .PHONY: install test test-unit test-ui coverage lint format demo-data demo
 
 install:
-	$(PY) -m pip install -r requirements-dev.txt
+	uv sync --group dev --group sync
 
 test: lint
 	$(PY) -m pytest

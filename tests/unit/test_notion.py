@@ -1,3 +1,5 @@
+import logging
+
 import pytest
 
 import notion
@@ -111,3 +113,8 @@ class TestSynchro:
             lambda txs: {"success": 0, "failed": 1, "skipped": 0},
         )
         assert notion.main() == 1
+
+    def test_requetes_http_reussies_silencieuses(self):
+        notion.configure_logging()
+        assert logging.getLogger("httpx").level == logging.WARNING
+        assert logging.getLogger("httpcore").level == logging.WARNING
