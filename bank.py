@@ -6,7 +6,7 @@ import os
 import subprocess
 from typing import Any, Callable, Dict, List, Optional, TypedDict
 
-logger = logging.getLogger(__name__)
+logger = logging.getLogger("bank")
 
 COMPTES = ("PERSO", "JOINT")
 WOOB_TIMEOUT_SECONDS = 120
@@ -78,6 +78,7 @@ def get_transactions_from_woob(
     """Récupère l'historique de chaque compte. Un compte en échec n'empêche pas les autres."""
     exe = woob_executable()
     transactions: List[BankTransaction] = []
+    counts: Dict[str, int] = {compte: 0 for compte in COMPTES}
 
     for compte, bank_id in bank_ids().items():
         if not bank_id:
@@ -102,8 +103,12 @@ def get_transactions_from_woob(
             continue
 
         try:
-            transactions.extend(parse_woob_history(result.stdout, compte))
+            parsed = parse_woob_history(result.stdout, compte)
+            transactions.extend(parsed)
+            counts[compte] = len(parsed)
         except (json.JSONDecodeError, KeyError, TypeError, ValueError):
             logger.exception("Woob : sortie invalide pour %s", compte)
 
+    detail = ", ".join(f"{compte}={counts[compte]}" for compte in COMPTES)
+    logger.info("Woob %s lue(s) (%s)", len(transactions), detail)
     return transactions

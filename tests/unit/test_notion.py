@@ -101,20 +101,34 @@ class TestSynchro:
             client,
             sleep=lambda s: None,
         )
-        assert result == {"success": 1, "failed": 0, "skipped": 2}
+        assert result == {"success": 1, "failed": 0, "skipped": 2, "base": 2}
         created_ids = [p["ID Transaction"]["rich_text"][0]["text"]["content"] for p in client.created]
         assert created_ids == ["JOINT:nouveau"]
 
-    def test_code_retour_du_script(self, monkeypatch, notion_env):
+    def test_resume_notion_unique(self, notion_env, notion_pages, caplog):
+        client = FakeNotionClient(notion_pages)
+        with caplog.at_level(logging.INFO, logger="notion"):
+            notion.send_transactions_to_notion(
+                [bank_tx("PERSO:a1b2c3"), bank_tx("JOINT:nouveau", "JOINT")],
+                client,
+                sleep=lambda s: None,
+            )
+        infos = [r.message for r in caplog.records if r.name == "notion" and r.levelno == logging.INFO]
+        assert infos == ["Notion 1 ajoutée(s), 0 échec(s), 1 déjà présente(s) (base=2)"]
+
+    def test_code_retour_du_script(self, monkeypatch, notion_env, caplog):
         monkeypatch.setattr(notion, "get_transactions_from_woob", lambda: [bank_tx("PERSO:z")])
         monkeypatch.setattr(
             notion,
             "send_transactions_to_notion",
-            lambda txs: {"success": 0, "failed": 1, "skipped": 0},
+            lambda txs: {"success": 0, "failed": 1, "skipped": 0, "base": 0},
         )
-        assert notion.main() == 1
+        with caplog.at_level(logging.INFO, logger="sync"):
+            assert notion.main() == 1
+        assert any(r.name == "sync" and r.message == "début" for r in caplog.records)
 
     def test_requetes_http_reussies_silencieuses(self):
         notion.configure_logging()
         assert logging.getLogger("httpx").level == logging.WARNING
         assert logging.getLogger("httpcore").level == logging.WARNING
+        assert notion.logger.name == "notion"

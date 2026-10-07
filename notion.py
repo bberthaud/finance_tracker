@@ -4,7 +4,6 @@ import logging
 import os
 import sys
 import time
-from datetime import datetime
 from functools import lru_cache
 from typing import Any, Callable, Dict, Iterator, List, Optional, Set
 
@@ -13,7 +12,7 @@ import polars as pl
 from bank import BankTransaction, get_transactions_from_woob, is_existing_transaction
 from processing import Transaction, preprocess_transactions
 
-logger = logging.getLogger(__name__)
+logger = logging.getLogger("notion")
 
 NOTION_CREATE_RETRIES = 3
 TRANSIENT_HTTP_STATUSES = {409, 429, 500, 502, 503, 504}
@@ -166,12 +165,20 @@ def send_transactions_to_notion(
 ) -> Dict[str, int]:
     client = client or get_notion_client()
     existing_ids = get_existing_transaction_ids(client)
-    logger.info("%s transactions déjà présentes dans Notion", len(existing_ids))
+    base = len(existing_ids)
 
     new = [tx for tx in transactions if not is_existing_transaction(tx["id"], existing_ids)]
     success = sum(1 for tx in new if send_transaction_to_notion(tx, client, sleep))
-    logger.info("Notion : %s/%s transactions ajoutées", success, len(new))
-    return {"success": success, "failed": len(new) - success, "skipped": len(transactions) - len(new)}
+    failed = len(new) - success
+    skipped = len(transactions) - len(new)
+    logger.info(
+        "Notion %s ajoutée(s), %s échec(s), %s déjà présente(s) (base=%s)",
+        success,
+        failed,
+        skipped,
+        base,
+    )
+    return {"success": success, "failed": failed, "skipped": skipped, "base": base}
 
 
 def configure_logging() -> None:
@@ -185,14 +192,10 @@ def main() -> int:
 
     load_dotenv(override=True)
     configure_logging()
-    print(f"📅 {datetime.now().strftime('%Y-%m-%d')}")
+    sync_logger = logging.getLogger("sync")
+    sync_logger.info("début")
     transactions = get_transactions_from_woob()
-    print(f"Woob : {len(transactions)} transaction(s) lue(s)")
     result = send_transactions_to_notion(transactions)
-    print(
-        f"Notion : {result['success']} ajoutée(s), {result['failed']} en échec, "
-        f"{result['skipped']} déjà présente(s)"
-    )
     return 1 if result["failed"] else 0
 
 

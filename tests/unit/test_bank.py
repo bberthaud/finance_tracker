@@ -1,3 +1,4 @@
+import logging
 import subprocess
 from types import SimpleNamespace
 
@@ -64,17 +65,21 @@ class TestExecutable:
 
 
 class TestRecuperation:
-    def test_deux_comptes(self, comptes, woob_history_json):
+    def test_deux_comptes(self, comptes, woob_history_json, caplog):
         calls = []
 
         def fake_run(cmd, **kwargs):
             calls.append((cmd, kwargs))
             return completed(woob_history_json)
 
-        txs = bank.get_transactions_from_woob(run=fake_run)
+        with caplog.at_level(logging.INFO, logger="bank"):
+            txs = bank.get_transactions_from_woob(run=fake_run)
         assert len(txs) == 4
         assert {t["compte"] for t in txs} == {"PERSO", "JOINT"}
         assert all(kw["timeout"] == bank.WOOB_TIMEOUT_SECONDS for _, kw in calls)
+        infos = [r.message for r in caplog.records if r.name == "bank" and r.levelno == logging.INFO]
+        assert infos == ["Woob 4 lue(s) (PERSO=2, JOINT=2)"]
+        assert bank.logger.name == "bank"
 
     def test_un_compte_en_echec_n_annule_pas_l_autre(self, comptes, woob_history_json, caplog):
         def fake_run(cmd, **kwargs):
